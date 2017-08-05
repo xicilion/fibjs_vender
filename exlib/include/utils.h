@@ -13,7 +13,7 @@
 #include "osconfig.h"
 #include <atomic>
 
-#ifdef WIN32
+#ifdef Windows
 #include "utils_win.h"
 #elif defined(amd64)
 #include "utils_x64.h"
