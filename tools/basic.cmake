@@ -11,6 +11,7 @@ endif(CCACHE_FOUND)
 
 file(GLOB_RECURSE src_list "src/*.c*")
 add_library(${name} ${src_list})
+
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../bin/${OS}_${ARCH}_${BUILD_TYPE})
 
 if(NOT flags)
