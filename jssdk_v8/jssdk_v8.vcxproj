@@ -19,25 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\common\Isolate.h" />
-    <ClInclude Include="include\common\Module.h" />
-    <ClInclude Include="include\common\Runtime.h" />
-    <ClInclude Include="include\jssdk-fibjs.h" />
+    <ClInclude Include="include\jssdk-v8-pub.h" />
+    <ClInclude Include="include\jssdk-v8.h" />
     <ClInclude Include="include\jssdk.h" />
-    <ClInclude Include="include\utils.h" />
     <ClInclude Include="src\utf8.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\jssdk-addons.cpp" />
     <ClCompile Include="src\jssdk-api.cpp" />
-    <ClCompile Include="src\jssdk-fibjs.cpp" />
-    <ClCompile Include="src\jssdk-runtime.cpp" />
     <ClCompile Include="src\jssdk-utf8.cpp" />
+    <ClCompile Include="src\jssdk-v8.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1F77AB58-706B-4BB5-BE73-00110039117E}</ProjectGuid>
+    <ProjectGuid>{B202F698-1D30-4F3D-863F-9D7BF79F619C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>jssdk</RootNamespace>
+    <RootNamespace>jssdk_v8</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -84,19 +79,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\Windows_i386_debug\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_i386_debug\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_i386_debug\jssdk_v8\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\Windows_i386_release\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_i386_release\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_i386_release\jssdk_v8\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\Windows_amd64_debug\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_amd64_debug\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_amd64_debug\jssdk_v8\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\Windows_amd64_release\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_amd64_release\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_amd64_release\jssdk_v8\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

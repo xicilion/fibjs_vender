@@ -1,9 +1,24 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LinkToolExe Condition="$(UseLldLink)">$(LldLinkExecutable)</LinkToolExe>
+    <!-- TRACKER : error TRK0002: Failed to execute command. -->
+    <!-- <TrackFileAccess Condition="$(UseClangCl) or $(UseLldLink) or $(UseLlvmLib) or $(UseLlvmRc)">false</TrackFileAccess> -->
+  </PropertyGroup>
+
   <ItemGroup>
     <PropertyPageSchema Include="$(VCTargetsPath)\LLVM_FIBJS\llvm-general.xml">
       <Context>Project</Context>
     </PropertyPageSchema>
   </ItemGroup>
+  
+  <ItemDefinitionGroup Condition="$(UseLldLink)">
+    <Link>
+      <!-- Map /DEBUG and /DEBUG:FASTLINK to /DEBUG:FULL. -->
+      <GenerateDebugInformation Condition="'%(Link.GenerateDebugInformation)' == 'true'">DebugFull</GenerateDebugInformation>
+      <GenerateDebugInformation Condition="'%(Link.GenerateDebugInformation)' == 'DebugFastLink'">DebugFull</GenerateDebugInformation>
+      <AdditionalOptions>$(LldLinkAdditionalOptions) %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
   
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Clang.targets" />
   

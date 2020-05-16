@@ -19,52 +19,42 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\common\Isolate.h" />
-    <ClInclude Include="include\common\Module.h" />
-    <ClInclude Include="include\common\Runtime.h" />
-    <ClInclude Include="include\jssdk-fibjs.h" />
-    <ClInclude Include="include\jssdk.h" />
-    <ClInclude Include="include\utils.h" />
-    <ClInclude Include="src\utf8.h" />
+  <ClIncludes />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\jssdk-addons.cpp" />
-    <ClCompile Include="src\jssdk-api.cpp" />
-    <ClCompile Include="src\jssdk-fibjs.cpp" />
-    <ClCompile Include="src\jssdk-runtime.cpp" />
-    <ClCompile Include="src\jssdk-utf8.cpp" />
+  <ClCompiles />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1F77AB58-706B-4BB5-BE73-00110039117E}</ProjectGuid>
+    <ProjectGuid>{1F77AB58-706B-4BB5-BE73-0000000000c8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>jssdk</RootNamespace>
+    <RootNamespace>__PROJECT_NAME__</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>__PROJECT_CONFIGURATION_TYPE__</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>LLVM_FIBJS_v141</PlatformToolset>
+    <PlatformToolset>__PlatformToolset__</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>__PROJECT_CONFIGURATION_TYPE__</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>LLVM_FIBJS_v141</PlatformToolset>
+    <PlatformToolset>__PlatformToolset__</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>__PROJECT_CONFIGURATION_TYPE__</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>LLVM_FIBJS_v141</PlatformToolset>
+    <PlatformToolset>__PlatformToolset__</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>__PROJECT_CONFIGURATION_TYPE__</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>LLVM_FIBJS_v141</PlatformToolset>
+    <PlatformToolset>__PlatformToolset__</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -84,26 +74,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\Windows_i386_debug\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_i386_debug\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_i386_debug\__PROJECT_NAME__\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\Windows_i386_release\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_i386_release\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_i386_release\__PROJECT_NAME__\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\Windows_amd64_debug\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_amd64_debug\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_amd64_debug\__PROJECT_NAME__\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\Windows_amd64_release\</OutDir>
-    <IntDir>$(SolutionDir)out\Windows_amd64_release\jssdk\</IntDir>
+    <IntDir>$(SolutionDir)out\Windows_amd64_release\__PROJECT_NAME__\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">V8_ENABLE_CHECKS;TRACE_MAPS;ENABLE_SLOW_DCHECKS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..;$(ProjectDir)..\v8\include;$(ProjectDir)..\v8;$(ProjectDir)..\;$(ProjectDir);$(ProjectDir)include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>__PROJECT_INCLUDE_RELREF__;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,7 +99,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;DEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;DEBUG;NOMINMAX;V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;VERIFY_HEAP;OBJECT_PRINT;ENABLE_DISASSEMBLER;V8_ENABLE_CHECKS;TRACE_MAPS;ENABLE_SLOW_DCHECKS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;$(ProjectDir)src;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4091;4101;4244;4267;4312;4800;4838;4351;4355;4819;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -132,7 +120,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;DEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;DEBUG;NOMINMAX;V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;VERIFY_HEAP;OBJECT_PRINT;ENABLE_DISASSEMBLER;V8_ENABLE_CHECKS;TRACE_MAPS;ENABLE_SLOW_DCHECKS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;$(ProjectDir)src;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4091;4101;4244;4267;4312;4800;4838;4351;4355;4819;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
@@ -152,7 +141,8 @@
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;NDEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;NDEBUG;NOMINMAX;V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;$(ProjectDir)src;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -179,7 +169,8 @@
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;NDEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_RAND_S;NDEBUG;NOMINMAX;V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;$(ProjectDir)src;$(ProjectDir)..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <WholeProgramOptimization>false</WholeProgramOptimization>

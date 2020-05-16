@@ -190,6 +190,7 @@ winiconv
 mbedtls
 v8
 jssdk
+jssdk_v8
 unzip
 editline"
 

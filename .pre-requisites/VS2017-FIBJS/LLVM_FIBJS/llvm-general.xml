@@ -19,9 +19,24 @@
                 Default="true">
   </BoolProperty>
 
-  <!-- <StringProperty Name="LinkAdditionalOptions"
+  <BoolProperty Name="UseLldLink"
+                DisplayName="Use lld-link"
+                Description="Use lld-link for linking.  If this option is disabled, the Microsoft linker (link.exe) will be used instead."
+                Category="General"
+                Default="false">
+  </BoolProperty>
+  
+  <StringProperty Name="LldLinkExecutable"
+                  DisplayName="lld-link Executable"
+                  Description="Specifies the path to lld-link.exe."
+                  Category="General"
+                  Default="$(LLVMInstallDir)bin\lld-link.exe"
+                  Subtype="file">
+  </StringProperty>
+
+  <StringProperty Name="LldLinkAdditionalOptions"
                   DisplayName="Additional Linker Options"
                   Description="Additional options to pass to lld-link.  This is essentially the same as General > Linker > Command Line > Additional Options, except that it is safe to put options here that will be rejected by link.exe in case you switch toolchains back and forth."
                   Category="General">
-  </StringProperty> -->
+  </StringProperty>
 </Rule>

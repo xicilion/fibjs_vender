@@ -14,7 +14,7 @@ add_library(${name} ${src_list})
 
 set(VENDOR_ROOT ${PROJECT_SOURCE_DIR}/..)
 
-if((${ctx_used_by_fibjs}) STREQUAL "1")
+if((${USED_BY_FIBJS}) STREQUAL "1")
 	set(LIBRARY_OUTPUT_PATH ${VENDOR_ROOT}/../bin/${OS}_${ARCH}_${BUILD_TYPE})
 else()
 	set(LIBRARY_OUTPUT_PATH ${VENDOR_ROOT}/.dist/bin/${OS}_${ARCH}_${BUILD_TYPE})
