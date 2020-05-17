@@ -28,6 +28,20 @@
     <ProjectGuid>{1F77AB58-706B-4BB5-BE73-0000000000c8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>__PROJECT_NAME__</RootNamespace>
+    <FibjsProjectType>__FIBJS_PROJECT_TYPE__</FibjsProjectType>
+    <FibjsVenderRoot>__VENDER_ROOT__</FibjsVenderRoot>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <FibjsBinaryOutDir>Windows_i386_debug</FibjsBinaryOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <FibjsBinaryOutDir>Windows_i386_release</FibjsBinaryOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <FibjsBinaryOutDir>Windows_amd64_debug</FibjsBinaryOutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <FibjsBinaryOutDir>Windows_amd64_release</FibjsBinaryOutDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -92,6 +106,9 @@
     <ClCompile>
       <AdditionalIncludeDirectories>__PROJECT_INCLUDE_RELREF__;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>__PROJECT_LIB__;$(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -98,6 +98,10 @@
     <OutDir>$(SolutionDir)bin\Windows_amd64_release\</OutDir>
     <IntDir>$(SolutionDir)out\Windows_amd64_release\jssdk\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Label="LLVMFIBJS" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <UseLldLink>true</UseLldLink>
+    <LldLinkAdditionalOptions>/lib /export:getFibjsApi</LldLinkAdditionalOptions>
+  </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>V8_NO_FAST_TLS;V8_DEPRECATION_WARNINGS;V8_CONCURRENT_MARKING;ENABLE_HANDLE_ZAPPING;DISABLE_UNTRUSTED_CODE_MITIGATIONS;DISABLE_UNTRUSTED_CODE_MITIGATIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>

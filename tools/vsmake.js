@@ -7,34 +7,29 @@ var path = require("path");
 var venderRootDir = path.resolve(__dirname, '../');
 var thisPrjBase = process.cwd();
 var addonConfigJsonPath = path.resolve(thisPrjBase, 'jssdk.config.json');
-var addonConfig = {};
+var addonConfig = { ProjectType: undefined };
 try { addonConfig = JSON.parse(fs.readTextFile(addonConfigJsonPath)); } catch (e) { }
 
-var projType = 'library';
-if (path.resolve(path.dirname(path.dirname(thisPrjBase))) === venderRootDir) projType = 'library_test';
-if (fs.exists(addonConfigJsonPath)) projType = 'addon';
+var fibjsProjType = addonConfig.ProjectType || 'InternalLibrary';
+if (path.resolve(path.dirname(path.dirname(thisPrjBase))) === venderRootDir) fibjsProjType = 'InternalLibraryTest';
 
-var isSubProj
-var rootRelRef
-var includeRelRef
+var isSubProj = false
+var rootRelRef = ''
+var includeRelRef = [].join(';')
+var additionalLibs = [].join(';')
 var prjName = path.basename(thisPrjBase);
 var platformToolset = 'LLVM_FIBJS_v141';
 var ConfigurationType;
-switch (projType) {
-    case 'library':
+
+switch (fibjsProjType) {
+    default:
+    case 'InternalLibrary':
         rootRelRef = `$(ProjectDir)\\..`
         includeRelRef = '$(ProjectDir)\\..'
 
         ConfigurationType = 'StaticLibrary'
         break;
-    case 'addon':
-        var addonRelVenderRoot = `${path.normalize(path.relative(thisPrjBase, venderRootDir))}`
-        rootRelRef = `$(ProjectDir)\\${addonRelVenderRoot}`
-        includeRelRef = `$(ProjectDir)\\${addonRelVenderRoot};$(ProjectDir)\\${addonRelVenderRoot}\\v8\\include`
-
-        ConfigurationType = 'DynamicLibrary'
-        break;
-    case 'library_test':
+    case 'InternalLibraryTest':
         rootRelRef = `$(ProjectDir)\\..\\..`
         includeRelRef = '$(ProjectDir)\\..\\..;$(ProjectDir)\\..\\include'
 
@@ -42,12 +37,19 @@ switch (projType) {
         prjName = `${path.basename(path.dirname(thisPrjBase))}_test`
         isSubProj = true;
         break;
+    case 'Addon':
+        var addonRelVenderRoot = `${path.normalize(path.relative(thisPrjBase, venderRootDir))}`
+        rootRelRef = `$(ProjectDir)\\${addonRelVenderRoot}`
+        includeRelRef = `$(ProjectDir)\\${addonRelVenderRoot};$(ProjectDir)\\${addonRelVenderRoot}\\v8\\include`
 
-    default:
+        ConfigurationType = 'DynamicLibrary'
         break;
 }
 
 var oPrjName = process.env.PROJECT_NAME || prjName;
+
+console.info(`[vender::vsmake] generate project '${prjName}': {fibjsProjType: ${fibjsProjType}; ConfigurationType: ${ConfigurationType}}`)
+
 var Includes = {};
 var Compiles = {};
 var filters = [];
@@ -107,8 +109,11 @@ for (f in Includes) {
 txts.sort();
 
 proj = proj.replace(/__PROJECT_NAME__/g, oPrjName)
+proj = proj.replace(/__FIBJS_PROJECT_TYPE__/g, fibjsProjType)
+proj = proj.replace(/__VENDER_ROOT__/g, venderRootDir)
 proj = proj.replace(/__PROJECT_INCLUDE_RELREF__/g, includeRelRef)
 proj = proj.replace(/__PROJECT_CONFIGURATION_TYPE__/g, ConfigurationType)
+proj = proj.replace(/__PROJECT_LIB__/g, additionalLibs)
 proj = proj.replace(/__PlatformToolset__/g, platformToolset)
 
 proj = proj.replace('<ClIncludes />', txts.join('\r\n'));

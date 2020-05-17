@@ -11,18 +11,14 @@
 
 #include <assert.h>
 
-#ifdef _WIN32
-// Building native module against fibjs
-#ifndef FAPI_EXTERN
-#define FAPI_EXTERN __declspec(dllexport)
-#endif
-#endif
-
 #include "jssdk.h"
 
 #include <v8/include/v8.h>
 #include "libplatform/libplatform.h"
 
+#ifndef FAPI_EXTERN
+#define FAPI_EXTERN FAPI_EXPORT
+#endif
 #include "utils.h"
 
 namespace js {

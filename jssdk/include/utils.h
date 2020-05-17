@@ -25,14 +25,21 @@
 #endif
 #endif // EXTERN_C_START
 
-// If you need __declspec(dllimport), either include <jssdk/include/jssdk-fibjs.h> instead, or
-// define FAPI_EXTERN as __declspec(dllimport) on the compiler's command line.
-#ifndef FAPI_EXTERN
-#ifdef _WIN32
-#define FAPI_EXTERN __declspec(dllexport)
+#if defined(_WIN32) || defined(WIN32)
+#define FAPI_IMPORT __declspec(dllimport)
+#define FAPI_EXPORT __declspec(dllexport)
 #else
-#define FAPI_EXTERN __attribute__((visibility("default")))
+#define FAPI_IMPORT __attribute__((visibility("default")))
+#define FAPI_EXPORT __attribute__((visibility("default")))
 #endif
+
+// By default, FAPI_EXTERN means "export symbol" for jssdk-<engine>, any engine which implemented jssdk must
+// give implementation of those APIs exported by `FAPI_EXTERN`. You can also specify FAPI_EXTERN as `FAPI_EXPORT`
+// explicitly in jssdk-<engine.h>, as this file did so for you already.
+//
+// For Addon developer, FAPI_EXTERN means "import symbol" from jssdk-<engine>.
+#ifndef FAPI_EXTERN
+#define FAPI_EXTERN FAPI_EXPORT
 #endif // FAPI_EXTERN
 
 EXTERN_C_START

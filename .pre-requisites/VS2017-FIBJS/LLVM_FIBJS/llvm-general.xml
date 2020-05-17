@@ -11,6 +11,13 @@
   <Rule.DataSource>
     <DataSource Persistence="ProjectFile" Label="LLVMFIBJS" />
   </Rule.DataSource>
+  
+  <StringProperty Name="FibjsProjectType"
+                  DisplayName="FIBJS Project Type"
+                  Description="type of FIBJS msbuild Project, value must be one of (InternalLibrary, InternalLibraryTest, Addon)"
+                  Category="General"
+                  Default="InternalLibrary">
+  </StringProperty>
 
   <BoolProperty Name="UseMultiToolTask"
                 DisplayName="UseMultiToolTask"
@@ -39,4 +46,11 @@
                   Description="Additional options to pass to lld-link.  This is essentially the same as General > Linker > Command Line > Additional Options, except that it is safe to put options here that will be rejected by link.exe in case you switch toolchains back and forth."
                   Category="General">
   </StringProperty>
+
+  <BoolProperty Name="AllowUnresolvedSymbols"
+                DisplayName="Allow unresolved symbols for linker"
+                Description="Allow unresolved symbols when linking object."
+                Category="General"
+                Default="false">
+  </BoolProperty>
 </Rule>

@@ -149,6 +149,10 @@
     <OutDir>$(SolutionDir)bin\Windows_amd64_release\</OutDir>
     <IntDir>$(SolutionDir)out\Windows_amd64_release\jpeg\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Label="LLVMFIBJS" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <UseLldLink>true</UseLldLink>
+    <LldLinkAdditionalOptions>/lib</LldLinkAdditionalOptions>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>

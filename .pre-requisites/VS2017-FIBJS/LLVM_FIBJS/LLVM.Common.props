@@ -9,6 +9,12 @@
     <LldLinkExecutable>$(LLVMInstallDir)bin\lld-link.exe</LldLinkExecutable>
     <UseMultiToolTask>true</UseMultiToolTask>
     <UseLldLink>false</UseLldLink>
+    <UseLldLink Condition="'$(FibjsProjectType)' == 'Addon'">true</UseLldLink>
+    <AllowUnresolvedSymbols Condition="'$(FibjsProjectType)' == 'Addon'">true</AllowUnresolvedSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(AllowUnresolvedSymbols)' == 'true'">
+    <LldLinkAdditionalOptions>/force:unresolved /dll</LldLinkAdditionalOptions>
   </PropertyGroup>
 
   <PropertyGroup>
