@@ -20,7 +20,7 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/../"
 )
 
-include(../tools/basic.cmake)
+include(../tools/Library.cmake)
 
 add_definitions(
 	-DV8_NO_FAST_TLS=1
