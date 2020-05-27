@@ -154,7 +154,6 @@ fi
 OUT_PATH="${OUT_PATH}/${TARGET_OS}_${TARGET_ARCH}_${BUILD_TYPE}"
 cd ${OUT_PATH}
 
-if [ $HOST_OS = "Windows" ]; then
 libs="exlib
 cares
 gtest
@@ -180,35 +179,15 @@ mbedtls
 v8
 jssdk
 unzip"
-else
-libs="exlib
-cares
-gtest
-expat
-gumbo
-gd
-tiff
-jpeg
-png
-webp
-zlib
-leveldb
-snappy
-msgpack
+
+
+if [ $HOST_OS != "Windows" ]; then
+libs="${libs}
 jemalloc
 ev
-pcre
-sqlite
-mongo
-umysql
-uuid
-exif
-winiconv
-mbedtls
-v8
-jssdk
-unzip"
+"
 fi
+
 
 if [ -z $GIT_BRANCH ]; then
 	GIT_BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
