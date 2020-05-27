@@ -180,7 +180,6 @@ v8
 jssdk
 unzip"
 
-
 if [ $HOST_OS != "Windows" ]; then
 libs="${libs}
 jemalloc
@@ -198,7 +197,7 @@ if [ "$GIT_BRANCH" = "test_ci" ]; then
 	libs="uuid"
 fi
 
-if [ $HOST_OS == "Windows" ]; then
+if [ "$HOST_OS" = "Windows" ]; then
 	get_windows_vctool_install_path;
 	export VCToolsInstallDir;
 fi
@@ -230,9 +229,9 @@ do
 	fi
 
 	if [ ! "$BUILD_JOBS" = "" ]; then
-		cmake --build ./ --config ${CMAKE_BUILD_TYPE} -j ${BUILD_JOBS}
+		sh -c "${BUILD_VERBOSE} make -j${BUILD_JOBS}"
 	else
-		cmake --build ./ --config ${CMAKE_BUILD_TYPE}
+		sh -c "${BUILD_VERBOSE} make"
 	fi
 
 	if [ $? != 0 ]; then
@@ -268,9 +267,9 @@ do
 		fi
 		
 		if [ ! "$BUILD_JOBS" = "" ]; then
-			cmake --build ./ --config ${CMAKE_BUILD_TYPE} -j ${BUILD_JOBS}
+			sh -c "${BUILD_VERBOSE} make -j${BUILD_JOBS}"
 		else
-			cmake --build ./ --config ${CMAKE_BUILD_TYPE}
+			sh -c "${BUILD_VERBOSE} make"
 		fi
 		
 		if [ $? != 0 ]; then
