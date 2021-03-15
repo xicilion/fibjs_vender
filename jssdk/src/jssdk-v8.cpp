@@ -38,7 +38,7 @@ private:
         }
     };
 
-    v8::Local<v8::Context> _getLocalContext()
+    v8::Local<v8::Context> _context()
     {
         return v8::Local<v8::Context>::New(m_isolate, m_context);
     }
@@ -110,12 +110,12 @@ public:
         new (scope.m_locker) v8::Locker(m_isolate);
         new (scope.m_handle_scope) _HandleScope(m_isolate);
         m_isolate->Enter();
-        _getLocalContext()->Enter();
+        _context()->Enter();
     }
 
     void Scope_leave(Scope& scope)
     {
-        _getLocalContext()->Exit();
+        _context()->Exit();
         m_isolate->Exit();
         ((_HandleScope*)scope.m_handle_scope)->~_HandleScope();
         ((v8::Locker*)scope.m_locker)->~Locker();
@@ -172,7 +172,7 @@ public:
 
     Object GetContextGlobal()
     {
-        return Object(this, _getLocalContext()->Global());
+        return Object(this, _context()->Global());
     }
 
     Value execute(exlib::string code, exlib::string soname)
@@ -237,7 +237,7 @@ public:
 
     Function NewFunction(FunctionCallback callback)
     {
-        v8::MaybeLocal<v8::Function> may_v = v8::Function::New(_getLocalContext(), (v8::FunctionCallback)callback);
+        v8::MaybeLocal<v8::Function> may_v = v8::Function::New(_context(), (v8::FunctionCallback)callback);
 
         return Function(this, may_v.IsEmpty() ? v8::Local<v8::Function>() : may_v.ToLocalChecked());
     }
@@ -251,7 +251,7 @@ public:
 public:
     bool ValueToBoolean(const Value& v)
     {
-        return v.m_v->BooleanValue(_getLocalContext()).ToChecked();
+        return v.m_v->BooleanValue(_context()).ToChecked();
     }
 
     bool ValueIsBoolean(const Value& v)
@@ -272,7 +272,7 @@ public:
 public:
     double ValueToNumber(const Value& v)
     {
-        return v.m_v->NumberValue(_getLocalContext()).ToChecked();
+        return v.m_v->NumberValue(_context()).ToChecked();
     }
 
     bool ValueIsNumber(const Value& v)
@@ -296,7 +296,7 @@ public:
         if (v.isBigInt())
             return v8::Local<v8::BigInt>::Cast(v.m_v)->Int64Value();
         else
-            return v.m_v->IntegerValue();
+            return v.m_v->IntegerValue(_context()).ToChecked();
     }
 
     bool ValueIsBigInt(const Value& v)
@@ -332,7 +332,7 @@ public:
     bool ObjectHas(const Object& o, exlib::string key)
     {
         return v8::Local<v8::Object>::Cast(o.m_v)->Has(
-                                                     _getLocalContext(),
+                                                     _context(),
                                                      v8::String::NewFromUtf8(m_isolate,
                                                          key.c_str(), v8::String::kNormalString,
                                                          (int32_t)key.length()))
@@ -356,7 +356,7 @@ public:
     void ObjectRemove(const Object& o, exlib::string key)
     {
         v8::Local<v8::Object>::Cast(o.m_v)->Delete(
-            _getLocalContext(),
+            _context(),
             v8::String::NewFromUtf8(m_isolate,
                 key.c_str(), v8::String::kNormalString,
                 (int32_t)key.length()));
@@ -364,7 +364,7 @@ public:
 
     Array ObjectKeys(const Object& o)
     {
-        v8::MaybeLocal<v8::Array> may_v = v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_getLocalContext());
+        v8::MaybeLocal<v8::Array> may_v = v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_context());
 
         return Array(this, may_v.IsEmpty() ? v8::Local<v8::Array>() : may_v.ToLocalChecked());
     }
