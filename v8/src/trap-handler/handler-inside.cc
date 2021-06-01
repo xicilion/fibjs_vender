@@ -1,3 +1,5 @@
+#ifndef _WIN32
+
 // Copyright 2017 the V8 project authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -77,3 +79,6 @@ bool TryFindLandingPad(uintptr_t fault_addr, uintptr_t* landing_pad) {
 }  // namespace trap_handler
 }  // namespace internal
 }  // namespace v8
+
+
+#endif

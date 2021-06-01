@@ -19,6 +19,12 @@ console.log(`v8 is located in: ${v8Folder}`);
 
 process.chdir(v8Folder);
 
+function copyFile(s, t) {
+    if (fs.copy) return fs.copy(s, t);
+
+    return fs.copyFile(s, t);
+}
+
 function joinOriginV8Src(p) {
     return path.join(v8Folder, p);
 }
@@ -224,9 +230,11 @@ function cp_folder(path, to) {
 }
 
 var gens = [
-    '/out.gn/x64.release/gen/libraries.cc',
     '/out.gn/x64.release/gen/extras-libraries.cc',
-    '/out.gn/x64.release/gen/experimental-extras-libraries.cc'
+    /* deprecated in v8 7.3 :start */
+    // '/out.gn/x64.release/gen/libraries.cc',
+    // '/out.gn/x64.release/gen/experimental-extras-libraries.cc'
+    /* deprecated in v8 7.3 :end */
 ];
 
 function cp_gen() {
@@ -249,7 +257,7 @@ function cp_gen() {
             var tfile = path.resolve(`gen/${subdir}/` + name)
             console.log(`cp ${sfile} to ${tfile}`);
             mkdirp(path.dirname(tfile));
-            fs.copy(sfile, tfile);
+            copyFile(sfile, tfile);
         });
     });
 }
@@ -466,7 +474,7 @@ function patch_ntver() {
 }
 
 function patch_snapshot() {
-    fs.mkdir("src/snapshot/snapshots")
+    mkdirp("src/snapshot/snapshots")
     var archs = {
         arm: 'V8_TARGET_ARCH_ARM',
         arm64: 'V8_TARGET_ARCH_ARM64',
@@ -488,7 +496,7 @@ function patch_snapshot() {
 
     try {
         fs.unlink("test/src/mksnapshot.inl")
-        fs.copy(joinOriginV8Src("./src/snapshot/mksnapshot.cc"), "test/src/mksnapshot.inl");
+        copyFile(joinOriginV8Src("./src/snapshot/mksnapshot.cc"), "test/src/mksnapshot.inl");
     } catch (error) {
         console.error(error);
     }
@@ -513,6 +521,7 @@ function toLF(str) {
 
 save_plat();
 
+clean_folder('gen');
 clean_folder('include');
 clean_folder('src');
 
