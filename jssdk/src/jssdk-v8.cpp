@@ -243,10 +243,54 @@ public:
     }
 
 public:
-    bool ValueIsUndefined(const Value& v)
+    bool ValueIs(const Value& v, const RuntimeValueType& t)
     {
-        return !v.m_v.IsEmpty() && v.m_v->IsUndefined();
-    }
+        switch (t) {
+        case kUndefined: {
+            return !v.m_v.IsEmpty() && v.m_v->IsUndefined();
+        }
+        case kBoolean: {
+            return !v.m_v.IsEmpty() && (v.m_v->IsBoolean() || v.m_v->IsBooleanObject());
+        }
+        case kBooleanPrimitive: {
+            return !v.m_v.IsEmpty() && v.m_v->IsBoolean();
+        }
+        case kBooleanWrapperObject: {
+            return !v.m_v.IsEmpty() && v.m_v->IsBooleanObject();
+        }
+        case kNumber: {
+            return !v.m_v.IsEmpty() && (v.m_v->IsNumber() || v.m_v->IsNumberObject());
+        }
+        case kNumberPrimitive: {
+            return !v.m_v.IsEmpty() && v.m_v->IsNumber();
+        }
+        case kNumberWrapperObject: {
+            return !v.m_v.IsEmpty() && v.m_v->IsNumberObject();
+        }
+        case kBigInt: {
+            return !v.m_v.IsEmpty() && (v.m_v->IsBigInt() || v.m_v->IsBigIntObject());
+        }
+        case kString: {
+            return !v.m_v.IsEmpty() && (v.m_v->IsString() || v.m_v->IsStringObject());
+        }
+        case kStringPrimitive: {
+            return !v.m_v.IsEmpty() && v.m_v->IsString();
+        }
+        case kStringWrapperObject: {
+            return !v.m_v.IsEmpty() && v.m_v->IsStringObject();
+        }
+        case kObject: {
+            return !v.m_v.IsEmpty() && v.m_v->IsObject();
+        }
+        case kArray: {
+            return !v.m_v.IsEmpty() && v.m_v->IsArray();
+        }
+        case kFunction: {
+            return !v.m_v.IsEmpty() && v.m_v->IsFunction();
+        }
+        }
+        return true;
+    };
 
 public:
     bool ValueToBoolean(const Value& v)
@@ -254,40 +298,10 @@ public:
         return v.m_v->BooleanValue(_context()).ToChecked();
     }
 
-    bool ValueIsBoolean(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && (v.m_v->IsBoolean() || v.m_v->IsBooleanObject());
-    }
-
-    bool ValueIsBooleanPrimitive(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsBoolean();
-    }
-
-    bool ValueIsBooleanWrapperObject(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsBooleanObject();
-    }
-
 public:
     double ValueToNumber(const Value& v)
     {
         return v.m_v->NumberValue(_context()).ToChecked();
-    }
-
-    bool ValueIsNumber(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && (v.m_v->IsNumber() || v.m_v->IsNumberObject());
-    }
-
-    bool ValueIsNumberPrimitive(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsNumber();
-    }
-
-    bool ValueIsNumberWrapperObject(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsNumberObject();
     }
 
 public:
@@ -299,11 +313,6 @@ public:
             return v.m_v->IntegerValue(_context()).ToChecked();
     }
 
-    bool ValueIsBigInt(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && (v.m_v->IsBigInt() || v.m_v->IsBigIntObject());
-    }
-
 public:
     exlib::string ValueToString(const Value& v)
     {
@@ -311,21 +320,6 @@ public:
         if (*tmp)
             return exlib::string(*tmp, tmp.length());
         return exlib::string();
-    }
-
-    bool ValueIsString(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && (v.m_v->IsString() || v.m_v->IsStringObject());
-    }
-
-    bool ValueIsStringPrimitive(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsString();
-    }
-
-    bool ValueIsStringWrapperObject(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsStringObject();
     }
 
 public:
@@ -419,13 +413,8 @@ public:
         v8::Local<v8::Object>::Cast(o.m_v)->DeletePrivate(context, pkey);
     }
 
-    bool ValueIsObject(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsObject();
-    }
-
 public:
-    int32_t ArrayGetLength(const Array& a)
+    int32_t ArrayLength(const Array& a)
     {
         return v8::Local<v8::Array>::Cast(a.m_v)->Length();
     }
@@ -445,11 +434,6 @@ public:
         v8::Local<v8::Context> context = v8::Local<v8::Context>::New(m_isolate,
             m_context);
         v8::Local<v8::Array>::Cast(a.m_v)->Delete(context, idx);
-    }
-
-    bool ValueIsArray(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsArray();
     }
 
 public:
@@ -478,11 +462,6 @@ public:
             return Value();
 
         return Value(this, result.ToLocalChecked());
-    }
-
-    bool ValueIsFunction(const Value& v)
-    {
-        return !v.m_v.IsEmpty() && v.m_v->IsFunction();
     }
 
 private:

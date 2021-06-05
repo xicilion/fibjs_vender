@@ -13,82 +13,63 @@
 
 namespace js {
 
+enum RuntimeValueType {
+    // is undefined-type value
+    kUndefined,
+    // is boolean-type value or its wrapper-object
+    kBoolean,
+    // js value is boolean-type value
+    kBooleanPrimitive,
+    // js value is boolean value's wrapper-object
+    kBooleanWrapperObject,
+    // js value is number-type value or its wrapper-object
+    kNumber,
+    // js value is number-type value
+    kNumberPrimitive,
+    // js value is number value's wrapper-object
+    kNumberWrapperObject,
+    // js value is bigint-type value or its wrapper-object
+    kBigInt,
+    // js value is string-type value or its wrapper-object
+    kString,
+    // js value is string-type value
+    kStringPrimitive,
+    // js value is string value's wrapper-object
+    kStringWrapperObject,
+    // js value is object-type
+    kObject,
+    // js value is array-type
+    kArray,
+    // js value is function-type
+    kFunction,
+};
+
 class Runtime : public JSThreadCore {
 public:
-    /** check if js value is undefined 
+    /** check if js value is type of RuntimeValueType
 	 * 
 	 */
-    virtual bool ValueIsUndefined(const Value& v) = 0;
+    virtual bool ValueIs(const Value& v, const RuntimeValueType& t) = 0;
 
     /** try to convert one js value to boolean type 
 	 * 
 	 */
     virtual bool ValueToBoolean(const Value& v) = 0;
 
-    /** check if js value is boolean-type value or its wrapper-object 
-	 * 
-	 */
-    virtual bool ValueIsBoolean(const Value& v) = 0;
-
-    /** check if js value is boolean-type value
-	 * 
-	 */
-    virtual bool ValueIsBooleanPrimitive(const Value& v) = 0;
-
-    /** check if js value is boolean value's wrapper-object
-	 * 
-	 */
-    virtual bool ValueIsBooleanWrapperObject(const Value& v) = 0;
-
     /** try to convert one js value to number type 
 	 * 
 	 */
     virtual double ValueToNumber(const Value& v) = 0;
-
-    /** check if js value is number-type value or its wrapper-object 
-	 * 
-	 */
-    virtual bool ValueIsNumber(const Value& v) = 0;
-
-    /** check if js value is number-type value
-	 * 
-	 */
-    virtual bool ValueIsNumberPrimitive(const Value& v) = 0;
-
-    /** check if js value is number value's wrapper-object
-	 * 
-	 */
-    virtual bool ValueIsNumberWrapperObject(const Value& v) = 0;
 
     /** try to convert one js value to bigint type 
 	 * 
 	 */
     virtual int64_t ValueToBigInt(const Value& v) = 0;
 
-    /** check if js value is bigint-type value or its wrapper-object 
-	 * 
-	 */
-    virtual bool ValueIsBigInt(const Value& v) = 0;
-
     /** try to convert one js value to string type 
 	 * 
 	 */
     virtual exlib::string ValueToString(const Value& v) = 0;
-
-    /** check if js value is string-type value or its wrapper-object 
-	 * 
-	 */
-    virtual bool ValueIsString(const Value& v) = 0;
-
-    /** check if js value is string-type value
-	 * 
-	 */
-    virtual bool ValueIsStringPrimitive(const Value& v) = 0;
-
-    /** check if js value is string value's wrapper-object
-	 * 
-	 */
-    virtual bool ValueIsStringWrapperObject(const Value& v) = 0;
 
     /** check if object has own property <key>
 	 * 
@@ -135,15 +116,10 @@ public:
 	 */
     virtual void ObjectRemovePrivate(const Object& o, exlib::string key) = 0;
 
-    /** check if js value is object-type 
-	 * 
-	 */
-    virtual bool ValueIsObject(const Value& v) = 0;
-
     /** get js array's length
 	 * 
 	 */
-    virtual int32_t ArrayGetLength(const Array& a) = 0;
+    virtual int32_t ArrayLength(const Array& a) = 0;
 
     /** get element[<idx>] from js array
 	 * 
@@ -160,20 +136,10 @@ public:
 	 */
     virtual void ArrayRemove(const Array& a, int32_t idx) = 0;
 
-    /** check if js value is array-type 
-	 * 
-	 */
-    virtual bool ValueIsArray(const Value& v) = 0;
-
     /** call js function <f> with <thisObj> as 'this', and passed paramter <args>, which has <argn> arguments in it.
 	 * 
 	 */
     virtual Value FunctionCall(const Function& f, Object thisObj, Value* args, int32_t argn) = 0;
-
-    /** check if js value is function-type 
-	 * 
-	 */
-    virtual bool ValueIsFunction(const Value& v) = 0;
 
 public:
     /* trigger garbage collection for engine */
@@ -236,30 +202,30 @@ public:
  * 
  */
 
-#define VALUE_METHODS_FOR_CONVERTION(pt, covertiont) \
-    covertiont to##pt() const                        \
-    {                                                \
-        return m_rt->ValueTo##pt(*this);             \
+#define VALUE_METHODS_FOR_CONVERTION(pt, cpp_t) \
+    cpp_t to##pt() const                        \
+    {                                           \
+        return m_rt->ValueTo##pt(*this);        \
     }
 
-#define VALUE_METHODS_FOR_CHECK_P(pt)    \
-    bool is##pt() const                  \
-    {                                    \
-        return m_rt->ValueIs##pt(*this); \
+#define VALUE_METHODS_FOR_IS_P(pt)          \
+    bool is##pt() const                     \
+    {                                       \
+        return m_rt->ValueIs(*this, k##pt); \
     }
 
-#define VALUE_METHODS_FOR_CHECK_PO(pt)                  \
-    bool is##pt() const                                 \
-    {                                                   \
-        return m_rt->ValueIs##pt(*this);                \
-    }                                                   \
-    bool is##pt##Primitive() const                      \
-    {                                                   \
-        return m_rt->ValueIs##pt##Primitive(*this);     \
-    }                                                   \
-    bool is##pt##WrapperObject() const                  \
-    {                                                   \
-        return m_rt->ValueIs##pt##WrapperObject(*this); \
+#define VALUE_METHODS_FOR_IS_PO(pt)                        \
+    bool is##pt() const                                    \
+    {                                                      \
+        return m_rt->ValueIs(*this, k##pt);                \
+    }                                                      \
+    bool is##pt##Primitive() const                         \
+    {                                                      \
+        return m_rt->ValueIs(*this, k##pt##Primitive);     \
+    }                                                      \
+    bool is##pt##WrapperObject() const                     \
+    {                                                      \
+        return m_rt->ValueIs(*this, k##pt##WrapperObject); \
     }
 
 class Value {
@@ -295,23 +261,23 @@ public:
     }
 
 public:
-    VALUE_METHODS_FOR_CHECK_P(Undefined)
+    VALUE_METHODS_FOR_IS_P(Undefined)
 
     VALUE_METHODS_FOR_CONVERTION(Boolean, bool)
-    VALUE_METHODS_FOR_CHECK_PO(Boolean)
+    VALUE_METHODS_FOR_IS_PO(Boolean)
 
     VALUE_METHODS_FOR_CONVERTION(Number, double)
-    VALUE_METHODS_FOR_CHECK_PO(Number)
+    VALUE_METHODS_FOR_IS_PO(Number)
 
     VALUE_METHODS_FOR_CONVERTION(BigInt, int64_t)
-    VALUE_METHODS_FOR_CHECK_P(BigInt)
+    VALUE_METHODS_FOR_IS_P(BigInt)
 
     VALUE_METHODS_FOR_CONVERTION(String, exlib::string)
-    VALUE_METHODS_FOR_CHECK_PO(String)
+    VALUE_METHODS_FOR_IS_PO(String)
 
-    VALUE_METHODS_FOR_CHECK_P(Array)
-    VALUE_METHODS_FOR_CHECK_P(Object)
-    VALUE_METHODS_FOR_CHECK_P(Function)
+    VALUE_METHODS_FOR_IS_P(Array)
+    VALUE_METHODS_FOR_IS_P(Object)
+    VALUE_METHODS_FOR_IS_P(Function)
 
 public:
     Runtime* m_rt;
@@ -401,7 +367,7 @@ public:
 public:
     int32_t length()
     {
-        return m_rt->ArrayGetLength(*this);
+        return m_rt->ArrayLength(*this);
     }
 
     Value get(int32_t idx)
