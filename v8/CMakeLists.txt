@@ -31,6 +31,10 @@ endif()
 
 list(APPEND src_list ${snapshots_list} ${trap_handler_list})
 
+if(${ARCH} STREQUAL "mips" OR ${ARCH} STREQUAL "mips64")
+	set(flags "${flags} -Wno-c++11-narrowing")
+endif()
+
 include(../tools/Library.cmake)
 
 include_directories(
