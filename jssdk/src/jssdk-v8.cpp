@@ -527,5 +527,5 @@ public:
 };
 
 static Api_v8 s_api;
-Api* _v8_api = &s_api;
+Api* _inst_v8_api = &s_api;
 }

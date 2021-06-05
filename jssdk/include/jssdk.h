@@ -96,20 +96,12 @@ public:
 };
 
 extern Api* v8_api;
-extern Api* spider_api;
 
-extern Api* _v8_api;
-extern bool set_v8_api(Api* _api);
+extern Api* _inst_v8_api;
+extern bool use_js_engine(Api*& global_api_instance, Api* _api, const char* engine_name);
 inline bool setup_v8()
 {
-    return set_v8_api(_v8_api);
-}
-
-extern Api* _spider_api;
-extern bool set_spider_api(Api* _api);
-inline bool setup_spider()
-{
-    return set_spider_api(_spider_api);
+    return use_js_engine(v8_api, _inst_v8_api, "v8");
 }
 
 }
