@@ -8,9 +8,12 @@
 
 #include "jssdk-v8.h"
 #include "libplatform/libplatform.h"
+#include "src/allocation.h"
 #include <stdlib.h>
 #include <string.h>
 #include <vector>
+
+using namespace v8;
 
 namespace js {
 
@@ -35,10 +38,18 @@ private:
         }
     };
 
+    v8::Local<v8::Context> _getLocalContext()
+    {
+        return v8::Local<v8::Context>::New(m_isolate, m_context);
+    }
+
 public:
     v8_Runtime(class Api* api)
     {
         m_api = api;
+
+        v8::Isolate::CreateParams create_params;
+
         create_params.array_buffer_allocator = &array_buffer_allocator;
         m_isolate = v8::Isolate::New(create_params);
 
@@ -218,7 +229,7 @@ public:
 
     Function NewFunction(FunctionCallback callback)
     {
-        return Function(this, v8::Function::New(m_isolate, (v8::FunctionCallback)callback));
+        return Function(this, v8::Function::New(_getLocalContext(), (v8::FunctionCallback)callback).ToLocalChecked());
     }
 
 public:
@@ -267,9 +278,11 @@ public:
     bool ObjectHas(const Object& o, exlib::string key)
     {
         return v8::Local<v8::Object>::Cast(o.m_v)->Has(
-            v8::String::NewFromUtf8(m_isolate,
-                key.c_str(), v8::String::kNormalString,
-                (int32_t)key.length()));
+                                                     v8::Local<v8::Context>::New(m_isolate, m_context),
+                                                     v8::String::NewFromUtf8(m_isolate,
+                                                         key.c_str(), v8::String::kNormalString,
+                                                         (int32_t)key.length()))
+            .ToChecked();
     }
 
     Value ObjectGet(const Object& o, exlib::string key)
@@ -289,6 +302,7 @@ public:
     void ObjectRemove(const Object& o, exlib::string key)
     {
         v8::Local<v8::Object>::Cast(o.m_v)->Delete(
+            v8::Local<v8::Context>::New(m_isolate, m_context),
             v8::String::NewFromUtf8(m_isolate,
                 key.c_str(), v8::String::kNormalString,
                 (int32_t)key.length()));
@@ -296,7 +310,7 @@ public:
 
     Array ObjectKeys(const Object& o)
     {
-        return Array(this, v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames());
+        return Array(this, v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_getLocalContext()).ToLocalChecked());
     }
 
     bool ObjectHasPrivate(const Object& o, exlib::string key)
@@ -444,9 +458,8 @@ public:
         if (!s_bInit) {
             s_bInit = true;
 
-            v8::Platform* platform = v8::platform::CreateDefaultPlatform();
-            v8::V8::InitializePlatform(platform);
-
+            static std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+            v8::V8::InitializePlatform(platform.get());
             v8::V8::Initialize();
         }
     }
