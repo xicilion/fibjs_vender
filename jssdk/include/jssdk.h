@@ -29,13 +29,14 @@ class Runtime;
  * - enter js scope/handlescope after app switch to js thread
  * - leave js scope/handlescope before app switch away from js thread
  * 
- * for js engine working alone as/in one thread but could be called on multiple-threads environtment, there are `Locker/Unlocker` in general to
- * help program determine which thread COULD get ownership of js engine.
+ * for js engine working alone as/in one thread but could be called on multiple-threads environment,
+ * in general, there would be `Locker/Unlocker` to help program determine which thread COULD get
+ * ownership of js engine.
  * 
  * - Locker: declare current thread want to use js engine, if js engine owned by another thread, current thread would wait.
  * - Unlocker: declare current thread would release ownership of js engine.
  * 
- * for Locker/Unlocer, two types operations are used to help program assign js engine to specific thread safely
+ * for Locker/Unlocer, two types operations are prepared to help program assign js engine to specific thread safely
  * - Locker::enter(): try to hold js engine from current thread
  * - Locker::leave(): do sth when current thread has get ownership of js engine
  * - Unlocker::enter(): try to release js engine from current thread
