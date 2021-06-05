@@ -186,8 +186,12 @@ public:
             (int32_t)soname.length());
 
         v8::ScriptOrigin origin(str_name);
-        v8::Local<v8::Script> script = v8::Script::Compile(context, str_code, &origin).ToLocalChecked();
-        v8::MaybeLocal<v8::Value> result = script->Run(context);
+        v8::MaybeLocal<v8::Script> may_script = v8::Script::Compile(context, str_code, &origin);
+
+        if (may_script.IsEmpty())
+            return Value();
+
+        v8::MaybeLocal<v8::Value> result = may_script.ToLocalChecked()->Run(context);
 
         if (result.IsEmpty())
             return Value();
@@ -227,7 +231,9 @@ public:
 
     Function NewFunction(FunctionCallback callback)
     {
-        return Function(this, v8::Function::New(_getLocalContext(), (v8::FunctionCallback)callback).ToLocalChecked());
+        v8::MaybeLocal<v8::Function> may_v = v8::Function::New(_getLocalContext(), (v8::FunctionCallback)callback);
+
+        return Function(this, may_v.IsEmpty() ? v8::Local<v8::Function>() : may_v.ToLocalChecked());
     }
 
 public:
@@ -308,7 +314,9 @@ public:
 
     Array ObjectKeys(const Object& o)
     {
-        return Array(this, v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_getLocalContext()).ToLocalChecked());
+        v8::MaybeLocal<v8::Array> may_v = v8::Local<v8::Object>::Cast(o.m_v)->GetPropertyNames(_getLocalContext());
+
+        return Array(this, may_v.IsEmpty() ? v8::Local<v8::Array>() : may_v.ToLocalChecked());
     }
 
     bool ObjectHasPrivate(const Object& o, exlib::string key)
