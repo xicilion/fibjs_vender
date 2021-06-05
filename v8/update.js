@@ -559,4 +559,6 @@ patch_ntver();
 
 patch_snapshot();
 
+// TODO: copy third_party/wasm-api/wasm** from v8 src
+
 // run('../tools/vsmake.js');
