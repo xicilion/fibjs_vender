@@ -2786,7 +2786,7 @@ Isolate* Isolate::New(IsolateAllocationMode mode) {
   // Construct Isolate object in the allocated memory.
   void* isolate_ptr = isolate_allocator->isolate_memory();
   Isolate* isolate = new (isolate_ptr) Isolate(std::move(isolate_allocator));
-#ifdef V8_TARGET_ARCH_64_BIT
+#if V8_TARGET_ARCH_64_BIT
   DCHECK_IMPLIES(
       mode == IsolateAllocationMode::kInV8Heap,
       IsAligned(isolate->isolate_root(), kPtrComprIsolateRootAlignment));
@@ -2921,6 +2921,8 @@ void Isolate::Deinit() {
     delete optimizing_compile_dispatcher_;
     optimizing_compile_dispatcher_ = nullptr;
   }
+
+  wasm_engine()->memory_tracker()->DeleteSharedMemoryObjectsOnIsolate(this);
 
   heap_.mark_compact_collector()->EnsureSweepingCompleted();
   heap_.memory_allocator()->unmapper()->EnsureUnmappingCompleted();

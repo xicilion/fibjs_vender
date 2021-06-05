@@ -6744,7 +6744,8 @@ class PromiseRejectMessage {
 typedef void (*PromiseRejectCallback)(PromiseRejectMessage message);
 
 // --- Microtasks Callbacks ---
-typedef void (*MicrotasksCompletedCallback)(Isolate*);
+V8_DEPRECATE_SOON("Use *WithData version.",
+                  typedef void (*MicrotasksCompletedCallback)(Isolate*));
 typedef void (*MicrotasksCompletedCallbackWithData)(Isolate*, void*);
 typedef void (*MicrotaskCallback)(void* data);
 
@@ -6778,7 +6779,7 @@ class V8_EXPORT MicrotaskQueue {
   /**
    * Creates an empty MicrotaskQueue instance.
    */
-  static std::unique_ptr<MicrotaskQueue> New();
+  static std::unique_ptr<MicrotaskQueue> New(Isolate* isolate);
 
   virtual ~MicrotaskQueue() = default;
 
@@ -8231,12 +8232,20 @@ class V8_EXPORT Isolate {
    * Executing scripts inside the callback will not re-trigger microtasks and
    * the callback.
    */
-  void AddMicrotasksCompletedCallback(MicrotasksCompletedCallback callback);
+  V8_DEPRECATE_SOON("Use *WithData version.",
+                    void AddMicrotasksCompletedCallback(
+                        MicrotasksCompletedCallback callback));
+  void AddMicrotasksCompletedCallback(
+      MicrotasksCompletedCallbackWithData callback, void* data = nullptr);
 
   /**
    * Removes callback that was installed by AddMicrotasksCompletedCallback.
    */
-  void RemoveMicrotasksCompletedCallback(MicrotasksCompletedCallback callback);
+  V8_DEPRECATE_SOON("Use *WithData version.",
+                    void RemoveMicrotasksCompletedCallback(
+                        MicrotasksCompletedCallback callback));
+  void RemoveMicrotasksCompletedCallback(
+      MicrotasksCompletedCallbackWithData callback, void* data = nullptr);
 
   /**
    * Sets a callback for counting the number of times a feature of V8 is used.
@@ -10313,7 +10322,7 @@ AccessorSignature* AccessorSignature::Cast(Data* data) {
 }
 
 Local<Value> Object::GetInternalField(int index) {
-#if !defined(V8_ENABLE_CHECKS) && !defined(V8_COMPRESS_POINTERS)
+#ifndef V8_ENABLE_CHECKS
   typedef internal::Address A;
   typedef internal::Internals I;
   A obj = *reinterpret_cast<A*>(this);
@@ -10324,7 +10333,12 @@ Local<Value> Object::GetInternalField(int index) {
       instance_type == I::kJSApiObjectType ||
       instance_type == I::kJSSpecialApiObjectType) {
     int offset = I::kJSObjectHeaderSize + (I::kEmbedderDataSlotSize * index);
-    A value = I::ReadTaggedAnyField(obj, offset);
+    A value = I::ReadRawField<A>(obj, offset);
+#ifdef V8_COMPRESS_POINTERS
+    // We read the full pointer value and then decompress it in order to avoid
+    // dealing with potential endiannes issues.
+    value = I::DecompressTaggedAnyField(obj, static_cast<int32_t>(value));
+#endif
     internal::Isolate* isolate =
         internal::IsolateFromNeverReadOnlySpaceObject(obj);
     A* result = HandleScope::CreateHandle(isolate, value);
@@ -10336,7 +10350,7 @@ Local<Value> Object::GetInternalField(int index) {
 
 
 void* Object::GetAlignedPointerFromInternalField(int index) {
-#if !defined(V8_ENABLE_CHECKS) && !defined(V8_COMPRESS_POINTERS)
+#ifndef V8_ENABLE_CHECKS
   typedef internal::Address A;
   typedef internal::Internals I;
   A obj = *reinterpret_cast<A*>(this);
@@ -10925,7 +10939,11 @@ int64_t Isolate::AdjustAmountOfExternalAllocatedMemory(
       reinterpret_cast<int64_t*>(reinterpret_cast<uint8_t*>(this) +
                                  I::kExternalMemoryAtLastMarkCompactOffset);
 
-  const int64_t amount = *external_memory + change_in_bytes;
+  // Embedders are weird: we see both over- and underflows here. Perform the
+  // addition with unsigned types to avoid undefined behavior.
+  const int64_t amount =
+      static_cast<int64_t>(static_cast<uint64_t>(change_in_bytes) +
+                           static_cast<uint64_t>(*external_memory));
   *external_memory = amount;
 
   int64_t allocation_diff_since_last_mc =
@@ -10947,13 +10965,24 @@ int64_t Isolate::AdjustAmountOfExternalAllocatedMemory(
 }
 
 Local<Value> Context::GetEmbedderData(int index) {
-#if !defined(V8_ENABLE_CHECKS) && !defined(V8_COMPRESS_POINTERS)
+#ifndef V8_ENABLE_CHECKS
   typedef internal::Address A;
   typedef internal::Internals I;
+  A ctx = *reinterpret_cast<const A*>(this);
+  A embedder_data =
+      I::ReadTaggedPointerField(ctx, I::kNativeContextEmbedderDataOffset);
+  int value_offset =
+      I::kEmbedderDataArrayHeaderSize + (I::kEmbedderDataSlotSize * index);
+  A value = I::ReadRawField<A>(embedder_data, value_offset);
+#ifdef V8_COMPRESS_POINTERS
+  // We read the full pointer value and then decompress it in order to avoid
+  // dealing with potential endiannes issues.
+  value =
+      I::DecompressTaggedAnyField(embedder_data, static_cast<int32_t>(value));
+#endif
   internal::Isolate* isolate = internal::IsolateFromNeverReadOnlySpaceObject(
       *reinterpret_cast<A*>(this));
-  A* result =
-      HandleScope::CreateHandle(isolate, I::ReadEmbedderData<A>(this, index));
+  A* result = HandleScope::CreateHandle(isolate, value);
   return Local<Value>(reinterpret_cast<Value*>(result));
 #else
   return SlowGetEmbedderData(index);
@@ -10962,9 +10991,15 @@ Local<Value> Context::GetEmbedderData(int index) {
 
 
 void* Context::GetAlignedPointerFromEmbedderData(int index) {
-#if !defined(V8_ENABLE_CHECKS) && !defined(V8_COMPRESS_POINTERS)
+#ifndef V8_ENABLE_CHECKS
+  typedef internal::Address A;
   typedef internal::Internals I;
-  return I::ReadEmbedderData<void*>(this, index);
+  A ctx = *reinterpret_cast<const A*>(this);
+  A embedder_data =
+      I::ReadTaggedPointerField(ctx, I::kNativeContextEmbedderDataOffset);
+  int value_offset =
+      I::kEmbedderDataArrayHeaderSize + (I::kEmbedderDataSlotSize * index);
+  return I::ReadRawField<void*>(embedder_data, value_offset);
 #else
   return SlowGetAlignedPointerFromEmbedderData(index);
 #endif

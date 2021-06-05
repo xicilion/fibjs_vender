@@ -8,6 +8,7 @@
 #include "src/objects/bigint.h"
 #include "src/objects/js-generator.h"
 #include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
 #include "src/objects/module.h"
 #include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"

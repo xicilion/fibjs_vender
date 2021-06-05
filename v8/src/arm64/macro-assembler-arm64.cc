@@ -52,15 +52,20 @@ int TurboAssembler::RequiredStackSizeForCallerSaved(SaveFPRegsMode fp_mode,
   // However, we leave it in the argument list to mirror the prototype for
   // Push/PopCallerSaved().
 
-  // X18 is excluded from caller-saved register list on ARM64 which makes
-  // caller-saved registers in odd number. padreg is used accordingly to
-  // maintain the alignment.
+#if defined(V8_OS_WIN)
+  // X18 is excluded from caller-saved register list on Windows ARM64 which
+  // makes caller-saved registers in odd number. padreg is used accordingly
+  // to maintain the alignment.
   DCHECK_EQ(list.Count() % 2, 1);
   if (exclusion.Is(no_reg)) {
     bytes += kXRegSizeInBits / 8;
   } else {
     bytes -= kXRegSizeInBits / 8;
   }
+#else
+  DCHECK_EQ(list.Count() % 2, 0);
+  USE(exclusion);
+#endif
 
   bytes += list.Count() * kXRegSizeInBits / 8;
 
@@ -76,13 +81,21 @@ int TurboAssembler::PushCallerSaved(SaveFPRegsMode fp_mode,
   int bytes = 0;
   auto list = kCallerSaved;
 
-  // X18 is excluded from caller-saved register list on ARM64, use padreg
-  // accordingly to maintain alignment.
+#if defined(V8_OS_WIN)
+  // X18 is excluded from caller-saved register list on Windows ARM64, use
+  // padreg accordingly to maintain alignment.
   if (!exclusion.Is(no_reg)) {
     list.Remove(exclusion);
   } else {
     list.Combine(padreg);
   }
+#else
+  if (!exclusion.Is(no_reg)) {
+    // Replace the excluded register with padding to maintain alignment.
+    list.Remove(exclusion);
+    list.Combine(padreg);
+  }
+#endif
 
   DCHECK_EQ(list.Count() % 2, 0);
   PushCPURegList(list);
@@ -106,13 +119,21 @@ int TurboAssembler::PopCallerSaved(SaveFPRegsMode fp_mode, Register exclusion) {
 
   auto list = kCallerSaved;
 
-  // X18 is excluded from caller-saved register list on ARM64, use padreg
-  // accordingly to maintain alignment.
+#if defined(V8_OS_WIN)
+  // X18 is excluded from caller-saved register list on Windows ARM64, use
+  // padreg accordingly to maintain alignment.
   if (!exclusion.Is(no_reg)) {
     list.Remove(exclusion);
   } else {
     list.Combine(padreg);
   }
+#else
+  if (!exclusion.Is(no_reg)) {
+    // Replace the excluded register with padding to maintain alignment.
+    list.Remove(exclusion);
+    list.Combine(padreg);
+  }
+#endif
 
   DCHECK_EQ(list.Count() % 2, 0);
   PopCPURegList(list);
@@ -2037,7 +2058,7 @@ void TurboAssembler::LoadCodeObjectEntry(Register destination,
 
   if (options().isolate_independent_code) {
     DCHECK(root_array_available());
-    Label if_code_is_off_heap, out;
+    Label if_code_is_builtin, out;
 
     UseScratchRegisterScope temps(this);
     Register scratch = temps.AcquireX();
@@ -2045,23 +2066,23 @@ void TurboAssembler::LoadCodeObjectEntry(Register destination,
     DCHECK(!AreAliased(destination, scratch));
     DCHECK(!AreAliased(code_object, scratch));
 
-    // Check whether the Code object is an off-heap trampoline. If so, call its
-    // (off-heap) entry point directly without going through the (on-heap)
-    // trampoline.  Otherwise, just call the Code object as always.
+    // Check whether the Code object is a builtin. If so, call its (off-heap)
+    // entry point directly without going through the (on-heap) trampoline.
+    // Otherwise, just call the Code object as always.
 
-    Ldrsw(scratch, FieldMemOperand(code_object, Code::kFlagsOffset));
-    Tst(scratch, Operand(Code::IsOffHeapTrampoline::kMask));
-    B(ne, &if_code_is_off_heap);
+    Ldrsw(scratch, FieldMemOperand(code_object, Code::kBuiltinIndexOffset));
+    Cmp(scratch, Operand(Builtins::kNoBuiltinId));
+    B(ne, &if_code_is_builtin);
 
-    // Not an off-heap trampoline object, the entry point is at
+    // A non-builtin Code object, the entry point is at
     // Code::raw_instruction_start().
     Add(destination, code_object, Code::kHeaderSize - kHeapObjectTag);
     B(&out);
 
-    // An off-heap trampoline, the entry point is loaded from the builtin entry
+    // A builtin Code object, the entry point is loaded from the builtin entry
     // table.
-    bind(&if_code_is_off_heap);
-    Ldrsw(scratch, FieldMemOperand(code_object, Code::kBuiltinIndexOffset));
+    // The builtin index is loaded in scratch.
+    bind(&if_code_is_builtin);
     Lsl(destination, scratch, kSystemPointerSizeLog2);
     Add(destination, destination, kRootRegister);
     Ldr(destination,
@@ -3380,20 +3401,14 @@ void MacroAssembler::Printf(const char * format,
   TmpList()->set_list(0);
   FPTmpList()->set_list(0);
 
-  // x18 is the platform register and is reserved for the use of platform ABIs.
-  // It is not part of the kCallerSaved list, but we add it here anyway to
-  // ensure `reg_list.Count() % 2 == 0` which is required in multiple spots.
-  CPURegList saved_registers = kCallerSaved;
-  saved_registers.Combine(x18.code());
-
   // Preserve all caller-saved registers as well as NZCV.
   // PushCPURegList asserts that the size of each list is a multiple of 16
   // bytes.
-  PushCPURegList(saved_registers);
+  PushCPURegList(kCallerSaved);
   PushCPURegList(kCallerSavedV);
 
   // We can use caller-saved registers as scratch values (except for argN).
-  CPURegList tmp_list = saved_registers;
+  CPURegList tmp_list = kCallerSaved;
   CPURegList fp_tmp_list = kCallerSavedV;
   tmp_list.Remove(arg0, arg1, arg2, arg3);
   fp_tmp_list.Remove(arg0, arg1, arg2, arg3);
@@ -3413,8 +3428,7 @@ void MacroAssembler::Printf(const char * format,
       // to PrintfNoPreserve as an argument.
       Register arg_sp = temps.AcquireX();
       Add(arg_sp, sp,
-          saved_registers.TotalSizeInBytes() +
-              kCallerSavedV.TotalSizeInBytes());
+          kCallerSaved.TotalSizeInBytes() + kCallerSavedV.TotalSizeInBytes());
       if (arg0_sp) arg0 = Register::Create(arg_sp.code(), arg0.SizeInBits());
       if (arg1_sp) arg1 = Register::Create(arg_sp.code(), arg1.SizeInBits());
       if (arg2_sp) arg2 = Register::Create(arg_sp.code(), arg2.SizeInBits());
@@ -3439,7 +3453,7 @@ void MacroAssembler::Printf(const char * format,
   }
 
   PopCPURegList(kCallerSavedV);
-  PopCPURegList(saved_registers);
+  PopCPURegList(kCallerSaved);
 
   TmpList()->set_list(old_tmp_list);
   FPTmpList()->set_list(old_fp_tmp_list);

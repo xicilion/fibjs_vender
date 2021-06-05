@@ -8,6 +8,7 @@
 #include "src/objects/bigint.h"
 #include "src/objects/js-generator.h"
 #include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
 #include "src/objects/module.h"
 #include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"
@@ -1589,7 +1590,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp19;
     USE(tmp19);
     std::tie(tmp14, tmp15, tmp16, tmp17, tmp18, tmp19) = BaseBuiltinsFromDSLAssembler(state_).NewFastJSArrayWitness(compiler::TNode<JSArray>{tmp5}).Flatten();
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1684);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1757);
     compiler::TNode<Int32T> tmp20;
     USE(tmp20);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -1651,7 +1652,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Map> tmp62;
     compiler::TNode<Int32T> tmp63;
     ca_.Bind(&block6, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55, &tmp56, &tmp57, &tmp58, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1685);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1758);
     compiler::TNode<BoolT> tmp64;
     USE(tmp64);
     tmp64 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
@@ -1785,7 +1786,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp164;
     compiler::TNode<BoolT> tmp165;
     ca_.Bind(&block8, &tmp146, &tmp147, &tmp148, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164, &tmp165);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp166;
     USE(tmp166);
     tmp166 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp154}));
@@ -1842,7 +1843,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp206;
     compiler::TNode<BoolT> tmp207;
     ca_.Bind(&block16, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204, &tmp205, &tmp206, &tmp207);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp208;
     USE(tmp208);
     tmp208 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -1896,7 +1897,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp247;
     compiler::TNode<BoolT> tmp248;
     ca_.Bind(&block18, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp249;
     USE(tmp249);
     tmp249 = (compiler::TNode<JSArray>{tmp237});
@@ -1977,7 +1978,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp309;
     ca_.Bind(&block12, &tmp290, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299, &tmp300, &tmp301, &tmp302, &tmp303, &tmp304, &tmp305, &tmp306, &tmp307, &tmp308, &tmp309);
     ca_.SetSourcePosition("../../src/builtins/array-filter.tq", 112);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block21, tmp290, tmp291, tmp292, tmp293, tmp294, tmp295, tmp296, tmp297, tmp298, tmp299, tmp300, tmp301, tmp302, tmp303, tmp304, tmp305, tmp306, tmp307, tmp308, tmp309, tmp296, tmp299);
   }
 
@@ -2063,7 +2064,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<BoolT> tmp373;
     ca_.Bind(&block20, &tmp354, &tmp355, &tmp356, &tmp357, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365, &tmp366, &tmp367, &tmp368, &tmp369, &tmp370, &tmp371, &tmp372, &tmp373);
     ca_.SetSourcePosition("../../src/builtins/array-filter.tq", 113);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp365, &block25, &block26, tmp354, tmp355, tmp356, tmp357, tmp358, tmp359, tmp360, tmp361, tmp362, tmp363, tmp364, tmp365, tmp366, tmp367, tmp368, tmp369, tmp370, tmp371, tmp372, tmp373, tmp360, tmp354, tmp360);
   }
 
@@ -2092,7 +2093,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Context> tmp395;
     compiler::TNode<Smi> tmp396;
     ca_.Bind(&block25, &tmp374, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380, &tmp381, &tmp382, &tmp383, &tmp384, &tmp385, &tmp386, &tmp387, &tmp388, &tmp389, &tmp390, &tmp391, &tmp392, &tmp393, &tmp394, &tmp395, &tmp396);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp397;
     USE(tmp397);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -2190,7 +2191,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Context> tmp470;
     compiler::TNode<Smi> tmp471;
     ca_.Bind(&block26, &tmp449, &tmp450, &tmp451, &tmp452, &tmp453, &tmp454, &tmp455, &tmp456, &tmp457, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462, &tmp463, &tmp464, &tmp465, &tmp466, &tmp467, &tmp468, &tmp469, &tmp470, &tmp471);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp472;
     USE(tmp472);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -2342,7 +2343,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp588;
     ca_.Bind(&block22, &tmp568, &tmp569, &tmp570, &tmp571, &tmp572, &tmp573, &tmp574, &tmp575, &tmp576, &tmp577, &tmp578, &tmp579, &tmp580, &tmp581, &tmp582, &tmp583, &tmp584, &tmp585, &tmp586, &tmp587, &tmp588);
     ca_.SetSourcePosition("../../src/builtins/array-filter.tq", 115);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block32, tmp568, tmp569, tmp570, tmp571, tmp572, tmp573, tmp574, tmp575, tmp576, tmp577, tmp578, tmp579, tmp580, tmp581, tmp582, tmp583, tmp584, tmp585, tmp586, tmp587, tmp588, tmp568, tmp571, tmp572, tmp588, tmp574, tmp577);
   }
 
@@ -2411,7 +2412,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp638;
     compiler::TNode<Object> tmp639;
     ca_.Bind(&block33, &tmp618, &tmp619, &tmp620, &tmp621, &tmp622, &tmp623, &tmp624, &tmp625, &tmp626, &tmp627, &tmp628, &tmp629, &tmp630, &tmp631, &tmp632, &tmp633, &tmp634, &tmp635, &tmp636, &tmp637, &tmp638, &tmp639);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp640;
     USE(tmp640);
     tmp640 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp632}));
@@ -2472,7 +2473,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp684;
     compiler::TNode<Object> tmp685;
     ca_.Bind(&block39, &tmp664, &tmp665, &tmp666, &tmp667, &tmp668, &tmp669, &tmp670, &tmp671, &tmp672, &tmp673, &tmp674, &tmp675, &tmp676, &tmp677, &tmp678, &tmp679, &tmp680, &tmp681, &tmp682, &tmp683, &tmp684, &tmp685);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp686;
     USE(tmp686);
     tmp686 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -2530,7 +2531,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp729;
     compiler::TNode<Object> tmp730;
     ca_.Bind(&block41, &tmp709, &tmp710, &tmp711, &tmp712, &tmp713, &tmp714, &tmp715, &tmp716, &tmp717, &tmp718, &tmp719, &tmp720, &tmp721, &tmp722, &tmp723, &tmp724, &tmp725, &tmp726, &tmp727, &tmp728, &tmp729, &tmp730);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp731;
     USE(tmp731);
     tmp731 = (compiler::TNode<JSArray>{tmp723});
@@ -2562,7 +2563,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp752;
     compiler::TNode<Object> tmp753;
     ca_.Bind(&block37, &tmp732, &tmp733, &tmp734, &tmp735, &tmp736, &tmp737, &tmp738, &tmp739, &tmp740, &tmp741, &tmp742, &tmp743, &tmp744, &tmp745, &tmp746, &tmp747, &tmp748, &tmp749, &tmp750, &tmp751, &tmp752, &tmp753);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block44, tmp732, tmp733, tmp734, tmp735, tmp736, tmp737, tmp738, tmp739, tmp740, tmp741, tmp742, tmp743, tmp744, tmp745, tmp746, tmp747, tmp748, tmp749, tmp750, tmp751, tmp752, tmp753, tmp747);
   }
 
@@ -2653,7 +2654,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp822;
     ca_.Bind(&block43, &tmp801, &tmp802, &tmp803, &tmp804, &tmp805, &tmp806, &tmp807, &tmp808, &tmp809, &tmp810, &tmp811, &tmp812, &tmp813, &tmp814, &tmp815, &tmp816, &tmp817, &tmp818, &tmp819, &tmp820, &tmp821, &tmp822);
     ca_.SetSourcePosition("../../src/builtins/array-filter.tq", 123);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1690);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1763);
     ca_.Branch(tmp818, &block46, &block47, tmp801, tmp802, tmp803, tmp804, tmp805, tmp806, tmp807, tmp808, tmp809, tmp810, tmp811, tmp812, tmp813, tmp814, tmp815, tmp816, tmp817, tmp818, tmp819, tmp820, tmp821, tmp822, tmp821, tmp821);
   }
 
@@ -2683,7 +2684,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp845;
     compiler::TNode<Object> tmp846;
     ca_.Bind(&block46, &tmp823, &tmp824, &tmp825, &tmp826, &tmp827, &tmp828, &tmp829, &tmp830, &tmp831, &tmp832, &tmp833, &tmp834, &tmp835, &tmp836, &tmp837, &tmp838, &tmp839, &tmp840, &tmp841, &tmp842, &tmp843, &tmp844, &tmp845, &tmp846);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1691);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1764);
     compiler::CodeAssemblerLabel label0(&ca_);
     CodeStubAssembler(state_).BuildAppendJSArray(HOLEY_DOUBLE_ELEMENTS, compiler::TNode<JSArray>{tmp838}, compiler::TNode<Object>{tmp846}, &label0);
     ca_.Goto(&block49, tmp823, tmp824, tmp825, tmp826, tmp827, tmp828, tmp829, tmp830, tmp831, tmp832, tmp833, tmp834, tmp835, tmp836, tmp837, tmp838, tmp839, tmp840, tmp841, tmp842, tmp843, tmp844, tmp845, tmp846, tmp838, tmp846);
@@ -2752,7 +2753,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<JSArray> tmp897;
     compiler::TNode<Object> tmp898;
     ca_.Bind(&block49, &tmp873, &tmp874, &tmp875, &tmp876, &tmp877, &tmp878, &tmp879, &tmp880, &tmp881, &tmp882, &tmp883, &tmp884, &tmp885, &tmp886, &tmp887, &tmp888, &tmp889, &tmp890, &tmp891, &tmp892, &tmp893, &tmp894, &tmp895, &tmp896, &tmp897, &tmp898);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1690);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1763);
     ca_.Goto(&block48, tmp873, tmp874, tmp875, tmp876, tmp877, tmp878, tmp879, tmp880, tmp881, tmp882, tmp883, tmp884, tmp885, tmp886, tmp887, tmp888, tmp889, tmp890, tmp891, tmp892, tmp893, tmp894, tmp895, tmp896);
   }
 
@@ -2782,7 +2783,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp921;
     compiler::TNode<Object> tmp922;
     ca_.Bind(&block47, &tmp899, &tmp900, &tmp901, &tmp902, &tmp903, &tmp904, &tmp905, &tmp906, &tmp907, &tmp908, &tmp909, &tmp910, &tmp911, &tmp912, &tmp913, &tmp914, &tmp915, &tmp916, &tmp917, &tmp918, &tmp919, &tmp920, &tmp921, &tmp922);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1693);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1766);
     ca_.Branch(tmp917, &block51, &block52, tmp899, tmp900, tmp901, tmp902, tmp903, tmp904, tmp905, tmp906, tmp907, tmp908, tmp909, tmp910, tmp911, tmp912, tmp913, tmp914, tmp915, tmp916, tmp917, tmp918, tmp919, tmp920, tmp921, tmp922);
   }
 
@@ -2812,7 +2813,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp945;
     compiler::TNode<Object> tmp946;
     ca_.Bind(&block51, &tmp923, &tmp924, &tmp925, &tmp926, &tmp927, &tmp928, &tmp929, &tmp930, &tmp931, &tmp932, &tmp933, &tmp934, &tmp935, &tmp936, &tmp937, &tmp938, &tmp939, &tmp940, &tmp941, &tmp942, &tmp943, &tmp944, &tmp945, &tmp946);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1694);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1767);
     compiler::CodeAssemblerLabel label0(&ca_);
     CodeStubAssembler(state_).BuildAppendJSArray(HOLEY_SMI_ELEMENTS, compiler::TNode<JSArray>{tmp938}, compiler::TNode<Object>{tmp946}, &label0);
     ca_.Goto(&block54, tmp923, tmp924, tmp925, tmp926, tmp927, tmp928, tmp929, tmp930, tmp931, tmp932, tmp933, tmp934, tmp935, tmp936, tmp937, tmp938, tmp939, tmp940, tmp941, tmp942, tmp943, tmp944, tmp945, tmp946, tmp938, tmp946);
@@ -2881,7 +2882,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<JSArray> tmp997;
     compiler::TNode<Object> tmp998;
     ca_.Bind(&block54, &tmp973, &tmp974, &tmp975, &tmp976, &tmp977, &tmp978, &tmp979, &tmp980, &tmp981, &tmp982, &tmp983, &tmp984, &tmp985, &tmp986, &tmp987, &tmp988, &tmp989, &tmp990, &tmp991, &tmp992, &tmp993, &tmp994, &tmp995, &tmp996, &tmp997, &tmp998);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1693);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1766);
     ca_.Goto(&block53, tmp973, tmp974, tmp975, tmp976, tmp977, tmp978, tmp979, tmp980, tmp981, tmp982, tmp983, tmp984, tmp985, tmp986, tmp987, tmp988, tmp989, tmp990, tmp991, tmp992, tmp993, tmp994, tmp995, tmp996);
   }
 
@@ -2911,7 +2912,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp1021;
     compiler::TNode<Object> tmp1022;
     ca_.Bind(&block52, &tmp999, &tmp1000, &tmp1001, &tmp1002, &tmp1003, &tmp1004, &tmp1005, &tmp1006, &tmp1007, &tmp1008, &tmp1009, &tmp1010, &tmp1011, &tmp1012, &tmp1013, &tmp1014, &tmp1015, &tmp1016, &tmp1017, &tmp1018, &tmp1019, &tmp1020, &tmp1021, &tmp1022);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1700);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1773);
     compiler::CodeAssemblerLabel label0(&ca_);
     CodeStubAssembler(state_).BuildAppendJSArray(HOLEY_ELEMENTS, compiler::TNode<JSArray>{tmp1014}, compiler::TNode<Object>{tmp1022}, &label0);
     ca_.Goto(&block56, tmp999, tmp1000, tmp1001, tmp1002, tmp1003, tmp1004, tmp1005, tmp1006, tmp1007, tmp1008, tmp1009, tmp1010, tmp1011, tmp1012, tmp1013, tmp1014, tmp1015, tmp1016, tmp1017, tmp1018, tmp1019, tmp1020, tmp1021, tmp1022, tmp1014, tmp1022);
@@ -2980,7 +2981,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<JSArray> tmp1073;
     compiler::TNode<Object> tmp1074;
     ca_.Bind(&block56, &tmp1049, &tmp1050, &tmp1051, &tmp1052, &tmp1053, &tmp1054, &tmp1055, &tmp1056, &tmp1057, &tmp1058, &tmp1059, &tmp1060, &tmp1061, &tmp1062, &tmp1063, &tmp1064, &tmp1065, &tmp1066, &tmp1067, &tmp1068, &tmp1069, &tmp1070, &tmp1071, &tmp1072, &tmp1073, &tmp1074);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1693);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1766);
     ca_.Goto(&block53, tmp1049, tmp1050, tmp1051, tmp1052, tmp1053, tmp1054, tmp1055, tmp1056, tmp1057, tmp1058, tmp1059, tmp1060, tmp1061, tmp1062, tmp1063, tmp1064, tmp1065, tmp1066, tmp1067, tmp1068, tmp1069, tmp1070, tmp1071, tmp1072);
   }
 
@@ -3010,7 +3011,7 @@ void ArrayFilterBuiltinsFromDSLAssembler::FastArrayFilter(compiler::TNode<Contex
     compiler::TNode<Object> tmp1097;
     compiler::TNode<Object> tmp1098;
     ca_.Bind(&block53, &tmp1075, &tmp1076, &tmp1077, &tmp1078, &tmp1079, &tmp1080, &tmp1081, &tmp1082, &tmp1083, &tmp1084, &tmp1085, &tmp1086, &tmp1087, &tmp1088, &tmp1089, &tmp1090, &tmp1091, &tmp1092, &tmp1093, &tmp1094, &tmp1095, &tmp1096, &tmp1097, &tmp1098);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1690);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1763);
     ca_.Goto(&block48, tmp1075, tmp1076, tmp1077, tmp1078, tmp1079, tmp1080, tmp1081, tmp1082, tmp1083, tmp1084, tmp1085, tmp1086, tmp1087, tmp1088, tmp1089, tmp1090, tmp1091, tmp1092, tmp1093, tmp1094, tmp1095, tmp1096, tmp1097, tmp1098);
   }
 

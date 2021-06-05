@@ -92,8 +92,6 @@ class AsyncCompileJob {
   class DecodeModule;            // Step 1  (async)
   class DecodeFail;              // Step 1b (sync)
   class PrepareAndStartCompile;  // Step 2  (sync)
-  class CompileFailed;           // Step 3a (sync)
-  class CompileFinished;         // Step 3b (sync)
 
   friend class AsyncStreamingProcessor;
 

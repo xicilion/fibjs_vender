@@ -6077,16 +6077,14 @@ MaybeLocal<Object> v8::Context::NewRemoteContext(
   Utils::ApiCheck(access_check_info->named_interceptor() != i::Object(),
                   "v8::Context::NewRemoteContext",
                   "Global template needs to have access check handlers.");
-  i::Handle<i::JSGlobalProxy> global_proxy =
-      CreateEnvironment<i::JSGlobalProxy>(
-          isolate, nullptr, global_template, global_object, 0,
-          DeserializeInternalFieldsCallback(), nullptr);
+  i::Handle<i::JSObject> global_proxy = CreateEnvironment<i::JSGlobalProxy>(
+      isolate, nullptr, global_template, global_object, 0,
+      DeserializeInternalFieldsCallback(), nullptr);
   if (global_proxy.is_null()) {
     if (isolate->has_pending_exception()) isolate->clear_pending_exception();
     return MaybeLocal<Object>();
   }
-  return Utils::ToLocal(
-      scope.CloseAndEscape(i::Handle<i::JSObject>::cast(global_proxy)));
+  return Utils::ToLocal(scope.CloseAndEscape(global_proxy));
 }
 
 void v8::Context::SetSecurityToken(Local<Value> token) {
@@ -8546,8 +8544,7 @@ void Isolate::EnqueueMicrotask(Local<Function> v8_function) {
   if (!i::JSReceiver::GetContextForMicrotask(function).ToHandle(
           &handler_context))
     handler_context = isolate->native_context();
-  MicrotaskQueue* microtask_queue = handler_context->microtask_queue();
-  if (microtask_queue) microtask_queue->EnqueueMicrotask(this, v8_function);
+  handler_context->microtask_queue()->EnqueueMicrotask(this, v8_function);
 }
 
 void Isolate::EnqueueMicrotask(MicrotaskCallback callback, void* data) {
@@ -8575,7 +8572,7 @@ MicrotasksPolicy Isolate::GetMicrotasksPolicy() const {
 namespace {
 
 void MicrotasksCompletedCallbackAdapter(v8::Isolate* isolate, void* data) {
-  auto callback = reinterpret_cast<MicrotasksCompletedCallback>(data);
+  auto callback = reinterpret_cast<void (*)(v8::Isolate*)>(data);
   callback(isolate);
 }
 
@@ -8589,6 +8586,13 @@ void Isolate::AddMicrotasksCompletedCallback(
       &MicrotasksCompletedCallbackAdapter, reinterpret_cast<void*>(callback));
 }
 
+void Isolate::AddMicrotasksCompletedCallback(
+    MicrotasksCompletedCallbackWithData callback, void* data) {
+  DCHECK(callback);
+  i::Isolate* isolate = reinterpret_cast<i::Isolate*>(this);
+  isolate->default_microtask_queue()->AddMicrotasksCompletedCallback(callback,
+                                                                     data);
+}
 
 void Isolate::RemoveMicrotasksCompletedCallback(
     MicrotasksCompletedCallback callback) {
@@ -8597,6 +8601,12 @@ void Isolate::RemoveMicrotasksCompletedCallback(
       &MicrotasksCompletedCallbackAdapter, reinterpret_cast<void*>(callback));
 }
 
+void Isolate::RemoveMicrotasksCompletedCallback(
+    MicrotasksCompletedCallbackWithData callback, void* data) {
+  i::Isolate* isolate = reinterpret_cast<i::Isolate*>(this);
+  isolate->default_microtask_queue()->RemoveMicrotasksCompletedCallback(
+      callback, data);
+}
 
 void Isolate::SetUseCounterCallback(UseCounterCallback callback) {
   reinterpret_cast<i::Isolate*>(this)->SetUseCounterCallback(callback);
@@ -8917,6 +8927,11 @@ void v8::Isolate::LocaleConfigurationChangeNotification() {
 #ifdef V8_INTL_SUPPORT
   i_isolate->ResetDefaultLocale();
 #endif  // V8_INTL_SUPPORT
+}
+
+// static
+std::unique_ptr<MicrotaskQueue> MicrotaskQueue::New(Isolate* isolate) {
+  return i::MicrotaskQueue::New(reinterpret_cast<i::Isolate*>(isolate));
 }
 
 MicrotasksScope::MicrotasksScope(Isolate* isolate, MicrotasksScope::Type type)

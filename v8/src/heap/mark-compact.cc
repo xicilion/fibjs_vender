@@ -1645,7 +1645,6 @@ void MarkCompactCollector::ProcessEphemeronsLinear() {
     // is necessary.
 
     work_to_do = !marking_worklist()->IsEmpty() ||
-                 !marking_worklist()->IsEmbedderEmpty() ||
                  !heap()->local_embedder_heap_tracer()->IsRemoteTracingDone();
     CHECK(weak_objects_.discovered_ephemerons.IsEmpty());
   }

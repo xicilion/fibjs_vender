@@ -46,10 +46,8 @@ void Symbol::set_is_private_name() {
 
 bool Name::IsUniqueName() const {
   uint32_t type = map()->instance_type();
-  bool result = (type & (kIsNotStringMask | kIsNotInternalizedMask)) !=
-                (kStringTag | kNotInternalizedTag);
-  SLOW_DCHECK(result == HeapObject::IsUniqueName());
-  return result;
+  return (type & (kIsNotStringMask | kIsNotInternalizedMask)) !=
+         (kStringTag | kNotInternalizedTag);
 }
 
 uint32_t Name::hash_field() {

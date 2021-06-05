@@ -8,6 +8,7 @@
 #include "src/objects/bigint.h"
 #include "src/objects/js-generator.h"
 #include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
 #include "src/objects/module.h"
 #include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"
@@ -1775,7 +1776,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<BoolT> tmp101;
     compiler::TNode<BoolT> tmp102;
     ca_.Bind(&block11, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp103;
     USE(tmp103);
     tmp103 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp97}));
@@ -1820,7 +1821,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<BoolT> tmp131;
     compiler::TNode<BoolT> tmp132;
     ca_.Bind(&block19, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp133;
     USE(tmp133);
     tmp133 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -1862,7 +1863,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<BoolT> tmp160;
     compiler::TNode<BoolT> tmp161;
     ca_.Bind(&block21, &tmp148, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp162;
     USE(tmp162);
     tmp162 = (compiler::TNode<JSArray>{tmp156});
@@ -1925,7 +1926,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<BoolT> tmp204;
     ca_.Bind(&block15, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204);
     ca_.SetSourcePosition("../../src/builtins/array-every.tq", 99);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block24, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp197, tmp198, tmp199, tmp200, tmp201, tmp202, tmp203, tmp204, tmp196, tmp200);
   }
 
@@ -1993,7 +1994,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<BoolT> tmp250;
     ca_.Bind(&block23, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248, &tmp249, &tmp250);
     ca_.SetSourcePosition("../../src/builtins/array-every.tq", 100);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp248, &block28, &block29, tmp237, tmp238, tmp239, tmp240, tmp241, tmp242, tmp243, tmp244, tmp245, tmp246, tmp247, tmp248, tmp249, tmp250, tmp242, tmp237, tmp242);
   }
 
@@ -2016,7 +2017,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<Context> tmp266;
     compiler::TNode<Smi> tmp267;
     ca_.Bind(&block28, &tmp251, &tmp252, &tmp253, &tmp254, &tmp255, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp268;
     USE(tmp268);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -2096,7 +2097,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<Context> tmp323;
     compiler::TNode<Smi> tmp324;
     ca_.Bind(&block29, &tmp308, &tmp309, &tmp310, &tmp311, &tmp312, &tmp313, &tmp314, &tmp315, &tmp316, &tmp317, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp325;
     USE(tmp325);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -2218,7 +2219,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayEvery(compiler::
     compiler::TNode<Object> tmp411;
     ca_.Bind(&block25, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405, &tmp406, &tmp407, &tmp408, &tmp409, &tmp410, &tmp411);
     ca_.SetSourcePosition("../../src/builtins/array-every.tq", 102);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block35, tmp397, tmp398, tmp399, tmp400, tmp401, tmp402, tmp403, tmp404, tmp405, tmp406, tmp407, tmp408, tmp409, tmp410, tmp411, tmp397, tmp400, tmp401, tmp411, tmp402, tmp406);
   }
 
@@ -4059,7 +4060,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<BoolT> tmp138;
     compiler::TNode<Smi> tmp139;
     ca_.Bind(&block11, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138, &tmp139);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp140;
     USE(tmp140);
     tmp140 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp133}));
@@ -4106,7 +4107,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<BoolT> tmp170;
     compiler::TNode<Smi> tmp171;
     ca_.Bind(&block21, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164, &tmp165, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp172;
     USE(tmp172);
     tmp172 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -4150,7 +4151,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<BoolT> tmp201;
     compiler::TNode<Smi> tmp202;
     ca_.Bind(&block23, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp203;
     USE(tmp203);
     tmp203 = (compiler::TNode<JSArray>{tmp196});
@@ -4216,7 +4217,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<Smi> tmp248;
     ca_.Bind(&block17, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248);
     ca_.SetSourcePosition("../../src/builtins/array-reduce.tq", 122);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block26, tmp234, tmp235, tmp236, tmp237, tmp238, tmp239, tmp240, tmp241, tmp242, tmp243, tmp244, tmp245, tmp246, tmp247, tmp248, tmp248, tmp243);
   }
 
@@ -4287,7 +4288,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<Smi> tmp297;
     ca_.Bind(&block25, &tmp283, &tmp284, &tmp285, &tmp286, &tmp287, &tmp288, &tmp289, &tmp290, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297);
     ca_.SetSourcePosition("../../src/builtins/array-reduce.tq", 124);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp294, &block30, &block31, tmp283, tmp284, tmp285, tmp286, tmp287, tmp288, tmp289, tmp290, tmp291, tmp292, tmp293, tmp294, tmp295, tmp296, tmp297, tmp297, tmp283, tmp297);
   }
 
@@ -4311,7 +4312,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<Context> tmp314;
     compiler::TNode<Smi> tmp315;
     ca_.Bind(&block30, &tmp298, &tmp299, &tmp300, &tmp301, &tmp302, &tmp303, &tmp304, &tmp305, &tmp306, &tmp307, &tmp308, &tmp309, &tmp310, &tmp311, &tmp312, &tmp313, &tmp314, &tmp315);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp316;
     USE(tmp316);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -4394,7 +4395,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<Context> tmp374;
     compiler::TNode<Smi> tmp375;
     ca_.Bind(&block31, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365, &tmp366, &tmp367, &tmp368, &tmp369, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374, &tmp375);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp376;
     USE(tmp376);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -4575,7 +4576,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduce(compiler:
     compiler::TNode<Oddball> tmp502;
     USE(tmp502);
     tmp502 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block40, tmp486, tmp487, tmp488, tmp489, tmp490, tmp491, tmp492, tmp493, tmp494, tmp495, tmp496, tmp497, tmp498, tmp499, tmp500, tmp501, tmp486, tmp489, tmp502, tmp491, tmp501, tmp500, tmp495);
   }
 
@@ -6390,7 +6391,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<BoolT> tmp109;
     compiler::TNode<Smi> tmp110;
     ca_.Bind(&block11, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp111;
     USE(tmp111);
     tmp111 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp104}));
@@ -6437,7 +6438,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<BoolT> tmp141;
     compiler::TNode<Smi> tmp142;
     ca_.Bind(&block19, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138, &tmp139, &tmp140, &tmp141, &tmp142);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp143;
     USE(tmp143);
     tmp143 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -6481,7 +6482,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<BoolT> tmp172;
     compiler::TNode<Smi> tmp173;
     ca_.Bind(&block21, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164, &tmp165, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp174;
     USE(tmp174);
     tmp174 = (compiler::TNode<JSArray>{tmp167});
@@ -6547,7 +6548,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<Smi> tmp219;
     ca_.Bind(&block15, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210, &tmp211, &tmp212, &tmp213, &tmp214, &tmp215, &tmp216, &tmp217, &tmp218, &tmp219);
     ca_.SetSourcePosition("../../src/builtins/array-reduce-right.tq", 123);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block24, tmp205, tmp206, tmp207, tmp208, tmp209, tmp210, tmp211, tmp212, tmp213, tmp214, tmp215, tmp216, tmp217, tmp218, tmp219, tmp219, tmp214);
   }
 
@@ -6618,7 +6619,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<Smi> tmp268;
     ca_.Bind(&block23, &tmp254, &tmp255, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267, &tmp268);
     ca_.SetSourcePosition("../../src/builtins/array-reduce-right.tq", 125);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp265, &block28, &block29, tmp254, tmp255, tmp256, tmp257, tmp258, tmp259, tmp260, tmp261, tmp262, tmp263, tmp264, tmp265, tmp266, tmp267, tmp268, tmp268, tmp254, tmp268);
   }
 
@@ -6642,7 +6643,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<Context> tmp285;
     compiler::TNode<Smi> tmp286;
     ca_.Bind(&block28, &tmp269, &tmp270, &tmp271, &tmp272, &tmp273, &tmp274, &tmp275, &tmp276, &tmp277, &tmp278, &tmp279, &tmp280, &tmp281, &tmp282, &tmp283, &tmp284, &tmp285, &tmp286);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp287;
     USE(tmp287);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -6725,7 +6726,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<Context> tmp345;
     compiler::TNode<Smi> tmp346;
     ca_.Bind(&block29, &tmp329, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339, &tmp340, &tmp341, &tmp342, &tmp343, &tmp344, &tmp345, &tmp346);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp347;
     USE(tmp347);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -6906,7 +6907,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArrayReduceRight(comp
     compiler::TNode<Oddball> tmp473;
     USE(tmp473);
     tmp473 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block38, tmp457, tmp458, tmp459, tmp460, tmp461, tmp462, tmp463, tmp464, tmp465, tmp466, tmp467, tmp468, tmp469, tmp470, tmp471, tmp472, tmp457, tmp460, tmp473, tmp462, tmp472, tmp471, tmp466);
   }
 
@@ -8534,7 +8535,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<BoolT> tmp101;
     compiler::TNode<BoolT> tmp102;
     ca_.Bind(&block11, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp103;
     USE(tmp103);
     tmp103 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp97}));
@@ -8579,7 +8580,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<BoolT> tmp131;
     compiler::TNode<BoolT> tmp132;
     ca_.Bind(&block19, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp133;
     USE(tmp133);
     tmp133 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -8621,7 +8622,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<BoolT> tmp160;
     compiler::TNode<BoolT> tmp161;
     ca_.Bind(&block21, &tmp148, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp162;
     USE(tmp162);
     tmp162 = (compiler::TNode<JSArray>{tmp156});
@@ -8684,7 +8685,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<BoolT> tmp204;
     ca_.Bind(&block15, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204);
     ca_.SetSourcePosition("../../src/builtins/array-some.tq", 99);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block24, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp197, tmp198, tmp199, tmp200, tmp201, tmp202, tmp203, tmp204, tmp196, tmp200);
   }
 
@@ -8752,7 +8753,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<BoolT> tmp250;
     ca_.Bind(&block23, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248, &tmp249, &tmp250);
     ca_.SetSourcePosition("../../src/builtins/array-some.tq", 100);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp248, &block28, &block29, tmp237, tmp238, tmp239, tmp240, tmp241, tmp242, tmp243, tmp244, tmp245, tmp246, tmp247, tmp248, tmp249, tmp250, tmp242, tmp237, tmp242);
   }
 
@@ -8775,7 +8776,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<Context> tmp266;
     compiler::TNode<Smi> tmp267;
     ca_.Bind(&block28, &tmp251, &tmp252, &tmp253, &tmp254, &tmp255, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp268;
     USE(tmp268);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -8855,7 +8856,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<Context> tmp323;
     compiler::TNode<Smi> tmp324;
     ca_.Bind(&block29, &tmp308, &tmp309, &tmp310, &tmp311, &tmp312, &tmp313, &tmp314, &tmp315, &tmp316, &tmp317, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp325;
     USE(tmp325);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -8977,7 +8978,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::FastArraySome(compiler::T
     compiler::TNode<Object> tmp411;
     ca_.Bind(&block25, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405, &tmp406, &tmp407, &tmp408, &tmp409, &tmp410, &tmp411);
     ca_.SetSourcePosition("../../src/builtins/array-some.tq", 102);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block35, tmp397, tmp398, tmp399, tmp400, tmp401, tmp402, tmp403, tmp404, tmp405, tmp406, tmp407, tmp408, tmp409, tmp410, tmp411, tmp397, tmp400, tmp401, tmp411, tmp402, tmp406);
   }
 
@@ -10503,17 +10504,20 @@ TF_BUILTIN(Store20ATFastDoubleElements, CodeStubAssembler) {
     compiler::TNode<HeapNumber> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<HeapNumber>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast12ATHeapNumber(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp3}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 278);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 279);
     compiler::TNode<Float64T> tmp9;
     USE(tmp9);
     tmp9 = ca_.UncheckedCast<Float64T>(BaseBuiltinsFromDSLAssembler(state_).Convert9ATfloat6412ATHeapNumber(compiler::TNode<HeapNumber>{tmp8}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 279);
-    CodeStubAssembler(state_).StoreFixedDoubleArrayElementSmi(compiler::TNode<FixedDoubleArray>{tmp7}, compiler::TNode<Smi>{tmp2}, compiler::TNode<Float64T>{tmp9});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 280);
-    compiler::TNode<Smi> tmp10;
+    compiler::TNode<Float64T> tmp10;
     USE(tmp10);
-    tmp10 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
-    CodeStubAssembler(state_).Return(tmp10);
+    tmp10 = ca_.UncheckedCast<Float64T>(CodeStubAssembler(state_).Float64SilenceNaN(compiler::TNode<Float64T>{tmp9}));
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 280);
+    CodeStubAssembler(state_).StoreFixedDoubleArrayElementSmi(compiler::TNode<FixedDoubleArray>{tmp7}, compiler::TNode<Smi>{tmp2}, compiler::TNode<Float64T>{tmp10});
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 281);
+    compiler::TNode<Smi> tmp11;
+    USE(tmp11);
+    tmp11 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
+    CodeStubAssembler(state_).Return(tmp11);
   }
 }
 
@@ -10542,25 +10546,25 @@ TF_BUILTIN(Store20ATDictionaryElements, CodeStubAssembler) {
     compiler::TNode<Smi> tmp2;
     compiler::TNode<Object> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 285);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 286);
     compiler::TNode<JSReceiver> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSReceiver>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateReceiver(compiler::TNode<FixedArray>{tmp1}));
     compiler::TNode<JSObject> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<JSObject>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast8JSObject(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp4}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 286);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 287);
     compiler::TNode<FixedArrayBase> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<FixedArrayBase>(BaseBuiltinsFromDSLAssembler(state_).LoadJSObjectElements(compiler::TNode<JSObject>{tmp5}));
     compiler::TNode<NumberDictionary> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<NumberDictionary>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast18ATNumberDictionary(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp6}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 287);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 288);
     compiler::TNode<IntPtrT> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr5ATSmi(compiler::TNode<Smi>{tmp2}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 289);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 290);
     compiler::CodeAssemblerLabel label0(&ca_);
     compiler::CodeAssemblerLabel label1(&ca_);
     compiler::CodeAssemblerLabel label2(&ca_);
@@ -10637,7 +10641,7 @@ TF_BUILTIN(Store20ATDictionaryElements, CodeStubAssembler) {
     compiler::TNode<IntPtrT> tmp47;
     compiler::TNode<Object> tmp48;
     ca_.Bind(&block5, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 291);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 292);
     compiler::TNode<Smi> tmp49;
     USE(tmp49);
     tmp49 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
@@ -10653,15 +10657,15 @@ TF_BUILTIN(Store20ATDictionaryElements, CodeStubAssembler) {
     compiler::TNode<NumberDictionary> tmp55;
     compiler::TNode<IntPtrT> tmp56;
     ca_.Bind(&block4, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55, &tmp56);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 296);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 297);
     compiler::TNode<JSReceiver> tmp57;
     USE(tmp57);
     tmp57 = ca_.UncheckedCast<JSReceiver>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateReceiver(compiler::TNode<FixedArray>{tmp51}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 298);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 299);
     compiler::TNode<Object> tmp58;
     USE(tmp58);
     tmp58 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).Typeof(compiler::TNode<Object>{tmp57}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 297);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 298);
     CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp50}, MessageTemplate::kStrictReadOnlyProperty, compiler::TNode<Object>{tmp52}, compiler::TNode<Object>{tmp58}, compiler::TNode<Object>{tmp57});
   }
 
@@ -10674,7 +10678,7 @@ TF_BUILTIN(Store20ATDictionaryElements, CodeStubAssembler) {
     compiler::TNode<NumberDictionary> tmp64;
     compiler::TNode<IntPtrT> tmp65;
     ca_.Bind(&block2, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 301);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 302);
     compiler::TNode<Smi> tmp66;
     USE(tmp66);
     tmp66 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).Failure(compiler::TNode<FixedArray>{tmp60}));
@@ -10692,7 +10696,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast102FT9ATCon
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 307);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 308);
     compiler::TNode<BuiltinPtr> tmp2;
     USE(tmp2);
     tmp2 = TORQUE_CAST(compiler::TNode<Object>{tmp1});
@@ -10704,7 +10708,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast102FT9ATCon
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -10725,7 +10729,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast50FT9ATCont
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 310);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 311);
     compiler::TNode<BuiltinPtr> tmp2;
     USE(tmp2);
     tmp2 = TORQUE_CAST(compiler::TNode<Object>{tmp1});
@@ -10737,7 +10741,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast50FT9ATCont
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -10758,7 +10762,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast56FT9ATCont
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 313);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 314);
     compiler::TNode<BuiltinPtr> tmp2;
     USE(tmp2);
     tmp2 = TORQUE_CAST(compiler::TNode<Object>{tmp1});
@@ -10770,7 +10774,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast56FT9ATCont
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -10791,7 +10795,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast89FT9ATCont
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 317);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 318);
     compiler::TNode<BuiltinPtr> tmp2;
     USE(tmp2);
     tmp2 = TORQUE_CAST(compiler::TNode<Object>{tmp1});
@@ -10803,7 +10807,7 @@ compiler::TNode<BuiltinPtr> ArrayBuiltinsFromDSLAssembler::UnsafeCast89FT9ATCont
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -10840,7 +10844,7 @@ TF_BUILTIN(SortCompareDefault, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Object> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 324);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 325);
     compiler::TNode<BoolT> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).TaggedIsSmi(compiler::TNode<Object>{tmp2}));
@@ -10865,7 +10869,7 @@ TF_BUILTIN(SortCompareDefault, CodeStubAssembler) {
     compiler::TNode<Object> tmp12;
     compiler::TNode<Object> tmp13;
     ca_.Bind(&block1, &tmp10, &tmp11, &tmp12, &tmp13);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 325);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 326);
     compiler::TNode<Smi> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast5ATSmi(compiler::TNode<Context>{tmp10}, compiler::TNode<Object>{tmp12}));
@@ -10884,15 +10888,15 @@ TF_BUILTIN(SortCompareDefault, CodeStubAssembler) {
     compiler::TNode<Object> tmp19;
     compiler::TNode<Object> tmp20;
     ca_.Bind(&block2, &tmp17, &tmp18, &tmp19, &tmp20);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 329);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 330);
     compiler::TNode<String> tmp21;
     USE(tmp21);
     tmp21 = ca_.UncheckedCast<String>(CodeStubAssembler(state_).ToString_Inline(compiler::TNode<Context>{tmp17}, compiler::TNode<Object>{tmp19}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 332);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 333);
     compiler::TNode<String> tmp22;
     USE(tmp22);
     tmp22 = ca_.UncheckedCast<String>(CodeStubAssembler(state_).ToString_Inline(compiler::TNode<Context>{tmp17}, compiler::TNode<Object>{tmp20}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 337);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 338);
     compiler::TNode<Oddball> tmp23;
     tmp23 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kStringLessThan, tmp17, tmp21, tmp22));
     USE(tmp23);
@@ -10927,7 +10931,7 @@ TF_BUILTIN(SortCompareDefault, CodeStubAssembler) {
     compiler::TNode<String> tmp37;
     compiler::TNode<String> tmp38;
     ca_.Bind(&block5, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 342);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 343);
     compiler::TNode<Oddball> tmp39;
     tmp39 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kStringLessThan, tmp33, tmp38, tmp37));
     USE(tmp39);
@@ -10962,7 +10966,7 @@ TF_BUILTIN(SortCompareDefault, CodeStubAssembler) {
     compiler::TNode<String> tmp53;
     compiler::TNode<String> tmp54;
     ca_.Bind(&block7, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 345);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 346);
     compiler::TNode<Number> tmp55;
     USE(tmp55);
     tmp55 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -10991,11 +10995,11 @@ TF_BUILTIN(SortCompareUserFn, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Object> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 351);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 352);
     compiler::TNode<JSReceiver> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSReceiver>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast39UT15JSBoundFunction10JSFunction7JSProxy(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 354);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 355);
     compiler::TNode<Oddball> tmp5;
     USE(tmp5);
     tmp5 = BaseBuiltinsFromDSLAssembler(state_).Undefined();
@@ -11005,7 +11009,7 @@ TF_BUILTIN(SortCompareUserFn, CodeStubAssembler) {
     compiler::TNode<Number> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Number>(CodeStubAssembler(state_).ToNumber_Inline(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp6}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 357);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 358);
     compiler::TNode<BoolT> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).NumberIsNaN(compiler::TNode<Number>{tmp7}));
@@ -11034,7 +11038,7 @@ TF_BUILTIN(SortCompareUserFn, CodeStubAssembler) {
     compiler::TNode<JSReceiver> tmp20;
     compiler::TNode<Number> tmp21;
     ca_.Bind(&block2, &tmp16, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 360);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 361);
     CodeStubAssembler(state_).Return(tmp21);
   }
 }
@@ -11058,7 +11062,7 @@ TF_BUILTIN(CanUseSameAccessor25ATGenericElementsAccessor, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Number> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 380);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 381);
     compiler::TNode<Oddball> tmp4;
     USE(tmp4);
     tmp4 = BaseBuiltinsFromDSLAssembler(state_).True();
@@ -11085,11 +11089,11 @@ TF_BUILTIN(CanUseSameAccessor20ATDictionaryElements, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Number> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 386);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 387);
     compiler::TNode<JSReceiver> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSReceiver>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast10JSReceiver(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 387);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 388);
     compiler::TNode<Map> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp4}));
@@ -11113,11 +11117,11 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunsSize(compiler:
     compiler::TNode<Context> tmp0;
     compiler::TNode<FixedArray> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 394);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 395);
     compiler::TNode<Smi> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStatePendingRunsSize(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 396);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 397);
     ca_.Goto(&block1, tmp0, tmp1, tmp2);
   }
 
@@ -11126,7 +11130,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunsSize(compiler:
     compiler::TNode<FixedArray> tmp4;
     compiler::TNode<Smi> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 392);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 393);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -11148,7 +11152,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunBase(compiler::
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 401);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 402);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp2}, 1));
@@ -11167,7 +11171,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunBase(compiler::
     compiler::TNode<Smi> tmp8;
     compiler::TNode<Smi> tmp9;
     ca_.Bind(&block1, &tmp6, &tmp7, &tmp8, &tmp9);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 399);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 400);
     ca_.Goto(&block2, tmp6, tmp7, tmp8, tmp9);
   }
 
@@ -11190,12 +11194,12 @@ void ArrayBuiltinsFromDSLAssembler::SetPendingRunBase(compiler::TNode<FixedArray
     compiler::TNode<Smi> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 405);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 406);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp1}, 1));
     CodeStubAssembler(state_).StoreFixedArrayElement(compiler::TNode<FixedArray>{tmp0}, compiler::TNode<Smi>{tmp3}, compiler::TNode<Smi>{tmp2});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 404);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 405);
     ca_.Goto(&block1, tmp0, tmp1, tmp2);
   }
 
@@ -11224,7 +11228,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunLength(compiler
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 410);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 411);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp2}, 1));
@@ -11249,7 +11253,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::GetPendingRunLength(compiler
     compiler::TNode<Smi> tmp10;
     compiler::TNode<Smi> tmp11;
     ca_.Bind(&block1, &tmp8, &tmp9, &tmp10, &tmp11);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 408);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 409);
     ca_.Goto(&block2, tmp8, tmp9, tmp10, tmp11);
   }
 
@@ -11272,7 +11276,7 @@ void ArrayBuiltinsFromDSLAssembler::SetPendingRunLength(compiler::TNode<FixedArr
     compiler::TNode<Smi> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 414);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 415);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp1}, 1));
@@ -11283,7 +11287,7 @@ void ArrayBuiltinsFromDSLAssembler::SetPendingRunLength(compiler::TNode<FixedArr
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp3}, compiler::TNode<Smi>{tmp4}));
     CodeStubAssembler(state_).StoreFixedArrayElement(compiler::TNode<FixedArray>{tmp0}, compiler::TNode<Smi>{tmp5}, compiler::TNode<Smi>{tmp2});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 413);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 414);
     ca_.Goto(&block1, tmp0, tmp1, tmp2);
   }
 
@@ -11313,19 +11317,19 @@ void ArrayBuiltinsFromDSLAssembler::PushRun(compiler::TNode<Context> p_context, 
     compiler::TNode<Smi> tmp2;
     compiler::TNode<Smi> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 421);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 422);
     compiler::TNode<Smi> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunsSize(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 422);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 423);
     compiler::TNode<FixedArray> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStatePendingRuns(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 424);
-    ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunBase(compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp2});
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 425);
+    ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunBase(compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp2});
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 426);
     ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunLength(compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp3});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 427);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 428);
     compiler::TNode<Smi> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -11333,8 +11337,8 @@ void ArrayBuiltinsFromDSLAssembler::PushRun(compiler::TNode<Context> p_context, 
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp6}));
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStatePendingRunsSize(compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Smi>{tmp7});
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 419);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 418);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 417);
     ca_.Goto(&block1, tmp0, tmp1, tmp2, tmp3);
   }
 
@@ -11367,14 +11371,14 @@ compiler::TNode<FixedArray> ArrayBuiltinsFromDSLAssembler::GetTempArray(compiler
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 434);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 435);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ArrayBuiltinsFromDSLAssembler(state_).kSortStateTempSize();
     compiler::TNode<Smi> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiMax(compiler::TNode<Smi>{tmp3}, compiler::TNode<Smi>{tmp2}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 436);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 437);
     compiler::TNode<FixedArray> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateTempArray(compiler::TNode<FixedArray>{tmp1}));
@@ -11384,7 +11388,7 @@ compiler::TNode<FixedArray> ArrayBuiltinsFromDSLAssembler::GetTempArray(compiler
     compiler::TNode<Smi> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast5ATSmi(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp6}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 437);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 438);
     compiler::TNode<BoolT> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThanOrEqual(compiler::TNode<Smi>{tmp7}, compiler::TNode<Smi>{tmp4}));
@@ -11398,7 +11402,7 @@ compiler::TNode<FixedArray> ArrayBuiltinsFromDSLAssembler::GetTempArray(compiler
     compiler::TNode<Smi> tmp12;
     compiler::TNode<Smi> tmp13;
     ca_.Bind(&block2, &tmp9, &tmp10, &tmp11, &tmp12, &tmp13);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 438);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 439);
     compiler::TNode<FixedArray> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateTempArray(compiler::TNode<FixedArray>{tmp10}));
@@ -11412,17 +11416,17 @@ compiler::TNode<FixedArray> ArrayBuiltinsFromDSLAssembler::GetTempArray(compiler
     compiler::TNode<Smi> tmp18;
     compiler::TNode<Smi> tmp19;
     ca_.Bind(&block3, &tmp15, &tmp16, &tmp17, &tmp18, &tmp19);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 442);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 443);
     compiler::TNode<IntPtrT> tmp20;
     USE(tmp20);
     tmp20 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).Convert8ATintptr5ATSmi(compiler::TNode<Smi>{tmp18}));
     compiler::TNode<FixedArray> tmp21;
     USE(tmp21);
     tmp21 = ca_.UncheckedCast<FixedArray>(CodeStubAssembler(state_).AllocateZeroedFixedArray(compiler::TNode<IntPtrT>{tmp20}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 441);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 444);
-    ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateTempArray(compiler::TNode<FixedArray>{tmp16}, compiler::TNode<FixedArray>{tmp21});
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 442);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 445);
+    ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateTempArray(compiler::TNode<FixedArray>{tmp16}, compiler::TNode<FixedArray>{tmp21});
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 446);
     ca_.Goto(&block1, tmp15, tmp16, tmp17, tmp21);
   }
 
@@ -11432,7 +11436,7 @@ compiler::TNode<FixedArray> ArrayBuiltinsFromDSLAssembler::GetTempArray(compiler
     compiler::TNode<Smi> tmp24;
     compiler::TNode<FixedArray> tmp25;
     ca_.Bind(&block1, &tmp22, &tmp23, &tmp24, &tmp25);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 432);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 433);
     ca_.Goto(&block4, tmp22, tmp23, tmp24, tmp25);
   }
 
@@ -11457,7 +11461,7 @@ void ArrayBuiltinsFromDSLAssembler::EnsureSuccess(compiler::TNode<Context> p_con
     compiler::TNode<Context> tmp0;
     compiler::TNode<FixedArray> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 451);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 452);
     compiler::TNode<Smi> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateBailoutStatus(compiler::TNode<FixedArray>{tmp1}));
@@ -11481,7 +11485,7 @@ void ArrayBuiltinsFromDSLAssembler::EnsureSuccess(compiler::TNode<Context> p_con
     compiler::TNode<Context> tmp7;
     compiler::TNode<FixedArray> tmp8;
     ca_.Bind(&block4, &tmp7, &tmp8);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 449);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 450);
     ca_.Goto(&block2, tmp7, tmp8);
   }
 
@@ -11511,12 +11515,12 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::Failure(compiler::TNode<Fixe
   if (block0.is_used()) {
     compiler::TNode<FixedArray> tmp0;
     ca_.Bind(&block0, &tmp0);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 456);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 457);
     compiler::TNode<Smi> tmp1;
     USE(tmp1);
     tmp1 = ArrayBuiltinsFromDSLAssembler(state_).kFailure();
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateBailoutStatus(compiler::TNode<FixedArray>{tmp0}, compiler::TNode<Smi>{tmp1});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 457);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 458);
     compiler::TNode<Smi> tmp2;
     USE(tmp2);
     tmp2 = ArrayBuiltinsFromDSLAssembler(state_).kFailure();
@@ -11527,7 +11531,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::Failure(compiler::TNode<Fixe
     compiler::TNode<FixedArray> tmp3;
     compiler::TNode<Smi> tmp4;
     ca_.Bind(&block1, &tmp3, &tmp4);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 455);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 456);
     ca_.Goto(&block2, tmp3, tmp4);
   }
 
@@ -11552,10 +11556,10 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::CallLoad(compiler::TNode<
     compiler::TNode<BuiltinPtr> tmp2;
     compiler::TNode<Smi> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 467);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 468);
     compiler::TNode<Object> tmp4 = CodeStubAssembler(state_).CallBuiltinPointer(Builtins::CallableFor(ca_.isolate(),ExampleBuiltinForTorqueFunctionPointerType(4)).descriptor(), tmp2, tmp0, tmp1, tmp3); 
     USE(tmp4);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 468);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 469);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).EnsureSuccess(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, &label0);
     ca_.Goto(&block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp1);
@@ -11584,7 +11588,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::CallLoad(compiler::TNode<
     compiler::TNode<Object> tmp15;
     compiler::TNode<FixedArray> tmp16;
     ca_.Bind(&block3, &tmp11, &tmp12, &tmp13, &tmp14, &tmp15, &tmp16);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 469);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 470);
     ca_.Goto(&block2, tmp11, tmp12, tmp13, tmp14, tmp15);
   }
 
@@ -11595,7 +11599,7 @@ compiler::TNode<Object> ArrayBuiltinsFromDSLAssembler::CallLoad(compiler::TNode<
     compiler::TNode<Smi> tmp20;
     compiler::TNode<Object> tmp21;
     ca_.Bind(&block2, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 464);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 465);
     ca_.Goto(&block5, tmp17, tmp18, tmp19, tmp20, tmp21);
   }
 
@@ -11629,10 +11633,10 @@ void ArrayBuiltinsFromDSLAssembler::CallStore(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp3;
     compiler::TNode<Object> tmp4;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 474);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 475);
     compiler::TNode<Smi> tmp5 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltinPointer(Builtins::CallableFor(ca_.isolate(),ExampleBuiltinForTorqueFunctionPointerType(5)).descriptor(), tmp2, tmp0, tmp1, tmp3, tmp4)); 
     USE(tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 475);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 476);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).EnsureSuccess(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, &label0);
     ca_.Goto(&block3, tmp0, tmp1, tmp2, tmp3, tmp4, tmp1);
@@ -11661,7 +11665,7 @@ void ArrayBuiltinsFromDSLAssembler::CallStore(compiler::TNode<Context> p_context
     compiler::TNode<Object> tmp16;
     compiler::TNode<FixedArray> tmp17;
     ca_.Bind(&block3, &tmp12, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 472);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 473);
     ca_.Goto(&block2, tmp12, tmp13, tmp14, tmp15, tmp16);
   }
 
@@ -11722,7 +11726,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp4;
     compiler::TNode<Smi> tmp5;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 493);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 494);
     compiler::TNode<BoolT> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThan(compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp4}));
@@ -11737,7 +11741,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp11;
     compiler::TNode<Smi> tmp12;
     ca_.Bind(&block1, &tmp7, &tmp8, &tmp9, &tmp10, &tmp11, &tmp12);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 494);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 495);
     compiler::TNode<Smi> tmp13;
     USE(tmp13);
     tmp13 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp9}, compiler::TNode<Smi>{tmp12}));
@@ -11747,7 +11751,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp13}, compiler::TNode<Smi>{tmp14}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 495);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 496);
     compiler::TNode<Smi> tmp16;
     USE(tmp16);
     tmp16 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp11}, compiler::TNode<Smi>{tmp12}));
@@ -11757,7 +11761,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp16}, compiler::TNode<Smi>{tmp17}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 496);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 497);
     ca_.Goto(&block6, tmp7, tmp8, tmp9, tmp10, tmp11, tmp12, tmp15, tmp18);
   }
 
@@ -11787,7 +11791,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp34;
     compiler::TNode<Smi> tmp35;
     ca_.Bind(&block4, &tmp28, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 497);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 498);
     compiler::TNode<Smi> tmp36;
     USE(tmp36);
     tmp36 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -11804,7 +11808,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     USE(tmp40);
     tmp40 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp29}, compiler::TNode<Smi>{tmp34}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp31}, compiler::TNode<Smi>{tmp35}, compiler::TNode<Object>{tmp40});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 496);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 497);
     ca_.Goto(&block6, tmp28, tmp29, tmp30, tmp31, tmp32, tmp33, tmp39, tmp37);
   }
 
@@ -11818,7 +11822,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp47;
     compiler::TNode<Smi> tmp48;
     ca_.Bind(&block5, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 493);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 494);
     ca_.Goto(&block3, tmp41, tmp42, tmp43, tmp44, tmp45, tmp46);
   }
 
@@ -11830,13 +11834,13 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp53;
     compiler::TNode<Smi> tmp54;
     ca_.Bind(&block2, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 500);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 501);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 502);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 503);
     compiler::TNode<Smi> tmp55;
     USE(tmp55);
     tmp55 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp51}, compiler::TNode<Smi>{tmp54}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 504);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 505);
     ca_.Goto(&block9, tmp49, tmp50, tmp51, tmp52, tmp53, tmp54, tmp51, tmp53, tmp55);
   }
 
@@ -11868,7 +11872,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp73;
     compiler::TNode<Smi> tmp74;
     ca_.Bind(&block7, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 505);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 506);
     compiler::TNode<Smi> tmp75;
     USE(tmp75);
     tmp75 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -11885,7 +11889,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     USE(tmp79);
     tmp79 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp67}, compiler::TNode<Smi>{tmp72}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp69}, compiler::TNode<Smi>{tmp73}, compiler::TNode<Object>{tmp79});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 504);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 505);
     ca_.Goto(&block9, tmp66, tmp67, tmp68, tmp69, tmp70, tmp71, tmp78, tmp76, tmp74);
   }
 
@@ -11900,8 +11904,8 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp87;
     compiler::TNode<Smi> tmp88;
     ca_.Bind(&block8, &tmp80, &tmp81, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87, &tmp88);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 499);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 493);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 500);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 494);
     ca_.Goto(&block3, tmp80, tmp81, tmp82, tmp83, tmp84, tmp85);
   }
 
@@ -11913,7 +11917,7 @@ TF_BUILTIN(Copy, CodeStubAssembler) {
     compiler::TNode<Smi> tmp93;
     compiler::TNode<Smi> tmp94;
     ca_.Bind(&block3, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 508);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 509);
     compiler::TNode<Smi> tmp95;
     USE(tmp95);
     tmp95 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
@@ -11963,11 +11967,11 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp3;
     compiler::TNode<Smi> tmp4;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 526);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 527);
     compiler::TNode<FixedArray> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 528);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 529);
     compiler::TNode<BoolT> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiEqual(compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp3}));
@@ -12023,7 +12027,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp33;
     compiler::TNode<Smi> tmp34;
     ca_.Bind(&block3, &tmp28, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 530);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 531);
     ca_.Goto(&block7, tmp28, tmp29, tmp30, tmp31, tmp32, tmp33, tmp34);
   }
 
@@ -12051,13 +12055,13 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp48;
     compiler::TNode<Smi> tmp49;
     ca_.Bind(&block5, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 532);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 533);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 535);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 534);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 536);
     compiler::TNode<Object> tmp50;
     USE(tmp50);
     tmp50 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp48}, compiler::TNode<Smi>{tmp49}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 543);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 544);
     ca_.Goto(&block11, tmp43, tmp44, tmp45, tmp46, tmp47, tmp48, tmp49, tmp45, tmp49, tmp50);
   }
 
@@ -12091,7 +12095,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp70;
     compiler::TNode<Object> tmp71;
     ca_.Bind(&block9, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 544);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 545);
     compiler::TNode<Smi> tmp72;
     USE(tmp72);
     tmp72 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp70}, compiler::TNode<Smi>{tmp69}));
@@ -12101,14 +12105,14 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp74;
     USE(tmp74);
     tmp74 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp69}, compiler::TNode<Smi>{tmp73}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 545);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 546);
     compiler::TNode<Object> tmp75;
     USE(tmp75);
     tmp75 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp67}, compiler::TNode<Smi>{tmp74}));
     compiler::TNode<Number> tmp76;
     USE(tmp76);
     tmp76 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp62}, compiler::TNode<FixedArray>{tmp63}, compiler::TNode<Object>{tmp71}, compiler::TNode<Object>{tmp75}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 547);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 548);
     compiler::TNode<Number> tmp77;
     USE(tmp77);
     tmp77 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -12175,8 +12179,8 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp114;
     compiler::TNode<Number> tmp115;
     ca_.Bind(&block12, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110, &tmp111, &tmp112, &tmp113, &tmp114, &tmp115);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 549);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 548);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 547);
     ca_.Goto(&block16, tmp104, tmp105, tmp106, tmp107, tmp108, tmp109, tmp110, tmp111, tmp114, tmp113, tmp114, tmp115);
   }
 
@@ -12194,14 +12198,14 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp126;
     compiler::TNode<Number> tmp127;
     ca_.Bind(&block13, &tmp116, &tmp117, &tmp118, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 550);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 551);
     compiler::TNode<Smi> tmp128;
     USE(tmp128);
     tmp128 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp129;
     USE(tmp129);
     tmp129 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp126}, compiler::TNode<Smi>{tmp128}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 547);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 548);
     ca_.Goto(&block16, tmp116, tmp117, tmp118, tmp119, tmp120, tmp121, tmp122, tmp129, tmp124, tmp125, tmp126, tmp127);
   }
 
@@ -12219,7 +12223,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp140;
     compiler::TNode<Number> tmp141;
     ca_.Bind(&block16, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138, &tmp139, &tmp140, &tmp141);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 543);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 544);
     ca_.Goto(&block11, tmp130, tmp131, tmp132, tmp133, tmp134, tmp135, tmp136, tmp137, tmp138, tmp139);
   }
 
@@ -12235,7 +12239,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp150;
     compiler::TNode<Object> tmp151;
     ca_.Bind(&block10, &tmp142, &tmp143, &tmp144, &tmp145, &tmp146, &tmp147, &tmp148, &tmp149, &tmp150, &tmp151);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 562);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 563);
     ca_.Goto(&block19, tmp142, tmp143, tmp144, tmp145, tmp146, tmp147, tmp148, tmp149, tmp150, tmp151, tmp148);
   }
 
@@ -12271,7 +12275,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Object> tmp173;
     compiler::TNode<Smi> tmp174;
     ca_.Bind(&block17, &tmp164, &tmp165, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 563);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 564);
     compiler::TNode<Smi> tmp175;
     USE(tmp175);
     tmp175 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -12282,7 +12286,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     USE(tmp177);
     tmp177 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp169}, compiler::TNode<Smi>{tmp176}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp169}, compiler::TNode<Smi>{tmp174}, compiler::TNode<Object>{tmp177});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 562);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 563);
     ca_.Goto(&block20, tmp164, tmp165, tmp166, tmp167, tmp168, tmp169, tmp170, tmp171, tmp172, tmp173, tmp174);
   }
 
@@ -12321,9 +12325,9 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<Object> tmp200;
     compiler::TNode<Smi> tmp201;
     ca_.Bind(&block18, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 565);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 566);
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp196}, compiler::TNode<Smi>{tmp198}, compiler::TNode<Object>{tmp200});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 530);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 531);
     ca_.Goto(&block8, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp197);
   }
 
@@ -12354,7 +12358,7 @@ TF_BUILTIN(BinaryInsertionSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp216;
     compiler::TNode<Smi> tmp217;
     ca_.Bind(&block6, &tmp211, &tmp212, &tmp213, &tmp214, &tmp215, &tmp216, &tmp217);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 567);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 568);
     compiler::TNode<Smi> tmp218;
     USE(tmp218);
     tmp218 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
@@ -12399,18 +12403,18 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp2;
     compiler::TNode<Smi> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 591);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 592);
     compiler::TNode<FixedArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 593);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 594);
     compiler::TNode<Smi> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp5}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 594);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 595);
     compiler::TNode<BoolT> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiEqual(compiler::TNode<Smi>{tmp6}, compiler::TNode<Smi>{tmp3}));
@@ -12439,15 +12443,15 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<FixedArray> tmp19;
     compiler::TNode<Smi> tmp20;
     ca_.Bind(&block3, &tmp15, &tmp16, &tmp17, &tmp18, &tmp19, &tmp20);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 596);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 597);
     compiler::TNode<Smi> tmp21;
     USE(tmp21);
     tmp21 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 598);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 599);
     compiler::TNode<Object> tmp22;
     USE(tmp22);
     tmp22 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp19}, compiler::TNode<Smi>{tmp20}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 599);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 600);
     compiler::TNode<Smi> tmp23;
     USE(tmp23);
     tmp23 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -12457,11 +12461,11 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Object> tmp25;
     USE(tmp25);
     tmp25 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp19}, compiler::TNode<Smi>{tmp24}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 600);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 601);
     compiler::TNode<Number> tmp26;
     USE(tmp26);
     tmp26 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp15}, compiler::TNode<FixedArray>{tmp16}, compiler::TNode<Object>{tmp22}, compiler::TNode<Object>{tmp25}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 605);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 606);
     compiler::TNode<Number> tmp27;
     USE(tmp27);
     tmp27 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -12574,8 +12578,8 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Number> tmp91;
     compiler::TNode<BoolT> tmp92;
     ca_.Bind(&block6, &tmp82, &tmp83, &tmp84, &tmp85, &tmp86, &tmp87, &tmp88, &tmp89, &tmp90, &tmp91, &tmp92);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 607);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 608);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 609);
     compiler::TNode<Smi> tmp93;
     USE(tmp93);
     tmp93 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -12621,15 +12625,15 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Object> tmp120;
     compiler::TNode<Smi> tmp121;
     ca_.Bind(&block10, &tmp109, &tmp110, &tmp111, &tmp112, &tmp113, &tmp114, &tmp115, &tmp116, &tmp117, &tmp118, &tmp119, &tmp120, &tmp121);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 609);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 610);
     compiler::TNode<Object> tmp122;
     USE(tmp122);
     tmp122 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp113}, compiler::TNode<Smi>{tmp121}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 610);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 611);
     compiler::TNode<Number> tmp123;
     USE(tmp123);
     tmp123 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp109}, compiler::TNode<FixedArray>{tmp110}, compiler::TNode<Object>{tmp122}, compiler::TNode<Object>{tmp120}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 612);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 613);
     ca_.Branch(tmp119, &block14, &block15, tmp109, tmp110, tmp111, tmp112, tmp113, tmp114, tmp115, tmp116, tmp117, tmp123, tmp119, tmp120, tmp121, tmp122);
   }
 
@@ -12649,7 +12653,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp136;
     compiler::TNode<Object> tmp137;
     ca_.Bind(&block14, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 613);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 614);
     compiler::TNode<Number> tmp138;
     USE(tmp138);
     tmp138 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -12741,7 +12745,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp195;
     compiler::TNode<Object> tmp196;
     ca_.Bind(&block18, &tmp183, &tmp184, &tmp185, &tmp186, &tmp187, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 612);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 613);
     ca_.Goto(&block16, tmp183, tmp184, tmp185, tmp186, tmp187, tmp188, tmp189, tmp190, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196);
   }
 
@@ -12761,7 +12765,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp209;
     compiler::TNode<Object> tmp210;
     ca_.Bind(&block15, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 615);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 616);
     compiler::TNode<Number> tmp211;
     USE(tmp211);
     tmp211 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -12853,7 +12857,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp268;
     compiler::TNode<Object> tmp269;
     ca_.Bind(&block22, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267, &tmp268, &tmp269);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 612);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 613);
     ca_.Goto(&block16, tmp256, tmp257, tmp258, tmp259, tmp260, tmp261, tmp262, tmp263, tmp264, tmp265, tmp266, tmp267, tmp268, tmp269);
   }
 
@@ -12873,15 +12877,15 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp282;
     compiler::TNode<Object> tmp283;
     ca_.Bind(&block16, &tmp270, &tmp271, &tmp272, &tmp273, &tmp274, &tmp275, &tmp276, &tmp277, &tmp278, &tmp279, &tmp280, &tmp281, &tmp282, &tmp283);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 618);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 619);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 620);
     compiler::TNode<Smi> tmp284;
     USE(tmp284);
     tmp284 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp285;
     USE(tmp285);
     tmp285 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp276}, compiler::TNode<Smi>{tmp284}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 608);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 609);
     ca_.Goto(&block13, tmp270, tmp271, tmp272, tmp273, tmp274, tmp275, tmp285, tmp277, tmp278, tmp279, tmp280, tmp283, tmp282);
   }
 
@@ -12924,7 +12928,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Object> tmp312;
     compiler::TNode<Smi> tmp313;
     ca_.Bind(&block11, &tmp301, &tmp302, &tmp303, &tmp304, &tmp305, &tmp306, &tmp307, &tmp308, &tmp309, &tmp310, &tmp311, &tmp312, &tmp313);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 622);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 623);
     ca_.Branch(tmp311, &block25, &block26, tmp301, tmp302, tmp303, tmp304, tmp305, tmp306, tmp307, tmp308, tmp309, tmp310, tmp311, tmp312);
   }
 
@@ -12942,12 +12946,12 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<BoolT> tmp324;
     compiler::TNode<Object> tmp325;
     ca_.Bind(&block25, &tmp314, &tmp315, &tmp316, &tmp317, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324, &tmp325);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 623);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 624);
     compiler::TNode<Smi> tmp326;
     USE(tmp326);
     tmp326 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp316}, compiler::TNode<Smi>{tmp320}));
     ArrayBuiltinsFromDSLAssembler(state_).ReverseRange(compiler::TNode<FixedArray>{tmp318}, compiler::TNode<Smi>{tmp316}, compiler::TNode<Smi>{tmp326});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 622);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 623);
     ca_.Goto(&block26, tmp314, tmp315, tmp316, tmp317, tmp318, tmp319, tmp320, tmp321, tmp322, tmp323, tmp324, tmp325);
   }
 
@@ -12965,7 +12969,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<BoolT> tmp337;
     compiler::TNode<Object> tmp338;
     ca_.Bind(&block26, &tmp327, &tmp328, &tmp329, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 626);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 627);
     ca_.Goto(&block1, tmp327, tmp328, tmp329, tmp330, tmp333);
   }
 
@@ -12976,7 +12980,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::CountAndMakeRun(compiler::TN
     compiler::TNode<Smi> tmp342;
     compiler::TNode<Smi> tmp343;
     ca_.Bind(&block1, &tmp339, &tmp340, &tmp341, &tmp342, &tmp343);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 587);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 588);
     ca_.Goto(&block27, tmp339, tmp340, tmp341, tmp342, tmp343);
   }
 
@@ -13003,15 +13007,15 @@ void ArrayBuiltinsFromDSLAssembler::ReverseRange(compiler::TNode<FixedArray> p_a
     compiler::TNode<Smi> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 630);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 631);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 632);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp3}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 633);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 634);
     ca_.Goto(&block4, tmp0, tmp1, tmp2, tmp1, tmp4);
   }
 
@@ -13035,15 +13039,15 @@ void ArrayBuiltinsFromDSLAssembler::ReverseRange(compiler::TNode<FixedArray> p_a
     compiler::TNode<Smi> tmp14;
     compiler::TNode<Smi> tmp15;
     ca_.Bind(&block2, &tmp11, &tmp12, &tmp13, &tmp14, &tmp15);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 634);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 635);
     compiler::TNode<Object> tmp16;
     USE(tmp16);
     tmp16 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp11}, compiler::TNode<Smi>{tmp14}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 635);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 636);
     compiler::TNode<Object> tmp17;
     USE(tmp17);
     tmp17 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp11}, compiler::TNode<Smi>{tmp15}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 636);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 637);
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13051,7 +13055,7 @@ void ArrayBuiltinsFromDSLAssembler::ReverseRange(compiler::TNode<FixedArray> p_a
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp14}, compiler::TNode<Smi>{tmp18}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp11}, compiler::TNode<Smi>{tmp14}, compiler::TNode<Object>{tmp17});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 637);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 638);
     compiler::TNode<Smi> tmp20;
     USE(tmp20);
     tmp20 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13059,7 +13063,7 @@ void ArrayBuiltinsFromDSLAssembler::ReverseRange(compiler::TNode<FixedArray> p_a
     USE(tmp21);
     tmp21 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp15}, compiler::TNode<Smi>{tmp20}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp11}, compiler::TNode<Smi>{tmp15}, compiler::TNode<Object>{tmp16});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 633);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 634);
     ca_.Goto(&block4, tmp11, tmp12, tmp13, tmp19, tmp21);
   }
 
@@ -13070,7 +13074,7 @@ void ArrayBuiltinsFromDSLAssembler::ReverseRange(compiler::TNode<FixedArray> p_a
     compiler::TNode<Smi> tmp25;
     compiler::TNode<Smi> tmp26;
     ca_.Bind(&block3, &tmp22, &tmp23, &tmp24, &tmp25, &tmp26);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 629);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 630);
     ca_.Goto(&block1, tmp22, tmp23, tmp24);
   }
 
@@ -13118,27 +13122,27 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 645);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 646);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunsSize(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 653);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 654);
     compiler::TNode<FixedArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 655);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 656);
     compiler::TNode<FixedArray> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStatePendingRuns(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 656);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 657);
     compiler::TNode<Smi> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunBase(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp2}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 657);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 658);
     compiler::TNode<Smi> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp2}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 658);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 659);
     compiler::TNode<Smi> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13148,7 +13152,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunBase(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp9}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 659);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 660);
     compiler::TNode<Smi> tmp11;
     USE(tmp11);
     tmp11 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13158,12 +13162,12 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp13;
     USE(tmp13);
     tmp13 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp12}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 666);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 667);
     compiler::TNode<Smi> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp7}, compiler::TNode<Smi>{tmp13}));
     ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunLength(compiler::TNode<FixedArray>{tmp5}, compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp14});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 667);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 668);
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(3));
@@ -13188,7 +13192,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp26;
     compiler::TNode<Smi> tmp27;
     ca_.Bind(&block1, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25, &tmp26, &tmp27);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 668);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 669);
     compiler::TNode<Smi> tmp28;
     USE(tmp28);
     tmp28 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -13198,7 +13202,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp30;
     USE(tmp30);
     tmp30 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunBase(compiler::TNode<Context>{tmp18}, compiler::TNode<FixedArray>{tmp23}, compiler::TNode<Smi>{tmp29}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 669);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 670);
     compiler::TNode<Smi> tmp31;
     USE(tmp31);
     tmp31 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -13208,7 +13212,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp33;
     USE(tmp33);
     tmp33 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp18}, compiler::TNode<FixedArray>{tmp23}, compiler::TNode<Smi>{tmp32}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 670);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 671);
     compiler::TNode<Smi> tmp34;
     USE(tmp34);
     tmp34 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13216,7 +13220,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     USE(tmp35);
     tmp35 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp20}, compiler::TNode<Smi>{tmp34}));
     ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunBase(compiler::TNode<FixedArray>{tmp23}, compiler::TNode<Smi>{tmp35}, compiler::TNode<Smi>{tmp30});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 671);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 672);
     compiler::TNode<Smi> tmp36;
     USE(tmp36);
     tmp36 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13224,7 +13228,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     USE(tmp37);
     tmp37 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp20}, compiler::TNode<Smi>{tmp36}));
     ArrayBuiltinsFromDSLAssembler(state_).SetPendingRunLength(compiler::TNode<FixedArray>{tmp23}, compiler::TNode<Smi>{tmp37}, compiler::TNode<Smi>{tmp33});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 667);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 668);
     ca_.Goto(&block2, tmp18, tmp19, tmp20, tmp21, tmp22, tmp23, tmp24, tmp25, tmp26, tmp27);
   }
 
@@ -13240,7 +13244,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp46;
     compiler::TNode<Smi> tmp47;
     ca_.Bind(&block2, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 673);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 674);
     compiler::TNode<Smi> tmp48;
     USE(tmp48);
     tmp48 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13248,26 +13252,26 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     USE(tmp49);
     tmp49 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp41}, compiler::TNode<Smi>{tmp48}));
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStatePendingRunsSize(compiler::TNode<FixedArray>{tmp39}, compiler::TNode<Smi>{tmp49});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 678);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 679);
     compiler::TNode<Object> tmp50;
     USE(tmp50);
     tmp50 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp42}, compiler::TNode<Smi>{tmp46}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 679);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 680);
     compiler::TNode<Smi> tmp51;
     USE(tmp51);
     tmp51 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Smi> tmp52;
     tmp52 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopRight, tmp38, tmp39, tmp42, tmp50, tmp44, tmp45, tmp51));
     USE(tmp52);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 682);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 683);
     compiler::TNode<Smi> tmp53;
     USE(tmp53);
     tmp53 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp44}, compiler::TNode<Smi>{tmp52}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 683);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 684);
     compiler::TNode<Smi> tmp54;
     USE(tmp54);
     tmp54 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp45}, compiler::TNode<Smi>{tmp52}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 684);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 685);
     compiler::TNode<Smi> tmp55;
     USE(tmp55);
     tmp55 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -13311,7 +13315,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Object> tmp80;
     compiler::TNode<Smi> tmp81;
     ca_.Bind(&block6, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74, &tmp75, &tmp76, &tmp77, &tmp78, &tmp79, &tmp80, &tmp81);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 689);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 690);
     compiler::TNode<Smi> tmp82;
     USE(tmp82);
     tmp82 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp76}, compiler::TNode<Smi>{tmp77}));
@@ -13324,7 +13328,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Object> tmp85;
     USE(tmp85);
     tmp85 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp74}, compiler::TNode<Smi>{tmp84}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 690);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 691);
     compiler::TNode<Smi> tmp86;
     USE(tmp86);
     tmp86 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -13334,7 +13338,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp88;
     tmp88 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopLeft, tmp70, tmp71, tmp74, tmp85, tmp78, tmp79, tmp87));
     USE(tmp88);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 692);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 693);
     compiler::TNode<Smi> tmp89;
     USE(tmp89);
     tmp89 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -13380,7 +13384,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp116;
     compiler::TNode<Object> tmp117;
     ca_.Bind(&block8, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110, &tmp111, &tmp112, &tmp113, &tmp114, &tmp115, &tmp116, &tmp117);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 696);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 697);
     compiler::TNode<BoolT> tmp118;
     USE(tmp118);
     tmp118 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThanOrEqual(compiler::TNode<Smi>{tmp112}, compiler::TNode<Smi>{tmp114}));
@@ -13402,7 +13406,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp130;
     compiler::TNode<Object> tmp131;
     ca_.Bind(&block9, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 697);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 698);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).MergeLow(compiler::TNode<Context>{tmp119}, compiler::TNode<FixedArray>{tmp120}, compiler::TNode<Smi>{tmp125}, compiler::TNode<Smi>{tmp126}, compiler::TNode<Smi>{tmp127}, compiler::TNode<Smi>{tmp128}, &label0);
     ca_.Goto(&block12, tmp119, tmp120, tmp121, tmp122, tmp123, tmp124, tmp125, tmp126, tmp127, tmp128, tmp129, tmp130, tmp131, tmp125, tmp126, tmp127, tmp128);
@@ -13453,7 +13457,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp164;
     compiler::TNode<Smi> tmp165;
     ca_.Bind(&block12, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164, &tmp165);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 696);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 697);
     ca_.Goto(&block11, tmp149, tmp150, tmp151, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp160, tmp161);
   }
 
@@ -13472,7 +13476,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp177;
     compiler::TNode<Object> tmp178;
     ca_.Bind(&block10, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174, &tmp175, &tmp176, &tmp177, &tmp178);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 699);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 700);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).MergeHigh(compiler::TNode<Context>{tmp166}, compiler::TNode<FixedArray>{tmp167}, compiler::TNode<Smi>{tmp172}, compiler::TNode<Smi>{tmp173}, compiler::TNode<Smi>{tmp174}, compiler::TNode<Smi>{tmp175}, &label0);
     ca_.Goto(&block14, tmp166, tmp167, tmp168, tmp169, tmp170, tmp171, tmp172, tmp173, tmp174, tmp175, tmp176, tmp177, tmp178, tmp172, tmp173, tmp174, tmp175);
@@ -13523,7 +13527,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp211;
     compiler::TNode<Smi> tmp212;
     ca_.Bind(&block14, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210, &tmp211, &tmp212);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 696);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 697);
     ca_.Goto(&block11, tmp196, tmp197, tmp198, tmp199, tmp200, tmp201, tmp202, tmp203, tmp204, tmp205, tmp206, tmp207, tmp208);
   }
 
@@ -13542,7 +13546,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp224;
     compiler::TNode<Object> tmp225;
     ca_.Bind(&block11, &tmp213, &tmp214, &tmp215, &tmp216, &tmp217, &tmp218, &tmp219, &tmp220, &tmp221, &tmp222, &tmp223, &tmp224, &tmp225);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 701);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 702);
     compiler::TNode<Smi> tmp226;
     USE(tmp226);
     tmp226 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
@@ -13561,7 +13565,7 @@ TF_BUILTIN(MergeAt, CodeStubAssembler) {
     compiler::TNode<Smi> tmp235;
     compiler::TNode<Smi> tmp236;
     ca_.Bind(&block4, &tmp227, &tmp228, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 704);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 705);
     compiler::TNode<Smi> tmp237;
     USE(tmp237);
     tmp237 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).Failure(compiler::TNode<FixedArray>{tmp228}));
@@ -13632,26 +13636,26 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp5;
     compiler::TNode<Smi> tmp6;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5, &tmp6);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 731);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 732);
     compiler::TNode<Smi> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 732);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 733);
     compiler::TNode<Smi> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 734);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 735);
     compiler::TNode<Smi> tmp9;
     USE(tmp9);
     tmp9 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp6}));
     compiler::TNode<Object> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp2}, compiler::TNode<Smi>{tmp9}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 735);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 736);
     compiler::TNode<Number> tmp11;
     USE(tmp11);
     tmp11 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Object>{tmp10}, compiler::TNode<Object>{tmp3}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 737);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 738);
     compiler::TNode<Number> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -13715,11 +13719,11 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp46;
     compiler::TNode<Number> tmp47;
     ca_.Bind(&block1, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 742);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 743);
     compiler::TNode<Smi> tmp48;
     USE(tmp48);
     tmp48 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp42}, compiler::TNode<Smi>{tmp43}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 743);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 744);
     ca_.Goto(&block8, tmp37, tmp38, tmp39, tmp40, tmp41, tmp42, tmp43, tmp44, tmp45, tmp46, tmp47, tmp48);
   }
 
@@ -13757,7 +13761,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp72;
     compiler::TNode<Smi> tmp73;
     ca_.Bind(&block6, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 744);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 745);
     compiler::TNode<Smi> tmp74;
     USE(tmp74);
     tmp74 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp66}, compiler::TNode<Smi>{tmp68}));
@@ -13767,11 +13771,11 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp76;
     USE(tmp76);
     tmp76 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp64}, compiler::TNode<Smi>{tmp75}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 745);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 746);
     compiler::TNode<Number> tmp77;
     USE(tmp77);
     tmp77 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp62}, compiler::TNode<FixedArray>{tmp63}, compiler::TNode<Object>{tmp76}, compiler::TNode<Object>{tmp65}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 748);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 749);
     compiler::TNode<Number> tmp78;
     USE(tmp78);
     tmp78 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -13859,8 +13863,8 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp131;
     compiler::TNode<Object> tmp132;
     ca_.Bind(&block10, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 750);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 751);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 752);
     compiler::TNode<Smi> tmp133;
     USE(tmp133);
     tmp133 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp128}, 1));
@@ -13870,7 +13874,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp135;
     USE(tmp135);
     tmp135 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp133}, compiler::TNode<Smi>{tmp134}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 754);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 755);
     compiler::TNode<Smi> tmp136;
     USE(tmp136);
     tmp136 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -13913,7 +13917,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp162;
     compiler::TNode<Object> tmp163;
     ca_.Bind(&block14, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 743);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 744);
     ca_.Goto(&block8, tmp151, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp160, tmp161, tmp162);
   }
 
@@ -13931,7 +13935,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp174;
     compiler::TNode<Smi> tmp175;
     ca_.Bind(&block7, &tmp164, &tmp165, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174, &tmp175);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 757);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 758);
     compiler::TNode<BoolT> tmp176;
     USE(tmp176);
     tmp176 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThan(compiler::TNode<Smi>{tmp172}, compiler::TNode<Smi>{tmp175}));
@@ -13969,15 +13973,15 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp199;
     compiler::TNode<Smi> tmp200;
     ca_.Bind(&block16, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 760);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 761);
     compiler::TNode<Smi> tmp201;
     USE(tmp201);
     tmp201 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp196}, compiler::TNode<Smi>{tmp195}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 761);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 762);
     compiler::TNode<Smi> tmp202;
     USE(tmp202);
     tmp202 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp197}, compiler::TNode<Smi>{tmp195}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 737);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 738);
     ca_.Goto(&block5, tmp189, tmp190, tmp191, tmp192, tmp193, tmp194, tmp195, tmp201, tmp202, tmp198, tmp199);
   }
 
@@ -13994,14 +13998,14 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp212;
     compiler::TNode<Number> tmp213;
     ca_.Bind(&block2, &tmp203, &tmp204, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210, &tmp211, &tmp212, &tmp213);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 768);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 769);
     compiler::TNode<Smi> tmp214;
     USE(tmp214);
     tmp214 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp215;
     USE(tmp215);
     tmp215 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp209}, compiler::TNode<Smi>{tmp214}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 769);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 770);
     ca_.Goto(&block19, tmp203, tmp204, tmp205, tmp206, tmp207, tmp208, tmp209, tmp210, tmp211, tmp212, tmp213, tmp215);
   }
 
@@ -14039,7 +14043,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp239;
     compiler::TNode<Smi> tmp240;
     ca_.Bind(&block17, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 770);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 771);
     compiler::TNode<Smi> tmp241;
     USE(tmp241);
     tmp241 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp233}, compiler::TNode<Smi>{tmp235}));
@@ -14049,11 +14053,11 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp243;
     USE(tmp243);
     tmp243 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp231}, compiler::TNode<Smi>{tmp242}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 771);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 772);
     compiler::TNode<Number> tmp244;
     USE(tmp244);
     tmp244 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp229}, compiler::TNode<FixedArray>{tmp230}, compiler::TNode<Object>{tmp243}, compiler::TNode<Object>{tmp232}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 773);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 774);
     compiler::TNode<Number> tmp245;
     USE(tmp245);
     tmp245 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -14141,8 +14145,8 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp298;
     compiler::TNode<Object> tmp299;
     ca_.Bind(&block21, &tmp287, &tmp288, &tmp289, &tmp290, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 775);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 776);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 777);
     compiler::TNode<Smi> tmp300;
     USE(tmp300);
     tmp300 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp295}, 1));
@@ -14152,7 +14156,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp302;
     USE(tmp302);
     tmp302 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp300}, compiler::TNode<Smi>{tmp301}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 779);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 780);
     compiler::TNode<Smi> tmp303;
     USE(tmp303);
     tmp303 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -14195,7 +14199,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp329;
     compiler::TNode<Object> tmp330;
     ca_.Bind(&block25, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324, &tmp325, &tmp326, &tmp327, &tmp328, &tmp329, &tmp330);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 769);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 770);
     ca_.Goto(&block19, tmp318, tmp319, tmp320, tmp321, tmp322, tmp323, tmp324, tmp325, tmp326, tmp327, tmp328, tmp329);
   }
 
@@ -14213,7 +14217,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp341;
     compiler::TNode<Smi> tmp342;
     ca_.Bind(&block18, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339, &tmp340, &tmp341, &tmp342);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 782);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 783);
     compiler::TNode<BoolT> tmp343;
     USE(tmp343);
     tmp343 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThan(compiler::TNode<Smi>{tmp339}, compiler::TNode<Smi>{tmp342}));
@@ -14251,17 +14255,17 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp366;
     compiler::TNode<Smi> tmp367;
     ca_.Bind(&block27, &tmp356, &tmp357, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365, &tmp366, &tmp367);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 785);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 786);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 787);
     compiler::TNode<Smi> tmp368;
     USE(tmp368);
     tmp368 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp362}, compiler::TNode<Smi>{tmp364}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 787);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 788);
     compiler::TNode<Smi> tmp369;
     USE(tmp369);
     tmp369 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp362}, compiler::TNode<Smi>{tmp363}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 762);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 737);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 763);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 738);
     ca_.Goto(&block5, tmp356, tmp357, tmp358, tmp359, tmp360, tmp361, tmp362, tmp368, tmp369, tmp365, tmp366);
   }
 
@@ -14278,14 +14282,14 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp379;
     compiler::TNode<Number> tmp380;
     ca_.Bind(&block5, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 796);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 797);
     compiler::TNode<Smi> tmp381;
     USE(tmp381);
     tmp381 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp382;
     USE(tmp382);
     tmp382 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp377}, compiler::TNode<Smi>{tmp381}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 797);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 798);
     ca_.Goto(&block30, tmp370, tmp371, tmp372, tmp373, tmp374, tmp375, tmp376, tmp382, tmp378, tmp379, tmp380);
   }
 
@@ -14321,7 +14325,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp404;
     compiler::TNode<Number> tmp405;
     ca_.Bind(&block28, &tmp395, &tmp396, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 798);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 799);
     compiler::TNode<Smi> tmp406;
     USE(tmp406);
     tmp406 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp403}, compiler::TNode<Smi>{tmp402}));
@@ -14331,7 +14335,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Smi> tmp408;
     USE(tmp408);
     tmp408 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp402}, compiler::TNode<Smi>{tmp407}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 800);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 801);
     compiler::TNode<Smi> tmp409;
     USE(tmp409);
     tmp409 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp399}, compiler::TNode<Smi>{tmp408}));
@@ -14341,7 +14345,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp411;
     USE(tmp411);
     tmp411 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp395}, compiler::TNode<FixedArray>{tmp396}, compiler::TNode<Object>{tmp410}, compiler::TNode<Object>{tmp398}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 802);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 803);
     compiler::TNode<Number> tmp412;
     USE(tmp412);
     tmp412 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -14408,14 +14412,14 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp449;
     compiler::TNode<Smi> tmp450;
     ca_.Bind(&block31, &tmp439, &tmp440, &tmp441, &tmp442, &tmp443, &tmp444, &tmp445, &tmp446, &tmp447, &tmp448, &tmp449, &tmp450);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 803);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 804);
     compiler::TNode<Smi> tmp451;
     USE(tmp451);
     tmp451 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp452;
     USE(tmp452);
     tmp452 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp450}, compiler::TNode<Smi>{tmp451}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 802);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 803);
     ca_.Goto(&block35, tmp439, tmp440, tmp441, tmp442, tmp443, tmp444, tmp445, tmp452, tmp447, tmp448, tmp449, tmp450);
   }
 
@@ -14433,8 +14437,8 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp463;
     compiler::TNode<Smi> tmp464;
     ca_.Bind(&block32, &tmp453, &tmp454, &tmp455, &tmp456, &tmp457, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462, &tmp463, &tmp464);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 805);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 802);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 806);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 803);
     ca_.Goto(&block35, tmp453, tmp454, tmp455, tmp456, tmp457, tmp458, tmp459, tmp460, tmp464, tmp462, tmp463, tmp464);
   }
 
@@ -14452,7 +14456,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Number> tmp475;
     compiler::TNode<Smi> tmp476;
     ca_.Bind(&block35, &tmp465, &tmp466, &tmp467, &tmp468, &tmp469, &tmp470, &tmp471, &tmp472, &tmp473, &tmp474, &tmp475, &tmp476);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 797);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 798);
     ca_.Goto(&block30, tmp465, tmp466, tmp467, tmp468, tmp469, tmp470, tmp471, tmp472, tmp473, tmp474, tmp475);
   }
 
@@ -14469,7 +14473,7 @@ TF_BUILTIN(GallopLeft, CodeStubAssembler) {
     compiler::TNode<Object> tmp486;
     compiler::TNode<Number> tmp487;
     ca_.Bind(&block29, &tmp477, &tmp478, &tmp479, &tmp480, &tmp481, &tmp482, &tmp483, &tmp484, &tmp485, &tmp486, &tmp487);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 811);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 812);
     CodeStubAssembler(state_).Return(tmp485);
   }
 }
@@ -14537,26 +14541,26 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp5;
     compiler::TNode<Smi> tmp6;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5, &tmp6);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 828);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 829);
     compiler::TNode<Smi> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 829);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 830);
     compiler::TNode<Smi> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 831);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 832);
     compiler::TNode<Smi> tmp9;
     USE(tmp9);
     tmp9 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp6}));
     compiler::TNode<Object> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp2}, compiler::TNode<Smi>{tmp9}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 832);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 833);
     compiler::TNode<Number> tmp11;
     USE(tmp11);
     tmp11 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Object>{tmp3}, compiler::TNode<Object>{tmp10}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 834);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 835);
     compiler::TNode<Number> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -14620,14 +14624,14 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp46;
     compiler::TNode<Number> tmp47;
     ca_.Bind(&block1, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 839);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 840);
     compiler::TNode<Smi> tmp48;
     USE(tmp48);
     tmp48 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp49;
     USE(tmp49);
     tmp49 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp43}, compiler::TNode<Smi>{tmp48}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 840);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 841);
     ca_.Goto(&block8, tmp37, tmp38, tmp39, tmp40, tmp41, tmp42, tmp43, tmp44, tmp45, tmp46, tmp47, tmp49);
   }
 
@@ -14665,7 +14669,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp73;
     compiler::TNode<Smi> tmp74;
     ca_.Bind(&block6, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 841);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 842);
     compiler::TNode<Smi> tmp75;
     USE(tmp75);
     tmp75 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp67}, compiler::TNode<Smi>{tmp69}));
@@ -14675,11 +14679,11 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp77;
     USE(tmp77);
     tmp77 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp65}, compiler::TNode<Smi>{tmp76}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 842);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 843);
     compiler::TNode<Number> tmp78;
     USE(tmp78);
     tmp78 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp63}, compiler::TNode<FixedArray>{tmp64}, compiler::TNode<Object>{tmp66}, compiler::TNode<Object>{tmp77}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 844);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 845);
     compiler::TNode<Number> tmp79;
     USE(tmp79);
     tmp79 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -14767,8 +14771,8 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp132;
     compiler::TNode<Object> tmp133;
     ca_.Bind(&block10, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 846);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 847);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 848);
     compiler::TNode<Smi> tmp134;
     USE(tmp134);
     tmp134 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp129}, 1));
@@ -14778,7 +14782,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp136;
     USE(tmp136);
     tmp136 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp134}, compiler::TNode<Smi>{tmp135}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 850);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 851);
     compiler::TNode<Smi> tmp137;
     USE(tmp137);
     tmp137 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -14821,7 +14825,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp163;
     compiler::TNode<Object> tmp164;
     ca_.Bind(&block14, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161, &tmp162, &tmp163, &tmp164);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 840);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 841);
     ca_.Goto(&block8, tmp152, tmp153, tmp154, tmp155, tmp156, tmp157, tmp158, tmp159, tmp160, tmp161, tmp162, tmp163);
   }
 
@@ -14839,7 +14843,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp175;
     compiler::TNode<Smi> tmp176;
     ca_.Bind(&block7, &tmp165, &tmp166, &tmp167, &tmp168, &tmp169, &tmp170, &tmp171, &tmp172, &tmp173, &tmp174, &tmp175, &tmp176);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 853);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 854);
     compiler::TNode<BoolT> tmp177;
     USE(tmp177);
     tmp177 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThan(compiler::TNode<Smi>{tmp173}, compiler::TNode<Smi>{tmp176}));
@@ -14877,16 +14881,16 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp200;
     compiler::TNode<Smi> tmp201;
     ca_.Bind(&block16, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 856);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 857);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 858);
     compiler::TNode<Smi> tmp202;
     USE(tmp202);
     tmp202 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp196}, compiler::TNode<Smi>{tmp198}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 858);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 859);
     compiler::TNode<Smi> tmp203;
     USE(tmp203);
     tmp203 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp196}, compiler::TNode<Smi>{tmp197}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 834);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 835);
     ca_.Goto(&block5, tmp190, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp202, tmp203, tmp199, tmp200);
   }
 
@@ -14903,11 +14907,11 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp213;
     compiler::TNode<Number> tmp214;
     ca_.Bind(&block2, &tmp204, &tmp205, &tmp206, &tmp207, &tmp208, &tmp209, &tmp210, &tmp211, &tmp212, &tmp213, &tmp214);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 864);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 865);
     compiler::TNode<Smi> tmp215;
     USE(tmp215);
     tmp215 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp209}, compiler::TNode<Smi>{tmp210}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 865);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 866);
     ca_.Goto(&block19, tmp204, tmp205, tmp206, tmp207, tmp208, tmp209, tmp210, tmp211, tmp212, tmp213, tmp214, tmp215);
   }
 
@@ -14945,7 +14949,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp239;
     compiler::TNode<Smi> tmp240;
     ca_.Bind(&block17, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 866);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 867);
     compiler::TNode<Smi> tmp241;
     USE(tmp241);
     tmp241 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp233}, compiler::TNode<Smi>{tmp235}));
@@ -14955,11 +14959,11 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp243;
     USE(tmp243);
     tmp243 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp231}, compiler::TNode<Smi>{tmp242}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 867);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 868);
     compiler::TNode<Number> tmp244;
     USE(tmp244);
     tmp244 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp229}, compiler::TNode<FixedArray>{tmp230}, compiler::TNode<Object>{tmp232}, compiler::TNode<Object>{tmp243}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 870);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 871);
     compiler::TNode<Number> tmp245;
     USE(tmp245);
     tmp245 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -15047,8 +15051,8 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp298;
     compiler::TNode<Object> tmp299;
     ca_.Bind(&block21, &tmp287, &tmp288, &tmp289, &tmp290, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 872);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 873);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 874);
     compiler::TNode<Smi> tmp300;
     USE(tmp300);
     tmp300 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiShl(compiler::TNode<Smi>{tmp295}, 1));
@@ -15058,7 +15062,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp302;
     USE(tmp302);
     tmp302 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp300}, compiler::TNode<Smi>{tmp301}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 876);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 877);
     compiler::TNode<Smi> tmp303;
     USE(tmp303);
     tmp303 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -15101,7 +15105,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp329;
     compiler::TNode<Object> tmp330;
     ca_.Bind(&block25, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324, &tmp325, &tmp326, &tmp327, &tmp328, &tmp329, &tmp330);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 865);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 866);
     ca_.Goto(&block19, tmp318, tmp319, tmp320, tmp321, tmp322, tmp323, tmp324, tmp325, tmp326, tmp327, tmp328, tmp329);
   }
 
@@ -15119,7 +15123,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp341;
     compiler::TNode<Smi> tmp342;
     ca_.Bind(&block18, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339, &tmp340, &tmp341, &tmp342);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 879);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 880);
     compiler::TNode<BoolT> tmp343;
     USE(tmp343);
     tmp343 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThan(compiler::TNode<Smi>{tmp339}, compiler::TNode<Smi>{tmp342}));
@@ -15157,16 +15161,16 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp366;
     compiler::TNode<Smi> tmp367;
     ca_.Bind(&block27, &tmp356, &tmp357, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365, &tmp366, &tmp367);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 882);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 883);
     compiler::TNode<Smi> tmp368;
     USE(tmp368);
     tmp368 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp363}, compiler::TNode<Smi>{tmp362}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 883);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 884);
     compiler::TNode<Smi> tmp369;
     USE(tmp369);
     tmp369 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp364}, compiler::TNode<Smi>{tmp362}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 859);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 834);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 860);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 835);
     ca_.Goto(&block5, tmp356, tmp357, tmp358, tmp359, tmp360, tmp361, tmp362, tmp368, tmp369, tmp365, tmp366);
   }
 
@@ -15183,14 +15187,14 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp379;
     compiler::TNode<Number> tmp380;
     ca_.Bind(&block5, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 891);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 892);
     compiler::TNode<Smi> tmp381;
     USE(tmp381);
     tmp381 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp382;
     USE(tmp382);
     tmp382 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp377}, compiler::TNode<Smi>{tmp381}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 892);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 893);
     ca_.Goto(&block30, tmp370, tmp371, tmp372, tmp373, tmp374, tmp375, tmp376, tmp382, tmp378, tmp379, tmp380);
   }
 
@@ -15226,7 +15230,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp404;
     compiler::TNode<Number> tmp405;
     ca_.Bind(&block28, &tmp395, &tmp396, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 893);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 894);
     compiler::TNode<Smi> tmp406;
     USE(tmp406);
     tmp406 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp403}, compiler::TNode<Smi>{tmp402}));
@@ -15236,7 +15240,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Smi> tmp408;
     USE(tmp408);
     tmp408 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp402}, compiler::TNode<Smi>{tmp407}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 895);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 896);
     compiler::TNode<Smi> tmp409;
     USE(tmp409);
     tmp409 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp399}, compiler::TNode<Smi>{tmp408}));
@@ -15246,7 +15250,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp411;
     USE(tmp411);
     tmp411 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp395}, compiler::TNode<FixedArray>{tmp396}, compiler::TNode<Object>{tmp398}, compiler::TNode<Object>{tmp410}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 897);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 898);
     compiler::TNode<Number> tmp412;
     USE(tmp412);
     tmp412 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -15313,8 +15317,8 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp449;
     compiler::TNode<Smi> tmp450;
     ca_.Bind(&block31, &tmp439, &tmp440, &tmp441, &tmp442, &tmp443, &tmp444, &tmp445, &tmp446, &tmp447, &tmp448, &tmp449, &tmp450);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 899);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 898);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 897);
     ca_.Goto(&block35, tmp439, tmp440, tmp441, tmp442, tmp443, tmp444, tmp445, tmp446, tmp450, tmp448, tmp449, tmp450);
   }
 
@@ -15332,14 +15336,14 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp461;
     compiler::TNode<Smi> tmp462;
     ca_.Bind(&block32, &tmp451, &tmp452, &tmp453, &tmp454, &tmp455, &tmp456, &tmp457, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 900);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 901);
     compiler::TNode<Smi> tmp463;
     USE(tmp463);
     tmp463 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp464;
     USE(tmp464);
     tmp464 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp462}, compiler::TNode<Smi>{tmp463}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 897);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 898);
     ca_.Goto(&block35, tmp451, tmp452, tmp453, tmp454, tmp455, tmp456, tmp457, tmp464, tmp459, tmp460, tmp461, tmp462);
   }
 
@@ -15357,7 +15361,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Number> tmp475;
     compiler::TNode<Smi> tmp476;
     ca_.Bind(&block35, &tmp465, &tmp466, &tmp467, &tmp468, &tmp469, &tmp470, &tmp471, &tmp472, &tmp473, &tmp474, &tmp475, &tmp476);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 892);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 893);
     ca_.Goto(&block30, tmp465, tmp466, tmp467, tmp468, tmp469, tmp470, tmp471, tmp472, tmp473, tmp474, tmp475);
   }
 
@@ -15374,7 +15378,7 @@ TF_BUILTIN(GallopRight, CodeStubAssembler) {
     compiler::TNode<Object> tmp486;
     compiler::TNode<Number> tmp487;
     ca_.Bind(&block29, &tmp477, &tmp478, &tmp479, &tmp480, &tmp481, &tmp482, &tmp483, &tmp484, &tmp485, &tmp486, &tmp487);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 906);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 907);
     CodeStubAssembler(state_).Return(tmp485);
   }
 }
@@ -15398,7 +15402,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyElement(compiler::TNode<Context> p_conte
     compiler::TNode<Smi> tmp4;
     compiler::TNode<Smi> tmp5;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 913);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 914);
     compiler::TNode<Object> tmp6;
     USE(tmp6);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -15434,7 +15438,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyElement(compiler::TNode<Context> p_conte
     compiler::TNode<Smi> tmp22;
     compiler::TNode<Object> tmp23;
     ca_.Bind(&block3, &tmp15, &tmp16, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22, &tmp23);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 914);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 915);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).CallStore(compiler::TNode<Context>{tmp15}, compiler::TNode<FixedArray>{tmp16}, compiler::TNode<BuiltinPtr>{tmp18}, compiler::TNode<Smi>{tmp20}, compiler::TNode<Object>{tmp23}, &label0);
     ca_.Goto(&block5, tmp15, tmp16, tmp17, tmp18, tmp19, tmp20, tmp23, tmp18, tmp20, tmp23);
@@ -15471,8 +15475,8 @@ void ArrayBuiltinsFromDSLAssembler::CopyElement(compiler::TNode<Context> p_conte
     compiler::TNode<Smi> tmp42;
     compiler::TNode<Object> tmp43;
     ca_.Bind(&block5, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 912);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 910);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 913);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 911);
     ca_.Goto(&block2, tmp34, tmp35, tmp36, tmp37, tmp38, tmp39);
   }
 
@@ -15564,30 +15568,30 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp4;
     compiler::TNode<Smi> tmp5;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 930);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 931);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 933);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 932);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 934);
     compiler::TNode<FixedArray> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 934);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 935);
     compiler::TNode<FixedArray> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).GetTempArray(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Smi>{tmp3}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 935);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 936);
     compiler::TNode<Smi> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp9;
     tmp9 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp0, tmp6, tmp2, tmp7, tmp8, tmp3);
     USE(tmp9);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 937);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 938);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 939);
     compiler::TNode<Smi> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 939);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 941);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 940);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 942);
     compiler::TNode<Smi> tmp11;
     USE(tmp11);
     tmp11 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -15604,7 +15608,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp6}, compiler::TNode<Smi>{tmp4}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp6}, compiler::TNode<Smi>{tmp2}, compiler::TNode<Object>{tmp15});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 944);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 945);
     compiler::TNode<Smi> tmp16;
     USE(tmp16);
     tmp16 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -15653,7 +15657,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp44;
     compiler::TNode<Smi> tmp45;
     ca_.Bind(&block8, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 945);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 946);
     compiler::TNode<Smi> tmp46;
     USE(tmp46);
     tmp46 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -15696,11 +15700,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp72;
     compiler::TNode<Smi> tmp73;
     ca_.Bind(&block10, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66, &tmp67, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 947);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 948);
     compiler::TNode<Smi> tmp74;
     USE(tmp74);
     tmp74 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateMinGallop(compiler::TNode<FixedArray>{tmp62}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 950);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 951);
     ca_.Goto(&block13, tmp61, tmp62, tmp63, tmp64, tmp65, tmp66, tmp67, tmp68, tmp69, tmp70, tmp71, tmp72, tmp73, tmp74);
   }
 
@@ -15742,15 +15746,15 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp102;
     compiler::TNode<Smi> tmp103;
     ca_.Bind(&block11, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 951);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 952);
     compiler::TNode<Smi> tmp104;
     USE(tmp104);
     tmp104 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 952);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 953);
     compiler::TNode<Smi> tmp105;
     USE(tmp105);
     tmp105 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 958);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 959);
     ca_.Goto(&block16, tmp90, tmp91, tmp92, tmp93, tmp94, tmp95, tmp96, tmp97, tmp98, tmp99, tmp100, tmp101, tmp102, tmp103, tmp104, tmp105);
   }
 
@@ -15796,19 +15800,19 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp137;
     compiler::TNode<Smi> tmp138;
     ca_.Bind(&block14, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 961);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 962);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 963);
     compiler::TNode<Object> tmp139;
     USE(tmp139);
     tmp139 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp131}, compiler::TNode<Smi>{tmp135}));
     compiler::TNode<Object> tmp140;
     USE(tmp140);
     tmp140 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp132}, compiler::TNode<Smi>{tmp134}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 961);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 962);
     compiler::TNode<Number> tmp141;
     USE(tmp141);
     tmp141 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp123}, compiler::TNode<FixedArray>{tmp124}, compiler::TNode<Object>{tmp139}, compiler::TNode<Object>{tmp140}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 964);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 965);
     compiler::TNode<Number> tmp142;
     USE(tmp142);
     tmp142 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -15890,7 +15894,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp194;
     compiler::TNode<Number> tmp195;
     ca_.Bind(&block17, &tmp179, &tmp180, &tmp181, &tmp182, &tmp183, &tmp184, &tmp185, &tmp186, &tmp187, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 965);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 966);
     compiler::TNode<Smi> tmp196;
     USE(tmp196);
     tmp196 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -15907,25 +15911,25 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp200);
     tmp200 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp187}, compiler::TNode<Smi>{tmp191}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp187}, compiler::TNode<Smi>{tmp189}, compiler::TNode<Object>{tmp200});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 967);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 968);
     compiler::TNode<Smi> tmp201;
     USE(tmp201);
     tmp201 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp202;
     USE(tmp202);
     tmp202 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp194}, compiler::TNode<Smi>{tmp201}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 968);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 969);
     compiler::TNode<Smi> tmp203;
     USE(tmp203);
     tmp203 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp204;
     USE(tmp204);
     tmp204 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp186}, compiler::TNode<Smi>{tmp203}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 969);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 970);
     compiler::TNode<Smi> tmp205;
     USE(tmp205);
     tmp205 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 971);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 972);
     compiler::TNode<Smi> tmp206;
     USE(tmp206);
     tmp206 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -15976,7 +15980,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp240;
     compiler::TNode<Number> tmp241;
     ca_.Bind(&block23, &tmp225, &tmp226, &tmp227, &tmp228, &tmp229, &tmp230, &tmp231, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 972);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 973);
     compiler::TNode<BoolT> tmp242;
     USE(tmp242);
     tmp242 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThanOrEqual(compiler::TNode<Smi>{tmp240}, compiler::TNode<Smi>{tmp238}));
@@ -16024,7 +16028,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp275;
     compiler::TNode<Number> tmp276;
     ca_.Bind(&block25, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267, &tmp268, &tmp269, &tmp270, &tmp271, &tmp272, &tmp273, &tmp274, &tmp275, &tmp276);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 964);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 965);
     ca_.Goto(&block21, tmp260, tmp261, tmp262, tmp263, tmp264, tmp265, tmp266, tmp267, tmp268, tmp269, tmp270, tmp271, tmp272, tmp273, tmp274, tmp275, tmp276);
   }
 
@@ -16047,7 +16051,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp292;
     compiler::TNode<Number> tmp293;
     ca_.Bind(&block18, &tmp277, &tmp278, &tmp279, &tmp280, &tmp281, &tmp282, &tmp283, &tmp284, &tmp285, &tmp286, &tmp287, &tmp288, &tmp289, &tmp290, &tmp291, &tmp292, &tmp293);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 974);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 975);
     compiler::TNode<Smi> tmp294;
     USE(tmp294);
     tmp294 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16064,25 +16068,25 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp298);
     tmp298 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp286}, compiler::TNode<Smi>{tmp288}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp285}, compiler::TNode<Smi>{tmp287}, compiler::TNode<Object>{tmp298});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 976);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 977);
     compiler::TNode<Smi> tmp299;
     USE(tmp299);
     tmp299 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp300;
     USE(tmp300);
     tmp300 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp291}, compiler::TNode<Smi>{tmp299}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 977);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 978);
     compiler::TNode<Smi> tmp301;
     USE(tmp301);
     tmp301 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp302;
     USE(tmp302);
     tmp302 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp283}, compiler::TNode<Smi>{tmp301}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 978);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 979);
     compiler::TNode<Smi> tmp303;
     USE(tmp303);
     tmp303 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 980);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 981);
     compiler::TNode<Smi> tmp304;
     USE(tmp304);
     tmp304 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16133,7 +16137,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp338;
     compiler::TNode<Number> tmp339;
     ca_.Bind(&block27, &tmp323, &tmp324, &tmp325, &tmp326, &tmp327, &tmp328, &tmp329, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 981);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 982);
     compiler::TNode<BoolT> tmp340;
     USE(tmp340);
     tmp340 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThanOrEqual(compiler::TNode<Smi>{tmp337}, compiler::TNode<Smi>{tmp336}));
@@ -16181,7 +16185,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp373;
     compiler::TNode<Number> tmp374;
     ca_.Bind(&block29, &tmp358, &tmp359, &tmp360, &tmp361, &tmp362, &tmp363, &tmp364, &tmp365, &tmp366, &tmp367, &tmp368, &tmp369, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 964);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 965);
     ca_.Goto(&block21, tmp358, tmp359, tmp360, tmp361, tmp362, tmp363, tmp364, tmp365, tmp366, tmp367, tmp368, tmp369, tmp370, tmp371, tmp372, tmp373, tmp374);
   }
 
@@ -16204,7 +16208,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp390;
     compiler::TNode<Number> tmp391;
     ca_.Bind(&block21, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380, &tmp381, &tmp382, &tmp383, &tmp384, &tmp385, &tmp386, &tmp387, &tmp388, &tmp389, &tmp390, &tmp391);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 958);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 959);
     ca_.Goto(&block16, tmp375, tmp376, tmp377, tmp378, tmp379, tmp380, tmp381, tmp382, tmp383, tmp384, tmp385, tmp386, tmp387, tmp388, tmp389, tmp390);
   }
 
@@ -16226,18 +16230,18 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp406;
     compiler::TNode<Smi> tmp407;
     ca_.Bind(&block15, &tmp392, &tmp393, &tmp394, &tmp395, &tmp396, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405, &tmp406, &tmp407);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 988);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 989);
     compiler::TNode<Smi> tmp408;
     USE(tmp408);
     tmp408 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp409;
     USE(tmp409);
     tmp409 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp405}, compiler::TNode<Smi>{tmp408}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 989);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 990);
     compiler::TNode<BoolT> tmp410;
     USE(tmp410);
     tmp410 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 990);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 991);
     ca_.Goto(&block32, tmp392, tmp393, tmp394, tmp395, tmp396, tmp397, tmp398, tmp399, tmp400, tmp401, tmp402, tmp403, tmp404, tmp409, tmp406, tmp407, tmp410);
   }
 
@@ -16316,8 +16320,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp464;
     compiler::TNode<BoolT> tmp465;
     ca_.Bind(&block33, &tmp449, &tmp450, &tmp451, &tmp452, &tmp453, &tmp454, &tmp455, &tmp456, &tmp457, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462, &tmp463, &tmp464, &tmp465);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 992);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 991);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 990);
     ca_.Branch(tmp465, &block30, &block31, tmp449, tmp450, tmp451, tmp452, tmp453, tmp454, tmp455, tmp456, tmp457, tmp458, tmp459, tmp460, tmp461, tmp462, tmp463, tmp464, tmp465);
   }
 
@@ -16340,11 +16344,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp481;
     compiler::TNode<BoolT> tmp482;
     ca_.Bind(&block30, &tmp466, &tmp467, &tmp468, &tmp469, &tmp470, &tmp471, &tmp472, &tmp473, &tmp474, &tmp475, &tmp476, &tmp477, &tmp478, &tmp479, &tmp480, &tmp481, &tmp482);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 992);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 993);
     compiler::TNode<BoolT> tmp483;
     USE(tmp483);
     tmp483 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(false));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 995);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 996);
     compiler::TNode<Smi> tmp484;
     USE(tmp484);
     tmp484 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16357,20 +16361,20 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp487;
     USE(tmp487);
     tmp487 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiMax(compiler::TNode<Smi>{tmp486}, compiler::TNode<Smi>{tmp485}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 996);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 997);
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateMinGallop(compiler::TNode<FixedArray>{tmp467}, compiler::TNode<Smi>{tmp487});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 999);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1000);
     compiler::TNode<Object> tmp488;
     USE(tmp488);
     tmp488 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp474}, compiler::TNode<Smi>{tmp478}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 998);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 999);
     compiler::TNode<Smi> tmp489;
     USE(tmp489);
     tmp489 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Smi> tmp490;
     tmp490 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopRight, tmp466, tmp467, tmp475, tmp488, tmp477, tmp472, tmp489));
     USE(tmp490);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1002);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1003);
     compiler::TNode<Smi> tmp491;
     USE(tmp491);
     tmp491 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -16399,23 +16403,23 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp508;
     compiler::TNode<BoolT> tmp509;
     ca_.Bind(&block35, &tmp493, &tmp494, &tmp495, &tmp496, &tmp497, &tmp498, &tmp499, &tmp500, &tmp501, &tmp502, &tmp503, &tmp504, &tmp505, &tmp506, &tmp507, &tmp508, &tmp509);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1003);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1004);
     compiler::TNode<Object> tmp510;
     tmp510 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp493, tmp502, tmp504, tmp501, tmp503, tmp507);
     USE(tmp510);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1004);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1005);
     compiler::TNode<Smi> tmp511;
     USE(tmp511);
     tmp511 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp503}, compiler::TNode<Smi>{tmp507}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1005);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1006);
     compiler::TNode<Smi> tmp512;
     USE(tmp512);
     tmp512 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp504}, compiler::TNode<Smi>{tmp507}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1006);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1007);
     compiler::TNode<Smi> tmp513;
     USE(tmp513);
     tmp513 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp499}, compiler::TNode<Smi>{tmp507}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1008);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1009);
     compiler::TNode<Smi> tmp514;
     USE(tmp514);
     tmp514 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16466,7 +16470,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp548;
     compiler::TNode<BoolT> tmp549;
     ca_.Bind(&block38, &tmp533, &tmp534, &tmp535, &tmp536, &tmp537, &tmp538, &tmp539, &tmp540, &tmp541, &tmp542, &tmp543, &tmp544, &tmp545, &tmp546, &tmp547, &tmp548, &tmp549);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1012);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1013);
     compiler::TNode<Smi> tmp550;
     USE(tmp550);
     tmp550 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -16517,7 +16521,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp584;
     compiler::TNode<BoolT> tmp585;
     ca_.Bind(&block40, &tmp569, &tmp570, &tmp571, &tmp572, &tmp573, &tmp574, &tmp575, &tmp576, &tmp577, &tmp578, &tmp579, &tmp580, &tmp581, &tmp582, &tmp583, &tmp584, &tmp585);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1002);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1003);
     ca_.Goto(&block36, tmp569, tmp570, tmp571, tmp572, tmp573, tmp574, tmp575, tmp576, tmp577, tmp578, tmp579, tmp580, tmp581, tmp582, tmp583, tmp584, tmp585);
   }
 
@@ -16540,7 +16544,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp601;
     compiler::TNode<BoolT> tmp602;
     ca_.Bind(&block36, &tmp586, &tmp587, &tmp588, &tmp589, &tmp590, &tmp591, &tmp592, &tmp593, &tmp594, &tmp595, &tmp596, &tmp597, &tmp598, &tmp599, &tmp600, &tmp601, &tmp602);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1014);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1015);
     compiler::TNode<Smi> tmp603;
     USE(tmp603);
     tmp603 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16557,7 +16561,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp607);
     tmp607 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp594}, compiler::TNode<Smi>{tmp598}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp594}, compiler::TNode<Smi>{tmp596}, compiler::TNode<Object>{tmp607});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1015);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1016);
     compiler::TNode<Smi> tmp608;
     USE(tmp608);
     tmp608 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16614,18 +16618,18 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp644;
     compiler::TNode<BoolT> tmp645;
     ca_.Bind(&block42, &tmp629, &tmp630, &tmp631, &tmp632, &tmp633, &tmp634, &tmp635, &tmp636, &tmp637, &tmp638, &tmp639, &tmp640, &tmp641, &tmp642, &tmp643, &tmp644, &tmp645);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1018);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1019);
     compiler::TNode<Object> tmp646;
     USE(tmp646);
     tmp646 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp638}, compiler::TNode<Smi>{tmp640}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1017);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1018);
     compiler::TNode<Smi> tmp647;
     USE(tmp647);
     tmp647 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Smi> tmp648;
     tmp648 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopLeft, tmp629, tmp630, tmp637, tmp646, tmp641, tmp636, tmp647));
     USE(tmp648);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1020);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1021);
     compiler::TNode<Smi> tmp649;
     USE(tmp649);
     tmp649 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -16654,23 +16658,23 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp666;
     compiler::TNode<BoolT> tmp667;
     ca_.Bind(&block43, &tmp651, &tmp652, &tmp653, &tmp654, &tmp655, &tmp656, &tmp657, &tmp658, &tmp659, &tmp660, &tmp661, &tmp662, &tmp663, &tmp664, &tmp665, &tmp666, &tmp667);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1021);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1022);
     compiler::TNode<Object> tmp668;
     tmp668 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp651, tmp659, tmp663, tmp659, tmp661, tmp666);
     USE(tmp668);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1023);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1024);
     compiler::TNode<Smi> tmp669;
     USE(tmp669);
     tmp669 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp661}, compiler::TNode<Smi>{tmp666}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1024);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1025);
     compiler::TNode<Smi> tmp670;
     USE(tmp670);
     tmp670 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp663}, compiler::TNode<Smi>{tmp666}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1025);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1026);
     compiler::TNode<Smi> tmp671;
     USE(tmp671);
     tmp671 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp658}, compiler::TNode<Smi>{tmp666}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1027);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1028);
     compiler::TNode<Smi> tmp672;
     USE(tmp672);
     tmp672 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -16721,7 +16725,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp706;
     compiler::TNode<BoolT> tmp707;
     ca_.Bind(&block46, &tmp691, &tmp692, &tmp693, &tmp694, &tmp695, &tmp696, &tmp697, &tmp698, &tmp699, &tmp700, &tmp701, &tmp702, &tmp703, &tmp704, &tmp705, &tmp706, &tmp707);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1020);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1021);
     ca_.Goto(&block44, tmp691, tmp692, tmp693, tmp694, tmp695, tmp696, tmp697, tmp698, tmp699, tmp700, tmp701, tmp702, tmp703, tmp704, tmp705, tmp706, tmp707);
   }
 
@@ -16744,7 +16748,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp723;
     compiler::TNode<BoolT> tmp724;
     ca_.Bind(&block44, &tmp708, &tmp709, &tmp710, &tmp711, &tmp712, &tmp713, &tmp714, &tmp715, &tmp716, &tmp717, &tmp718, &tmp719, &tmp720, &tmp721, &tmp722, &tmp723, &tmp724);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1029);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1030);
     compiler::TNode<Smi> tmp725;
     USE(tmp725);
     tmp725 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16761,7 +16765,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp729);
     tmp729 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp717}, compiler::TNode<Smi>{tmp719}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp716}, compiler::TNode<Smi>{tmp718}, compiler::TNode<Object>{tmp729});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1030);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1031);
     compiler::TNode<Smi> tmp730;
     USE(tmp730);
     tmp730 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -16818,7 +16822,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp766;
     compiler::TNode<BoolT> tmp767;
     ca_.Bind(&block48, &tmp751, &tmp752, &tmp753, &tmp754, &tmp755, &tmp756, &tmp757, &tmp758, &tmp759, &tmp760, &tmp761, &tmp762, &tmp763, &tmp764, &tmp765, &tmp766, &tmp767);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 990);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 991);
     ca_.Goto(&block32, tmp751, tmp752, tmp753, tmp754, tmp755, tmp756, tmp757, tmp758, tmp759, tmp760, tmp761, tmp762, tmp763, tmp764, tmp765, tmp766, tmp767);
   }
 
@@ -16841,16 +16845,16 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp783;
     compiler::TNode<BoolT> tmp784;
     ca_.Bind(&block31, &tmp768, &tmp769, &tmp770, &tmp771, &tmp772, &tmp773, &tmp774, &tmp775, &tmp776, &tmp777, &tmp778, &tmp779, &tmp780, &tmp781, &tmp782, &tmp783, &tmp784);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1032);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1033);
     compiler::TNode<Smi> tmp785;
     USE(tmp785);
     tmp785 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp786;
     USE(tmp786);
     tmp786 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp781}, compiler::TNode<Smi>{tmp785}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1033);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1034);
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateMinGallop(compiler::TNode<FixedArray>{tmp769}, compiler::TNode<Smi>{tmp786});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 950);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 951);
     ca_.Goto(&block13, tmp768, tmp769, tmp770, tmp771, tmp772, tmp773, tmp774, tmp775, tmp776, tmp777, tmp778, tmp779, tmp780, tmp786);
   }
 
@@ -16870,8 +16874,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp799;
     compiler::TNode<Smi> tmp800;
     ca_.Bind(&block12, &tmp787, &tmp788, &tmp789, &tmp790, &tmp791, &tmp792, &tmp793, &tmp794, &tmp795, &tmp796, &tmp797, &tmp798, &tmp799, &tmp800);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 943);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1036);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 944);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1037);
     ca_.Goto(&block5, tmp787, tmp788, tmp789, tmp790, tmp791, tmp792, tmp793, tmp794, tmp795, tmp796, tmp797, tmp798, tmp799);
   }
 
@@ -16890,7 +16894,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp812;
     compiler::TNode<Smi> tmp813;
     ca_.Bind(&block6, &tmp801, &tmp802, &tmp803, &tmp804, &tmp805, &tmp806, &tmp807, &tmp808, &tmp809, &tmp810, &tmp811, &tmp812, &tmp813);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1037);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1038);
     compiler::TNode<Smi> tmp814;
     USE(tmp814);
     tmp814 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -16915,11 +16919,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp827;
     compiler::TNode<Smi> tmp828;
     ca_.Bind(&block49, &tmp816, &tmp817, &tmp818, &tmp819, &tmp820, &tmp821, &tmp822, &tmp823, &tmp824, &tmp825, &tmp826, &tmp827, &tmp828);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1038);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1039);
     compiler::TNode<Object> tmp829;
     tmp829 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp816, tmp825, tmp827, tmp824, tmp826, tmp822);
     USE(tmp829);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1037);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1038);
     ca_.Goto(&block50, tmp816, tmp817, tmp818, tmp819, tmp820, tmp821, tmp822, tmp823, tmp824, tmp825, tmp826, tmp827, tmp828);
   }
 
@@ -16938,7 +16942,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp841;
     compiler::TNode<Smi> tmp842;
     ca_.Bind(&block50, &tmp830, &tmp831, &tmp832, &tmp833, &tmp834, &tmp835, &tmp836, &tmp837, &tmp838, &tmp839, &tmp840, &tmp841, &tmp842);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 943);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 944);
     ca_.Goto(&block5, tmp830, tmp831, tmp832, tmp833, tmp834, tmp835, tmp836, tmp837, tmp838, tmp839, tmp840, tmp841, tmp842);
   }
 
@@ -16957,7 +16961,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp854;
     compiler::TNode<Smi> tmp855;
     ca_.Bind(&block5, &tmp843, &tmp844, &tmp845, &tmp846, &tmp847, &tmp848, &tmp849, &tmp850, &tmp851, &tmp852, &tmp853, &tmp854, &tmp855);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1041);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1042);
     ca_.Goto(&block3, tmp843, tmp844, tmp845, tmp846, tmp847, tmp848, tmp849, tmp850, tmp851, tmp852, tmp853, tmp854, tmp855);
   }
 
@@ -16976,11 +16980,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp867;
     compiler::TNode<Smi> tmp868;
     ca_.Bind(&block4, &tmp856, &tmp857, &tmp858, &tmp859, &tmp860, &tmp861, &tmp862, &tmp863, &tmp864, &tmp865, &tmp866, &tmp867, &tmp868);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1044);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1045);
     compiler::TNode<Object> tmp869;
     tmp869 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp856, tmp864, tmp868, tmp864, tmp866, tmp863);
     USE(tmp869);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1045);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1046);
     compiler::TNode<Smi> tmp870;
     USE(tmp870);
     tmp870 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp866}, compiler::TNode<Smi>{tmp863}));
@@ -16988,7 +16992,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     USE(tmp871);
     tmp871 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp865}, compiler::TNode<Smi>{tmp867}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp864}, compiler::TNode<Smi>{tmp870}, compiler::TNode<Object>{tmp871});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 943);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 944);
     ca_.Goto(&block3, tmp856, tmp857, tmp858, tmp859, tmp860, tmp861, tmp862, tmp863, tmp864, tmp865, tmp866, tmp867, tmp868);
   }
 
@@ -17007,8 +17011,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeLow(compiler::TNode<Context> p_context,
     compiler::TNode<Smi> tmp883;
     compiler::TNode<Smi> tmp884;
     ca_.Bind(&block3, &tmp872, &tmp873, &tmp874, &tmp875, &tmp876, &tmp877, &tmp878, &tmp879, &tmp880, &tmp881, &tmp882, &tmp883, &tmp884);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 925);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 923);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 926);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 924);
     ca_.Goto(&block2, tmp872, tmp873, tmp874, tmp875, tmp876, tmp877);
   }
 
@@ -17100,24 +17104,24 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp4;
     compiler::TNode<Smi> tmp5;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1062);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1063);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1065);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1064);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1066);
     compiler::TNode<FixedArray> tmp6;
     USE(tmp6);
     tmp6 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1066);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1067);
     compiler::TNode<FixedArray> tmp7;
     USE(tmp7);
     tmp7 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).GetTempArray(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Smi>{tmp5}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1067);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1068);
     compiler::TNode<Smi> tmp8;
     USE(tmp8);
     tmp8 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp9;
     tmp9 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp0, tmp6, tmp4, tmp7, tmp8, tmp5);
     USE(tmp9);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1070);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1071);
     compiler::TNode<Smi> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp4}, compiler::TNode<Smi>{tmp5}));
@@ -17127,14 +17131,14 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp10}, compiler::TNode<Smi>{tmp11}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1071);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1072);
     compiler::TNode<Smi> tmp13;
     USE(tmp13);
     tmp13 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp5}, compiler::TNode<Smi>{tmp13}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1072);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1073);
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp2}, compiler::TNode<Smi>{tmp3}));
@@ -17144,7 +17148,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp17;
     USE(tmp17);
     tmp17 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp15}, compiler::TNode<Smi>{tmp16}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1074);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1075);
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17161,7 +17165,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     USE(tmp22);
     tmp22 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp6}, compiler::TNode<Smi>{tmp17}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp6}, compiler::TNode<Smi>{tmp12}, compiler::TNode<Object>{tmp22});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1077);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1078);
     compiler::TNode<Smi> tmp23;
     USE(tmp23);
     tmp23 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17210,7 +17214,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp51;
     compiler::TNode<Smi> tmp52;
     ca_.Bind(&block8, &tmp40, &tmp41, &tmp42, &tmp43, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50, &tmp51, &tmp52);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1078);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1079);
     compiler::TNode<Smi> tmp53;
     USE(tmp53);
     tmp53 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17253,11 +17257,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp79;
     compiler::TNode<Smi> tmp80;
     ca_.Bind(&block10, &tmp68, &tmp69, &tmp70, &tmp71, &tmp72, &tmp73, &tmp74, &tmp75, &tmp76, &tmp77, &tmp78, &tmp79, &tmp80);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1080);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1081);
     compiler::TNode<Smi> tmp81;
     USE(tmp81);
     tmp81 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateMinGallop(compiler::TNode<FixedArray>{tmp69}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1083);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1084);
     ca_.Goto(&block13, tmp68, tmp69, tmp70, tmp71, tmp72, tmp73, tmp74, tmp75, tmp76, tmp77, tmp78, tmp79, tmp80, tmp81);
   }
 
@@ -17299,15 +17303,15 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp109;
     compiler::TNode<Smi> tmp110;
     ca_.Bind(&block11, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104, &tmp105, &tmp106, &tmp107, &tmp108, &tmp109, &tmp110);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1084);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1085);
     compiler::TNode<Smi> tmp111;
     USE(tmp111);
     tmp111 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1085);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1086);
     compiler::TNode<Smi> tmp112;
     USE(tmp112);
     tmp112 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1091);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1092);
     ca_.Goto(&block16, tmp97, tmp98, tmp99, tmp100, tmp101, tmp102, tmp103, tmp104, tmp105, tmp106, tmp107, tmp108, tmp109, tmp110, tmp111, tmp112);
   }
 
@@ -17353,19 +17357,19 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp144;
     compiler::TNode<Smi> tmp145;
     ca_.Bind(&block14, &tmp130, &tmp131, &tmp132, &tmp133, &tmp134, &tmp135, &tmp136, &tmp137, &tmp138, &tmp139, &tmp140, &tmp141, &tmp142, &tmp143, &tmp144, &tmp145);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1094);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1095);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1096);
     compiler::TNode<Object> tmp146;
     USE(tmp146);
     tmp146 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp139}, compiler::TNode<Smi>{tmp141}));
     compiler::TNode<Object> tmp147;
     USE(tmp147);
     tmp147 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp138}, compiler::TNode<Smi>{tmp142}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1094);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1095);
     compiler::TNode<Number> tmp148;
     USE(tmp148);
     tmp148 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_Compare(compiler::TNode<Context>{tmp130}, compiler::TNode<FixedArray>{tmp131}, compiler::TNode<Object>{tmp146}, compiler::TNode<Object>{tmp147}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1097);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1098);
     compiler::TNode<Number> tmp149;
     USE(tmp149);
     tmp149 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(0));
@@ -17447,7 +17451,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp201;
     compiler::TNode<Number> tmp202;
     ca_.Bind(&block17, &tmp186, &tmp187, &tmp188, &tmp189, &tmp190, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1098);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1099);
     compiler::TNode<Smi> tmp203;
     USE(tmp203);
     tmp203 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17464,25 +17468,25 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     USE(tmp207);
     tmp207 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp194}, compiler::TNode<Smi>{tmp198}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp194}, compiler::TNode<Smi>{tmp196}, compiler::TNode<Object>{tmp207});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1100);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1101);
     compiler::TNode<Smi> tmp208;
     USE(tmp208);
     tmp208 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp209;
     USE(tmp209);
     tmp209 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp200}, compiler::TNode<Smi>{tmp208}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1101);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1102);
     compiler::TNode<Smi> tmp210;
     USE(tmp210);
     tmp210 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp211;
     USE(tmp211);
     tmp211 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp192}, compiler::TNode<Smi>{tmp210}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1102);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1103);
     compiler::TNode<Smi> tmp212;
     USE(tmp212);
     tmp212 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1104);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1105);
     compiler::TNode<Smi> tmp213;
     USE(tmp213);
     tmp213 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -17533,7 +17537,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp247;
     compiler::TNode<Number> tmp248;
     ca_.Bind(&block23, &tmp232, &tmp233, &tmp234, &tmp235, &tmp236, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1105);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1106);
     compiler::TNode<BoolT> tmp249;
     USE(tmp249);
     tmp249 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThanOrEqual(compiler::TNode<Smi>{tmp246}, compiler::TNode<Smi>{tmp245}));
@@ -17581,7 +17585,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp282;
     compiler::TNode<Number> tmp283;
     ca_.Bind(&block25, &tmp267, &tmp268, &tmp269, &tmp270, &tmp271, &tmp272, &tmp273, &tmp274, &tmp275, &tmp276, &tmp277, &tmp278, &tmp279, &tmp280, &tmp281, &tmp282, &tmp283);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1097);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1098);
     ca_.Goto(&block21, tmp267, tmp268, tmp269, tmp270, tmp271, tmp272, tmp273, tmp274, tmp275, tmp276, tmp277, tmp278, tmp279, tmp280, tmp281, tmp282, tmp283);
   }
 
@@ -17604,7 +17608,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp299;
     compiler::TNode<Number> tmp300;
     ca_.Bind(&block18, &tmp284, &tmp285, &tmp286, &tmp287, &tmp288, &tmp289, &tmp290, &tmp291, &tmp292, &tmp293, &tmp294, &tmp295, &tmp296, &tmp297, &tmp298, &tmp299, &tmp300);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1107);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1108);
     compiler::TNode<Smi> tmp301;
     USE(tmp301);
     tmp301 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17621,25 +17625,25 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     USE(tmp305);
     tmp305 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp293}, compiler::TNode<Smi>{tmp295}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp292}, compiler::TNode<Smi>{tmp294}, compiler::TNode<Object>{tmp305});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1109);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1110);
     compiler::TNode<Smi> tmp306;
     USE(tmp306);
     tmp306 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp307;
     USE(tmp307);
     tmp307 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp299}, compiler::TNode<Smi>{tmp306}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1110);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1111);
     compiler::TNode<Smi> tmp308;
     USE(tmp308);
     tmp308 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp309;
     USE(tmp309);
     tmp309 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp291}, compiler::TNode<Smi>{tmp308}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1111);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1112);
     compiler::TNode<Smi> tmp310;
     USE(tmp310);
     tmp310 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1113);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1114);
     compiler::TNode<Smi> tmp311;
     USE(tmp311);
     tmp311 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17690,7 +17694,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp345;
     compiler::TNode<Number> tmp346;
     ca_.Bind(&block27, &tmp330, &tmp331, &tmp332, &tmp333, &tmp334, &tmp335, &tmp336, &tmp337, &tmp338, &tmp339, &tmp340, &tmp341, &tmp342, &tmp343, &tmp344, &tmp345, &tmp346);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1114);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1115);
     compiler::TNode<BoolT> tmp347;
     USE(tmp347);
     tmp347 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiGreaterThanOrEqual(compiler::TNode<Smi>{tmp345}, compiler::TNode<Smi>{tmp343}));
@@ -17738,7 +17742,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp380;
     compiler::TNode<Number> tmp381;
     ca_.Bind(&block29, &tmp365, &tmp366, &tmp367, &tmp368, &tmp369, &tmp370, &tmp371, &tmp372, &tmp373, &tmp374, &tmp375, &tmp376, &tmp377, &tmp378, &tmp379, &tmp380, &tmp381);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1097);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1098);
     ca_.Goto(&block21, tmp365, tmp366, tmp367, tmp368, tmp369, tmp370, tmp371, tmp372, tmp373, tmp374, tmp375, tmp376, tmp377, tmp378, tmp379, tmp380, tmp381);
   }
 
@@ -17761,7 +17765,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp397;
     compiler::TNode<Number> tmp398;
     ca_.Bind(&block21, &tmp382, &tmp383, &tmp384, &tmp385, &tmp386, &tmp387, &tmp388, &tmp389, &tmp390, &tmp391, &tmp392, &tmp393, &tmp394, &tmp395, &tmp396, &tmp397, &tmp398);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1091);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1092);
     ca_.Goto(&block16, tmp382, tmp383, tmp384, tmp385, tmp386, tmp387, tmp388, tmp389, tmp390, tmp391, tmp392, tmp393, tmp394, tmp395, tmp396, tmp397);
   }
 
@@ -17783,18 +17787,18 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp413;
     compiler::TNode<Smi> tmp414;
     ca_.Bind(&block15, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405, &tmp406, &tmp407, &tmp408, &tmp409, &tmp410, &tmp411, &tmp412, &tmp413, &tmp414);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1121);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1122);
     compiler::TNode<Smi> tmp415;
     USE(tmp415);
     tmp415 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp416;
     USE(tmp416);
     tmp416 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp412}, compiler::TNode<Smi>{tmp415}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1122);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1123);
     compiler::TNode<BoolT> tmp417;
     USE(tmp417);
     tmp417 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(true));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1123);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1124);
     ca_.Goto(&block32, tmp399, tmp400, tmp401, tmp402, tmp403, tmp404, tmp405, tmp406, tmp407, tmp408, tmp409, tmp410, tmp411, tmp416, tmp413, tmp414, tmp417);
   }
 
@@ -17873,8 +17877,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp471;
     compiler::TNode<BoolT> tmp472;
     ca_.Bind(&block33, &tmp456, &tmp457, &tmp458, &tmp459, &tmp460, &tmp461, &tmp462, &tmp463, &tmp464, &tmp465, &tmp466, &tmp467, &tmp468, &tmp469, &tmp470, &tmp471, &tmp472);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1125);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1124);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1123);
     ca_.Branch(tmp472, &block30, &block31, tmp456, tmp457, tmp458, tmp459, tmp460, tmp461, tmp462, tmp463, tmp464, tmp465, tmp466, tmp467, tmp468, tmp469, tmp470, tmp471, tmp472);
   }
 
@@ -17897,11 +17901,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp488;
     compiler::TNode<BoolT> tmp489;
     ca_.Bind(&block30, &tmp473, &tmp474, &tmp475, &tmp476, &tmp477, &tmp478, &tmp479, &tmp480, &tmp481, &tmp482, &tmp483, &tmp484, &tmp485, &tmp486, &tmp487, &tmp488, &tmp489);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1125);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1126);
     compiler::TNode<BoolT> tmp490;
     USE(tmp490);
     tmp490 = ca_.UncheckedCast<BoolT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr6ATbool16ATconstexpr_bool(false));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1129);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1130);
     compiler::TNode<Smi> tmp491;
     USE(tmp491);
     tmp491 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17914,28 +17918,28 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp494;
     USE(tmp494);
     tmp494 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiMax(compiler::TNode<Smi>{tmp493}, compiler::TNode<Smi>{tmp492}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1130);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1131);
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateMinGallop(compiler::TNode<FixedArray>{tmp474}, compiler::TNode<Smi>{tmp494});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1133);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1134);
     compiler::TNode<Object> tmp495;
     USE(tmp495);
     tmp495 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp482}, compiler::TNode<Smi>{tmp484}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1134);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1135);
     compiler::TNode<Smi> tmp496;
     USE(tmp496);
     tmp496 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp497;
     USE(tmp497);
     tmp497 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp479}, compiler::TNode<Smi>{tmp496}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1132);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1133);
     compiler::TNode<Smi> tmp498;
     tmp498 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopRight, tmp473, tmp474, tmp481, tmp495, tmp475, tmp479, tmp497));
     USE(tmp498);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1136);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1137);
     compiler::TNode<Smi> tmp499;
     USE(tmp499);
     tmp499 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp479}, compiler::TNode<Smi>{tmp498}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1138);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1139);
     compiler::TNode<Smi> tmp500;
     USE(tmp500);
     tmp500 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -17965,15 +17969,15 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp518;
     compiler::TNode<Smi> tmp519;
     ca_.Bind(&block35, &tmp502, &tmp503, &tmp504, &tmp505, &tmp506, &tmp507, &tmp508, &tmp509, &tmp510, &tmp511, &tmp512, &tmp513, &tmp514, &tmp515, &tmp516, &tmp517, &tmp518, &tmp519);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1139);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1140);
     compiler::TNode<Smi> tmp520;
     USE(tmp520);
     tmp520 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp512}, compiler::TNode<Smi>{tmp516}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1140);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1141);
     compiler::TNode<Smi> tmp521;
     USE(tmp521);
     tmp521 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp514}, compiler::TNode<Smi>{tmp516}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1141);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1142);
     compiler::TNode<Smi> tmp522;
     USE(tmp522);
     tmp522 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -17989,11 +17993,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Object> tmp526;
     tmp526 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp502, tmp510, tmp523, tmp510, tmp525, tmp516);
     USE(tmp526);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1143);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1144);
     compiler::TNode<Smi> tmp527;
     USE(tmp527);
     tmp527 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp508}, compiler::TNode<Smi>{tmp516}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1144);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1145);
     compiler::TNode<Smi> tmp528;
     USE(tmp528);
     tmp528 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -18046,7 +18050,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp564;
     compiler::TNode<Smi> tmp565;
     ca_.Bind(&block38, &tmp548, &tmp549, &tmp550, &tmp551, &tmp552, &tmp553, &tmp554, &tmp555, &tmp556, &tmp557, &tmp558, &tmp559, &tmp560, &tmp561, &tmp562, &tmp563, &tmp564, &tmp565);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1138);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1139);
     ca_.Goto(&block36, tmp548, tmp549, tmp550, tmp551, tmp552, tmp553, tmp554, tmp555, tmp556, tmp557, tmp558, tmp559, tmp560, tmp561, tmp562, tmp563, tmp564, tmp565);
   }
 
@@ -18070,7 +18074,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp582;
     compiler::TNode<Smi> tmp583;
     ca_.Bind(&block36, &tmp566, &tmp567, &tmp568, &tmp569, &tmp570, &tmp571, &tmp572, &tmp573, &tmp574, &tmp575, &tmp576, &tmp577, &tmp578, &tmp579, &tmp580, &tmp581, &tmp582, &tmp583);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1146);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1147);
     compiler::TNode<Smi> tmp584;
     USE(tmp584);
     tmp584 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18087,7 +18091,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     USE(tmp588);
     tmp588 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp575}, compiler::TNode<Smi>{tmp577}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp574}, compiler::TNode<Smi>{tmp576}, compiler::TNode<Object>{tmp588});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1147);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1148);
     compiler::TNode<Smi> tmp589;
     USE(tmp589);
     tmp589 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18146,7 +18150,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp627;
     compiler::TNode<Smi> tmp628;
     ca_.Bind(&block40, &tmp611, &tmp612, &tmp613, &tmp614, &tmp615, &tmp616, &tmp617, &tmp618, &tmp619, &tmp620, &tmp621, &tmp622, &tmp623, &tmp624, &tmp625, &tmp626, &tmp627, &tmp628);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1150);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1151);
     compiler::TNode<Object> tmp629;
     USE(tmp629);
     tmp629 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp619}, compiler::TNode<Smi>{tmp623}));
@@ -18156,18 +18160,18 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp631;
     USE(tmp631);
     tmp631 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp618}, compiler::TNode<Smi>{tmp630}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1149);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1150);
     compiler::TNode<Smi> tmp632;
     USE(tmp632);
     tmp632 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
     compiler::TNode<Smi> tmp633;
     tmp633 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kGallopLeft, tmp611, tmp612, tmp620, tmp629, tmp632, tmp618, tmp631));
     USE(tmp633);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1152);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1153);
     compiler::TNode<Smi> tmp634;
     USE(tmp634);
     tmp634 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp618}, compiler::TNode<Smi>{tmp633}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1154);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1155);
     compiler::TNode<Smi> tmp635;
     USE(tmp635);
     tmp635 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -18197,15 +18201,15 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp653;
     compiler::TNode<Smi> tmp654;
     ca_.Bind(&block41, &tmp637, &tmp638, &tmp639, &tmp640, &tmp641, &tmp642, &tmp643, &tmp644, &tmp645, &tmp646, &tmp647, &tmp648, &tmp649, &tmp650, &tmp651, &tmp652, &tmp653, &tmp654);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1155);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1156);
     compiler::TNode<Smi> tmp655;
     USE(tmp655);
     tmp655 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp647}, compiler::TNode<Smi>{tmp652}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1156);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1157);
     compiler::TNode<Smi> tmp656;
     USE(tmp656);
     tmp656 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp648}, compiler::TNode<Smi>{tmp652}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1157);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1158);
     compiler::TNode<Smi> tmp657;
     USE(tmp657);
     tmp657 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18221,11 +18225,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Object> tmp661;
     tmp661 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp637, tmp646, tmp658, tmp645, tmp660, tmp652);
     USE(tmp661);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1159);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1160);
     compiler::TNode<Smi> tmp662;
     USE(tmp662);
     tmp662 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp644}, compiler::TNode<Smi>{tmp652}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1160);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1161);
     compiler::TNode<Smi> tmp663;
     USE(tmp663);
     tmp663 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18278,7 +18282,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp699;
     compiler::TNode<Smi> tmp700;
     ca_.Bind(&block44, &tmp683, &tmp684, &tmp685, &tmp686, &tmp687, &tmp688, &tmp689, &tmp690, &tmp691, &tmp692, &tmp693, &tmp694, &tmp695, &tmp696, &tmp697, &tmp698, &tmp699, &tmp700);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1164);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1165);
     compiler::TNode<Smi> tmp701;
     USE(tmp701);
     tmp701 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -18331,7 +18335,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp737;
     compiler::TNode<Smi> tmp738;
     ca_.Bind(&block46, &tmp721, &tmp722, &tmp723, &tmp724, &tmp725, &tmp726, &tmp727, &tmp728, &tmp729, &tmp730, &tmp731, &tmp732, &tmp733, &tmp734, &tmp735, &tmp736, &tmp737, &tmp738);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1154);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1155);
     ca_.Goto(&block42, tmp721, tmp722, tmp723, tmp724, tmp725, tmp726, tmp727, tmp728, tmp729, tmp730, tmp731, tmp732, tmp733, tmp734, tmp735, tmp736, tmp737, tmp738);
   }
 
@@ -18355,7 +18359,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp755;
     compiler::TNode<Smi> tmp756;
     ca_.Bind(&block42, &tmp739, &tmp740, &tmp741, &tmp742, &tmp743, &tmp744, &tmp745, &tmp746, &tmp747, &tmp748, &tmp749, &tmp750, &tmp751, &tmp752, &tmp753, &tmp754, &tmp755, &tmp756);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1166);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1167);
     compiler::TNode<Smi> tmp757;
     USE(tmp757);
     tmp757 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18372,7 +18376,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     USE(tmp761);
     tmp761 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp747}, compiler::TNode<Smi>{tmp751}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp747}, compiler::TNode<Smi>{tmp749}, compiler::TNode<Object>{tmp761});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1167);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1168);
     compiler::TNode<Smi> tmp762;
     USE(tmp762);
     tmp762 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18431,8 +18435,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<BoolT> tmp800;
     compiler::TNode<Smi> tmp801;
     ca_.Bind(&block48, &tmp784, &tmp785, &tmp786, &tmp787, &tmp788, &tmp789, &tmp790, &tmp791, &tmp792, &tmp793, &tmp794, &tmp795, &tmp796, &tmp797, &tmp798, &tmp799, &tmp800, &tmp801);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1125);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1124);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1123);
     ca_.Goto(&block32, tmp784, tmp785, tmp786, tmp787, tmp788, tmp789, tmp790, tmp791, tmp792, tmp793, tmp794, tmp795, tmp796, tmp797, tmp798, tmp799, tmp800);
   }
 
@@ -18455,16 +18459,16 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp817;
     compiler::TNode<BoolT> tmp818;
     ca_.Bind(&block31, &tmp802, &tmp803, &tmp804, &tmp805, &tmp806, &tmp807, &tmp808, &tmp809, &tmp810, &tmp811, &tmp812, &tmp813, &tmp814, &tmp815, &tmp816, &tmp817, &tmp818);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1169);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1170);
     compiler::TNode<Smi> tmp819;
     USE(tmp819);
     tmp819 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp820;
     USE(tmp820);
     tmp820 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp815}, compiler::TNode<Smi>{tmp819}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1170);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1171);
     ArrayBuiltinsFromDSLAssembler(state_).StoreSortStateMinGallop(compiler::TNode<FixedArray>{tmp803}, compiler::TNode<Smi>{tmp820});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1083);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1084);
     ca_.Goto(&block13, tmp802, tmp803, tmp804, tmp805, tmp806, tmp807, tmp808, tmp809, tmp810, tmp811, tmp812, tmp813, tmp814, tmp820);
   }
 
@@ -18484,8 +18488,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp833;
     compiler::TNode<Smi> tmp834;
     ca_.Bind(&block12, &tmp821, &tmp822, &tmp823, &tmp824, &tmp825, &tmp826, &tmp827, &tmp828, &tmp829, &tmp830, &tmp831, &tmp832, &tmp833, &tmp834);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1076);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1173);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1077);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1174);
     ca_.Goto(&block5, tmp821, tmp822, tmp823, tmp824, tmp825, tmp826, tmp827, tmp828, tmp829, tmp830, tmp831, tmp832, tmp833);
   }
 
@@ -18504,7 +18508,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp846;
     compiler::TNode<Smi> tmp847;
     ca_.Bind(&block6, &tmp835, &tmp836, &tmp837, &tmp838, &tmp839, &tmp840, &tmp841, &tmp842, &tmp843, &tmp844, &tmp845, &tmp846, &tmp847);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1174);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1175);
     compiler::TNode<Smi> tmp848;
     USE(tmp848);
     tmp848 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -18529,7 +18533,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp861;
     compiler::TNode<Smi> tmp862;
     ca_.Bind(&block49, &tmp850, &tmp851, &tmp852, &tmp853, &tmp854, &tmp855, &tmp856, &tmp857, &tmp858, &tmp859, &tmp860, &tmp861, &tmp862);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1176);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1177);
     compiler::TNode<Smi> tmp863;
     USE(tmp863);
     tmp863 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18545,7 +18549,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Object> tmp867;
     tmp867 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp850, tmp859, tmp866, tmp858, tmp865, tmp857);
     USE(tmp867);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1174);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1175);
     ca_.Goto(&block50, tmp850, tmp851, tmp852, tmp853, tmp854, tmp855, tmp856, tmp857, tmp858, tmp859, tmp860, tmp861, tmp862);
   }
 
@@ -18564,7 +18568,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp879;
     compiler::TNode<Smi> tmp880;
     ca_.Bind(&block50, &tmp868, &tmp869, &tmp870, &tmp871, &tmp872, &tmp873, &tmp874, &tmp875, &tmp876, &tmp877, &tmp878, &tmp879, &tmp880);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1076);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1077);
     ca_.Goto(&block5, tmp868, tmp869, tmp870, tmp871, tmp872, tmp873, tmp874, tmp875, tmp876, tmp877, tmp878, tmp879, tmp880);
   }
 
@@ -18583,7 +18587,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp892;
     compiler::TNode<Smi> tmp893;
     ca_.Bind(&block5, &tmp881, &tmp882, &tmp883, &tmp884, &tmp885, &tmp886, &tmp887, &tmp888, &tmp889, &tmp890, &tmp891, &tmp892, &tmp893);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1179);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1180);
     ca_.Goto(&block3, tmp881, tmp882, tmp883, tmp884, tmp885, tmp886, tmp887, tmp888, tmp889, tmp890, tmp891, tmp892, tmp893);
   }
 
@@ -18602,15 +18606,15 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp905;
     compiler::TNode<Smi> tmp906;
     ca_.Bind(&block4, &tmp894, &tmp895, &tmp896, &tmp897, &tmp898, &tmp899, &tmp900, &tmp901, &tmp902, &tmp903, &tmp904, &tmp905, &tmp906);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1183);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1184);
     compiler::TNode<Smi> tmp907;
     USE(tmp907);
     tmp907 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp904}, compiler::TNode<Smi>{tmp900}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1184);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1185);
     compiler::TNode<Smi> tmp908;
     USE(tmp908);
     tmp908 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp906}, compiler::TNode<Smi>{tmp900}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1185);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1186);
     compiler::TNode<Smi> tmp909;
     USE(tmp909);
     tmp909 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18626,12 +18630,12 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Object> tmp913;
     tmp913 = CodeStubAssembler(state_).CallBuiltin(Builtins::kCopy, tmp894, tmp902, tmp910, tmp902, tmp912, tmp900);
     USE(tmp913);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1186);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1187);
     compiler::TNode<Object> tmp914;
     USE(tmp914);
     tmp914 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp903}, compiler::TNode<Smi>{tmp905}));
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp902}, compiler::TNode<Smi>{tmp907}, compiler::TNode<Object>{tmp914});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1076);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1077);
     ca_.Goto(&block3, tmp894, tmp895, tmp896, tmp897, tmp898, tmp899, tmp900, tmp901, tmp902, tmp903, tmp907, tmp905, tmp908);
   }
 
@@ -18650,8 +18654,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeHigh(compiler::TNode<Context> p_context
     compiler::TNode<Smi> tmp926;
     compiler::TNode<Smi> tmp927;
     ca_.Bind(&block3, &tmp915, &tmp916, &tmp917, &tmp918, &tmp919, &tmp920, &tmp921, &tmp922, &tmp923, &tmp924, &tmp925, &tmp926, &tmp927);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1057);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1053);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1058);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1054);
     ca_.Goto(&block2, tmp915, tmp916, tmp917, tmp918, tmp919, tmp920);
   }
 
@@ -18692,12 +18696,12 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::ComputeMinRunLength(compiler
   if (block0.is_used()) {
     compiler::TNode<Smi> tmp0;
     ca_.Bind(&block0, &tmp0);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1200);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1201);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1202);
     compiler::TNode<Smi> tmp1;
     USE(tmp1);
     tmp1 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1204);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1205);
     ca_.Goto(&block4, tmp0, tmp0, tmp1);
   }
 
@@ -18720,7 +18724,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::ComputeMinRunLength(compiler
     compiler::TNode<Smi> tmp8;
     compiler::TNode<Smi> tmp9;
     ca_.Bind(&block2, &tmp7, &tmp8, &tmp9);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1205);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1206);
     compiler::TNode<Smi> tmp10;
     USE(tmp10);
     tmp10 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18730,11 +18734,11 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::ComputeMinRunLength(compiler
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiOr(compiler::TNode<Smi>{tmp9}, compiler::TNode<Smi>{tmp11}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1206);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1207);
     compiler::TNode<Smi> tmp13;
     USE(tmp13);
     tmp13 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSar(compiler::TNode<Smi>{tmp8}, 1));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1204);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1205);
     ca_.Goto(&block4, tmp7, tmp13, tmp12);
   }
 
@@ -18743,11 +18747,11 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::ComputeMinRunLength(compiler
     compiler::TNode<Smi> tmp15;
     compiler::TNode<Smi> tmp16;
     ca_.Bind(&block3, &tmp14, &tmp15, &tmp16);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1209);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1210);
     compiler::TNode<Smi> tmp17;
     USE(tmp17);
     tmp17 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp15}, compiler::TNode<Smi>{tmp16}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1211);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1212);
     ca_.Goto(&block1, tmp14, tmp17);
   }
 
@@ -18755,7 +18759,7 @@ compiler::TNode<Smi> ArrayBuiltinsFromDSLAssembler::ComputeMinRunLength(compiler
     compiler::TNode<Smi> tmp18;
     compiler::TNode<Smi> tmp19;
     ca_.Bind(&block1, &tmp18, &tmp19);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1199);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1200);
     ca_.Goto(&block5, tmp18, tmp19);
   }
 
@@ -18778,7 +18782,7 @@ compiler::TNode<BoolT> ArrayBuiltinsFromDSLAssembler::RunInvariantEstablished(co
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1217);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1218);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -18804,11 +18808,11 @@ compiler::TNode<BoolT> ArrayBuiltinsFromDSLAssembler::RunInvariantEstablished(co
     compiler::TNode<FixedArray> tmp10;
     compiler::TNode<Smi> tmp11;
     ca_.Bind(&block3, &tmp9, &tmp10, &tmp11);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1219);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1220);
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp9}, compiler::TNode<FixedArray>{tmp10}, compiler::TNode<Smi>{tmp11}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1220);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1221);
     compiler::TNode<Smi> tmp13;
     USE(tmp13);
     tmp13 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18818,7 +18822,7 @@ compiler::TNode<BoolT> ArrayBuiltinsFromDSLAssembler::RunInvariantEstablished(co
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp9}, compiler::TNode<FixedArray>{tmp10}, compiler::TNode<Smi>{tmp14}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1221);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1222);
     compiler::TNode<Smi> tmp16;
     USE(tmp16);
     tmp16 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -18828,7 +18832,7 @@ compiler::TNode<BoolT> ArrayBuiltinsFromDSLAssembler::RunInvariantEstablished(co
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp9}, compiler::TNode<FixedArray>{tmp10}, compiler::TNode<Smi>{tmp17}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1223);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1224);
     compiler::TNode<Smi> tmp19;
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp15}, compiler::TNode<Smi>{tmp12}));
@@ -18844,7 +18848,7 @@ compiler::TNode<BoolT> ArrayBuiltinsFromDSLAssembler::RunInvariantEstablished(co
     compiler::TNode<Smi> tmp23;
     compiler::TNode<BoolT> tmp24;
     ca_.Bind(&block1, &tmp21, &tmp22, &tmp23, &tmp24);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1215);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1216);
     ca_.Goto(&block4, tmp21, tmp22, tmp23, tmp24);
   }
 
@@ -18879,11 +18883,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<Context> tmp0;
     compiler::TNode<FixedArray> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1237);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1238);
     compiler::TNode<FixedArray> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStatePendingRuns(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1240);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1241);
     ca_.Goto(&block5, tmp0, tmp1, tmp2);
   }
 
@@ -18909,7 +18913,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp10;
     compiler::TNode<FixedArray> tmp11;
     ca_.Bind(&block3, &tmp9, &tmp10, &tmp11);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1241);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1242);
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunsSize(compiler::TNode<Context>{tmp9}, compiler::TNode<FixedArray>{tmp10}));
@@ -18919,7 +18923,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<Smi> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp12}, compiler::TNode<Smi>{tmp13}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1243);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1244);
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18941,14 +18945,14 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp21;
     compiler::TNode<Smi> tmp22;
     ca_.Bind(&block8, &tmp19, &tmp20, &tmp21, &tmp22);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1244);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1245);
     compiler::TNode<BoolT> tmp23;
     USE(tmp23);
     tmp23 = ca_.UncheckedCast<BoolT>(ArrayBuiltinsFromDSLAssembler(state_).RunInvariantEstablished(compiler::TNode<Context>{tmp19}, compiler::TNode<FixedArray>{tmp21}, compiler::TNode<Smi>{tmp22}));
     compiler::TNode<BoolT> tmp24;
     USE(tmp24);
     tmp24 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).Word32BinaryNot(compiler::TNode<BoolT>{tmp23}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1243);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1244);
     ca_.Branch(tmp24, &block6, &block7, tmp19, tmp20, tmp21, tmp22);
   }
 
@@ -18958,7 +18962,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp27;
     compiler::TNode<Smi> tmp28;
     ca_.Bind(&block6, &tmp25, &tmp26, &tmp27, &tmp28);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1245);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1246);
     compiler::TNode<Smi> tmp29;
     USE(tmp29);
     tmp29 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18968,7 +18972,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<Smi> tmp31;
     USE(tmp31);
     tmp31 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp25}, compiler::TNode<FixedArray>{tmp27}, compiler::TNode<Smi>{tmp30}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1246);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1247);
     compiler::TNode<Smi> tmp32;
     USE(tmp32);
     tmp32 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -18978,7 +18982,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<Smi> tmp34;
     USE(tmp34);
     tmp34 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp25}, compiler::TNode<FixedArray>{tmp27}, compiler::TNode<Smi>{tmp33}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1245);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1246);
     compiler::TNode<BoolT> tmp35;
     USE(tmp35);
     tmp35 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThan(compiler::TNode<Smi>{tmp31}, compiler::TNode<Smi>{tmp34}));
@@ -18991,14 +18995,14 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp38;
     compiler::TNode<Smi> tmp39;
     ca_.Bind(&block10, &tmp36, &tmp37, &tmp38, &tmp39);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1247);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1248);
     compiler::TNode<Smi> tmp40;
     USE(tmp40);
     tmp40 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp41;
     USE(tmp41);
     tmp41 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp39}, compiler::TNode<Smi>{tmp40}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1245);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1246);
     ca_.Goto(&block11, tmp36, tmp37, tmp38, tmp41);
   }
 
@@ -19008,11 +19012,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp44;
     compiler::TNode<Smi> tmp45;
     ca_.Bind(&block11, &tmp42, &tmp43, &tmp44, &tmp45);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1250);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1251);
     compiler::TNode<Smi> tmp46;
     tmp46 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kMergeAt, tmp42, tmp43, tmp45));
     USE(tmp46);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1243);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1244);
     ca_.Goto(&block9, tmp42, tmp43, tmp44, tmp45);
   }
 
@@ -19022,11 +19026,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp49;
     compiler::TNode<Smi> tmp50;
     ca_.Bind(&block7, &tmp47, &tmp48, &tmp49, &tmp50);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1252);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1253);
     compiler::TNode<Smi> tmp51;
     USE(tmp51);
     tmp51 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp47}, compiler::TNode<FixedArray>{tmp49}, compiler::TNode<Smi>{tmp50}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1253);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1254);
     compiler::TNode<Smi> tmp52;
     USE(tmp52);
     tmp52 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -19036,11 +19040,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<Smi> tmp54;
     USE(tmp54);
     tmp54 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp47}, compiler::TNode<FixedArray>{tmp49}, compiler::TNode<Smi>{tmp53}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1252);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1253);
     compiler::TNode<BoolT> tmp55;
     USE(tmp55);
     tmp55 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThanOrEqual(compiler::TNode<Smi>{tmp51}, compiler::TNode<Smi>{tmp54}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1251);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1252);
     ca_.Branch(tmp55, &block12, &block13, tmp47, tmp48, tmp49, tmp50);
   }
 
@@ -19050,11 +19054,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp58;
     compiler::TNode<Smi> tmp59;
     ca_.Bind(&block12, &tmp56, &tmp57, &tmp58, &tmp59);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1254);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1255);
     compiler::TNode<Smi> tmp60;
     tmp60 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kMergeAt, tmp56, tmp57, tmp59));
     USE(tmp60);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1251);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1252);
     ca_.Goto(&block14, tmp56, tmp57, tmp58, tmp59);
   }
 
@@ -19064,7 +19068,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp63;
     compiler::TNode<Smi> tmp64;
     ca_.Bind(&block13, &tmp61, &tmp62, &tmp63, &tmp64);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1256);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1257);
     ca_.Goto(&block4, tmp61, tmp62, tmp63);
   }
 
@@ -19074,7 +19078,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp67;
     compiler::TNode<Smi> tmp68;
     ca_.Bind(&block14, &tmp65, &tmp66, &tmp67, &tmp68);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1243);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1244);
     ca_.Goto(&block9, tmp65, tmp66, tmp67, tmp68);
   }
 
@@ -19084,7 +19088,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp71;
     compiler::TNode<Smi> tmp72;
     ca_.Bind(&block9, &tmp69, &tmp70, &tmp71, &tmp72);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1240);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1241);
     ca_.Goto(&block5, tmp69, tmp70, tmp71);
   }
 
@@ -19093,8 +19097,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeCollapse(compiler::TNode<Context> p_con
     compiler::TNode<FixedArray> tmp74;
     compiler::TNode<FixedArray> tmp75;
     ca_.Bind(&block4, &tmp73, &tmp74, &tmp75);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1237);
     ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1236);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1235);
     ca_.Goto(&block2, tmp73, tmp74);
   }
 
@@ -19132,11 +19136,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<Context> tmp0;
     compiler::TNode<FixedArray> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1266);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1267);
     compiler::TNode<FixedArray> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStatePendingRuns(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1269);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1270);
     ca_.Goto(&block5, tmp0, tmp1, tmp2);
   }
 
@@ -19162,7 +19166,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<FixedArray> tmp10;
     compiler::TNode<FixedArray> tmp11;
     ca_.Bind(&block3, &tmp9, &tmp10, &tmp11);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1270);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1271);
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunsSize(compiler::TNode<Context>{tmp9}, compiler::TNode<FixedArray>{tmp10}));
@@ -19172,7 +19176,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<Smi> tmp14;
     USE(tmp14);
     tmp14 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp12}, compiler::TNode<Smi>{tmp13}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1272);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1273);
     compiler::TNode<Smi> tmp15;
     USE(tmp15);
     tmp15 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -19188,7 +19192,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<FixedArray> tmp19;
     compiler::TNode<Smi> tmp20;
     ca_.Bind(&block8, &tmp17, &tmp18, &tmp19, &tmp20);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1273);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1274);
     compiler::TNode<Smi> tmp21;
     USE(tmp21);
     tmp21 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -19198,7 +19202,7 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<Smi> tmp23;
     USE(tmp23);
     tmp23 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp17}, compiler::TNode<FixedArray>{tmp19}, compiler::TNode<Smi>{tmp22}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1274);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1275);
     compiler::TNode<Smi> tmp24;
     USE(tmp24);
     tmp24 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
@@ -19208,11 +19212,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<Smi> tmp26;
     USE(tmp26);
     tmp26 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).GetPendingRunLength(compiler::TNode<Context>{tmp17}, compiler::TNode<FixedArray>{tmp19}, compiler::TNode<Smi>{tmp25}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1273);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1274);
     compiler::TNode<BoolT> tmp27;
     USE(tmp27);
     tmp27 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThan(compiler::TNode<Smi>{tmp23}, compiler::TNode<Smi>{tmp26}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1272);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1273);
     ca_.Branch(tmp27, &block6, &block7, tmp17, tmp18, tmp19, tmp20);
   }
 
@@ -19222,14 +19226,14 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<FixedArray> tmp30;
     compiler::TNode<Smi> tmp31;
     ca_.Bind(&block6, &tmp28, &tmp29, &tmp30, &tmp31);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1275);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1276);
     compiler::TNode<Smi> tmp32;
     USE(tmp32);
     tmp32 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(1));
     compiler::TNode<Smi> tmp33;
     USE(tmp33);
     tmp33 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp31}, compiler::TNode<Smi>{tmp32}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1272);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1273);
     ca_.Goto(&block7, tmp28, tmp29, tmp30, tmp33);
   }
 
@@ -19239,11 +19243,11 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<FixedArray> tmp36;
     compiler::TNode<Smi> tmp37;
     ca_.Bind(&block7, &tmp34, &tmp35, &tmp36, &tmp37);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1277);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1278);
     compiler::TNode<Smi> tmp38;
     tmp38 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kMergeAt, tmp34, tmp35, tmp37));
     USE(tmp38);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1269);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1270);
     ca_.Goto(&block5, tmp34, tmp35, tmp36);
   }
 
@@ -19252,8 +19256,8 @@ void ArrayBuiltinsFromDSLAssembler::MergeForceCollapse(compiler::TNode<Context> 
     compiler::TNode<FixedArray> tmp40;
     compiler::TNode<FixedArray> tmp41;
     ca_.Bind(&block4, &tmp39, &tmp40, &tmp41);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1265);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1263);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1266);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1264);
     ca_.Goto(&block2, tmp39, tmp40);
   }
 
@@ -19299,7 +19303,7 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1284);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1285);
     compiler::TNode<Smi> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -19322,16 +19326,16 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<FixedArray> tmp9;
     compiler::TNode<Smi> tmp10;
     ca_.Bind(&block4, &tmp8, &tmp9, &tmp10);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1285);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1289);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1286);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1290);
     compiler::TNode<Smi> tmp11;
     USE(tmp11);
     tmp11 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1290);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1291);
     compiler::TNode<Smi> tmp12;
     USE(tmp12);
     tmp12 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).ComputeMinRunLength(compiler::TNode<Smi>{tmp10}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1291);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1292);
     ca_.Goto(&block7, tmp8, tmp9, tmp10, tmp10, tmp11, tmp12);
   }
 
@@ -19360,14 +19364,14 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Smi> tmp25;
     compiler::TNode<Smi> tmp26;
     ca_.Bind(&block5, &tmp21, &tmp22, &tmp23, &tmp24, &tmp25, &tmp26);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1292);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1293);
     compiler::TNode<Smi> tmp27;
     USE(tmp27);
     tmp27 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp25}, compiler::TNode<Smi>{tmp24}));
     compiler::TNode<Smi> tmp28;
     USE(tmp28);
     tmp28 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).CountAndMakeRun(compiler::TNode<Context>{tmp21}, compiler::TNode<FixedArray>{tmp22}, compiler::TNode<Smi>{tmp25}, compiler::TNode<Smi>{tmp27}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1295);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1296);
     compiler::TNode<BoolT> tmp29;
     USE(tmp29);
     tmp29 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).SmiLessThan(compiler::TNode<Smi>{tmp28}, compiler::TNode<Smi>{tmp26}));
@@ -19383,23 +19387,23 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Smi> tmp35;
     compiler::TNode<Smi> tmp36;
     ca_.Bind(&block8, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1296);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1297);
     compiler::TNode<Smi> tmp37;
     USE(tmp37);
     tmp37 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiMin(compiler::TNode<Smi>{tmp35}, compiler::TNode<Smi>{tmp33}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1298);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1299);
     compiler::TNode<Smi> tmp38;
     USE(tmp38);
     tmp38 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp34}, compiler::TNode<Smi>{tmp36}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1299);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1300);
     compiler::TNode<Smi> tmp39;
     USE(tmp39);
     tmp39 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp34}, compiler::TNode<Smi>{tmp37}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1297);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1298);
     compiler::TNode<Smi> tmp40;
     tmp40 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kBinaryInsertionSort, tmp30, tmp31, tmp34, tmp38, tmp39));
     USE(tmp40);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1300);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1301);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).EnsureSuccess(compiler::TNode<Context>{tmp30}, compiler::TNode<FixedArray>{tmp31}, &label0);
     ca_.Goto(&block10, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35, tmp36, tmp37, tmp31);
@@ -19434,8 +19438,8 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Smi> tmp57;
     compiler::TNode<FixedArray> tmp58;
     ca_.Bind(&block10, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54, &tmp55, &tmp56, &tmp57, &tmp58);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1301);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1295);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1302);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1296);
     ca_.Goto(&block9, tmp50, tmp51, tmp52, tmp53, tmp54, tmp55, tmp57);
   }
 
@@ -19448,9 +19452,9 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Smi> tmp64;
     compiler::TNode<Smi> tmp65;
     ca_.Bind(&block9, &tmp59, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1305);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1306);
     ArrayBuiltinsFromDSLAssembler(state_).PushRun(compiler::TNode<Context>{tmp59}, compiler::TNode<FixedArray>{tmp60}, compiler::TNode<Smi>{tmp63}, compiler::TNode<Smi>{tmp65});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1307);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1308);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).MergeCollapse(compiler::TNode<Context>{tmp59}, compiler::TNode<FixedArray>{tmp60}, &label0);
     ca_.Goto(&block12, tmp59, tmp60, tmp61, tmp62, tmp63, tmp64, tmp65, tmp59, tmp60);
@@ -19485,15 +19489,15 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Context> tmp82;
     compiler::TNode<FixedArray> tmp83;
     ca_.Bind(&block12, &tmp75, &tmp76, &tmp77, &tmp78, &tmp79, &tmp80, &tmp81, &tmp82, &tmp83);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1310);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1311);
     compiler::TNode<Smi> tmp84;
     USE(tmp84);
     tmp84 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiAdd(compiler::TNode<Smi>{tmp79}, compiler::TNode<Smi>{tmp81}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1311);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1312);
     compiler::TNode<Smi> tmp85;
     USE(tmp85);
     tmp85 = ca_.UncheckedCast<Smi>(CodeStubAssembler(state_).SmiSub(compiler::TNode<Smi>{tmp78}, compiler::TNode<Smi>{tmp81}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1291);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1292);
     ca_.Goto(&block7, tmp75, tmp76, tmp77, tmp85, tmp84, tmp80);
   }
 
@@ -19505,7 +19509,7 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Smi> tmp90;
     compiler::TNode<Smi> tmp91;
     ca_.Bind(&block6, &tmp86, &tmp87, &tmp88, &tmp89, &tmp90, &tmp91);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1314);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1315);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).MergeForceCollapse(compiler::TNode<Context>{tmp86}, compiler::TNode<FixedArray>{tmp87}, &label0);
     ca_.Goto(&block14, tmp86, tmp87, tmp88, tmp89, tmp90, tmp91, tmp86, tmp87);
@@ -19538,8 +19542,8 @@ void ArrayBuiltinsFromDSLAssembler::ArrayTimSortImpl(compiler::TNode<Context> p_
     compiler::TNode<Context> tmp106;
     compiler::TNode<FixedArray> tmp107;
     ca_.Bind(&block14, &tmp100, &tmp101, &tmp102, &tmp103, &tmp104, &tmp105, &tmp106, &tmp107);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1283);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1281);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1284);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1282);
     ca_.Goto(&block2, tmp100, tmp101, tmp102);
   }
 
@@ -19580,15 +19584,15 @@ void ArrayBuiltinsFromDSLAssembler::CopyReceiverElementsToWorkArray(compiler::TN
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1325);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1326);
     compiler::TNode<BuiltinPtr> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<BuiltinPtr>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateLoadFn(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1326);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1327);
     compiler::TNode<FixedArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1328);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1329);
     compiler::TNode<Smi> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -19617,7 +19621,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyReceiverElementsToWorkArray(compiler::TN
     compiler::TNode<FixedArray> tmp17;
     compiler::TNode<Smi> tmp18;
     ca_.Bind(&block3, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17, &tmp18);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1329);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1330);
     compiler::TNode<Object> tmp19;
     USE(tmp19);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -19658,7 +19662,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyReceiverElementsToWorkArray(compiler::TN
     compiler::TNode<Object> tmp40;
     ca_.Bind(&block7, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37, &tmp38, &tmp39, &tmp40);
     CodeStubAssembler(state_).StoreFixedArrayElementSmi(compiler::TNode<FixedArray>{tmp36}, compiler::TNode<Smi>{tmp37}, compiler::TNode<Object>{tmp40});
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1328);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1329);
     ca_.Goto(&block6, tmp30, tmp31, tmp32, tmp33, tmp34, tmp35);
   }
 
@@ -19687,8 +19691,8 @@ void ArrayBuiltinsFromDSLAssembler::CopyReceiverElementsToWorkArray(compiler::TN
     compiler::TNode<FixedArray> tmp53;
     compiler::TNode<Smi> tmp54;
     ca_.Bind(&block4, &tmp49, &tmp50, &tmp51, &tmp52, &tmp53, &tmp54);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1322);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1319);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1323);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1320);
     ca_.Goto(&block2, tmp49, tmp50, tmp51);
   }
 
@@ -19729,15 +19733,15 @@ void ArrayBuiltinsFromDSLAssembler::CopyWorkArrayToReceiver(compiler::TNode<Cont
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1339);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1340);
     compiler::TNode<BuiltinPtr> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<BuiltinPtr>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateStoreFn(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1340);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1341);
     compiler::TNode<FixedArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateWorkArray(compiler::TNode<FixedArray>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1342);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1343);
     compiler::TNode<Smi> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(0));
@@ -19766,7 +19770,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyWorkArrayToReceiver(compiler::TNode<Cont
     compiler::TNode<FixedArray> tmp17;
     compiler::TNode<Smi> tmp18;
     ca_.Bind(&block3, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17, &tmp18);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1343);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1344);
     compiler::TNode<Object> tmp19;
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).LoadFixedArrayElement(compiler::TNode<FixedArray>{tmp17}, compiler::TNode<Smi>{tmp18}));
@@ -19804,7 +19808,7 @@ void ArrayBuiltinsFromDSLAssembler::CopyWorkArrayToReceiver(compiler::TNode<Cont
     compiler::TNode<Smi> tmp36;
     compiler::TNode<Object> tmp37;
     ca_.Bind(&block7, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34, &tmp35, &tmp36, &tmp37);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1342);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1343);
     ca_.Goto(&block6, tmp29, tmp30, tmp31, tmp32, tmp33, tmp34);
   }
 
@@ -19833,8 +19837,8 @@ void ArrayBuiltinsFromDSLAssembler::CopyWorkArrayToReceiver(compiler::TNode<Cont
     compiler::TNode<FixedArray> tmp50;
     compiler::TNode<Smi> tmp51;
     ca_.Bind(&block4, &tmp46, &tmp47, &tmp48, &tmp49, &tmp50, &tmp51);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1336);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1333);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1337);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1334);
     ca_.Goto(&block2, tmp46, tmp47, tmp48);
   }
 
@@ -19885,7 +19889,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp1;
     compiler::TNode<Smi> tmp2;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1350);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1351);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).CopyReceiverElementsToWorkArray(compiler::TNode<Context>{tmp0}, compiler::TNode<FixedArray>{tmp1}, compiler::TNode<Smi>{tmp2}, &label0);
     ca_.Goto(&block3, tmp0, tmp1, tmp2, tmp2);
@@ -19910,7 +19914,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp9;
     compiler::TNode<Smi> tmp10;
     ca_.Bind(&block3, &tmp7, &tmp8, &tmp9, &tmp10);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1351);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1352);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).ArrayTimSortImpl(compiler::TNode<Context>{tmp7}, compiler::TNode<FixedArray>{tmp8}, compiler::TNode<Smi>{tmp9}, &label0);
     ca_.Goto(&block5, tmp7, tmp8, tmp9, tmp7, tmp8, tmp9);
@@ -19939,7 +19943,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp21;
     compiler::TNode<Smi> tmp22;
     ca_.Bind(&block5, &tmp17, &tmp18, &tmp19, &tmp20, &tmp21, &tmp22);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1357);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1358);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_)._method_SortState_CheckAccessor(compiler::TNode<Context>{tmp17}, compiler::TNode<FixedArray>{tmp18}, &label0);
     ca_.Goto(&block7, tmp17, tmp18, tmp19, tmp18);
@@ -19964,7 +19968,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp29;
     compiler::TNode<FixedArray> tmp30;
     ca_.Bind(&block7, &tmp27, &tmp28, &tmp29, &tmp30);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1358);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1359);
     compiler::CodeAssemblerLabel label0(&ca_);
     ArrayBuiltinsFromDSLAssembler(state_).CopyWorkArrayToReceiver(compiler::TNode<Context>{tmp27}, compiler::TNode<FixedArray>{tmp28}, compiler::TNode<Smi>{tmp29}, &label0);
     ca_.Goto(&block9, tmp27, tmp28, tmp29, tmp29);
@@ -19989,7 +19993,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp37;
     compiler::TNode<Smi> tmp38;
     ca_.Bind(&block9, &tmp35, &tmp36, &tmp37, &tmp38);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1360);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1361);
     ca_.Goto(&block1, tmp35, tmp36, tmp37);
   }
 
@@ -19998,7 +20002,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp40;
     compiler::TNode<Smi> tmp41;
     ca_.Bind(&block2, &tmp39, &tmp40, &tmp41);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1361);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1362);
     compiler::TNode<Smi> tmp42;
     USE(tmp42);
     tmp42 = ca_.UncheckedCast<Smi>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateAccessor(compiler::TNode<FixedArray>{tmp40}));
@@ -20016,7 +20020,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp46;
     compiler::TNode<Smi> tmp47;
     ca_.Bind(&block11, &tmp45, &tmp46, &tmp47);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1363);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1364);
     CodeStubAssembler(state_).Unreachable();
   }
 
@@ -20025,14 +20029,14 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp49;
     compiler::TNode<Smi> tmp50;
     ca_.Bind(&block12, &tmp48, &tmp49, &tmp50);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1366);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1367);
     compiler::TNode<JSReceiver> tmp51;
     USE(tmp51);
     tmp51 = ca_.UncheckedCast<JSReceiver>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateReceiver(compiler::TNode<FixedArray>{tmp49}));
     compiler::TNode<HeapObject> tmp52;
     USE(tmp52);
     tmp52 = ca_.UncheckedCast<HeapObject>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateUserCmpFn(compiler::TNode<FixedArray>{tmp49}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1367);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1368);
     compiler::TNode<Number> tmp53;
     USE(tmp53);
     tmp53 = ca_.UncheckedCast<Number>(ArrayBuiltinsFromDSLAssembler(state_).LoadSortStateInitialReceiverLength(compiler::TNode<FixedArray>{tmp49}));
@@ -20042,16 +20046,16 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<Smi> tmp55;
     USE(tmp55);
     tmp55 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).LoadFixedArrayBaseLength(compiler::TNode<FixedArrayBase>{tmp54}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1365);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1366);
     compiler::TNode<FixedArray> tmp56;
     USE(tmp56);
     tmp56 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).NewSortState(compiler::TNode<Context>{tmp48}, compiler::TNode<JSReceiver>{tmp51}, compiler::TNode<HeapObject>{tmp52}, compiler::TNode<Number>{tmp53}, compiler::TNode<Smi>{tmp55}, true));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1368);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1369);
     compiler::TNode<Object> tmp57;
     tmp57 = CodeStubAssembler(state_).CallBuiltin(Builtins::kArrayTimSort, tmp48, tmp56, tmp50);
     USE(tmp57);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1360);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1349);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1361);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1350);
     ca_.Goto(&block1, tmp48, tmp49, tmp50);
   }
 
@@ -20060,7 +20064,7 @@ TF_BUILTIN(ArrayTimSort, CodeStubAssembler) {
     compiler::TNode<FixedArray> tmp59;
     compiler::TNode<Smi> tmp60;
     ca_.Bind(&block1, &tmp58, &tmp59, &tmp60);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1370);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1371);
     compiler::TNode<Smi> tmp61;
     USE(tmp61);
     tmp61 = ArrayBuiltinsFromDSLAssembler(state_).kSuccess();
@@ -20095,14 +20099,14 @@ USE(parameter1);
     compiler::TNode<Context> tmp0;
     compiler::TNode<Object> tmp1;
     ca_.Bind(&block0, &tmp0, &tmp1);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1392);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1393);
     compiler::TNode<IntPtrT> tmp2;
     USE(tmp2);
     tmp2 = ca_.UncheckedCast<IntPtrT>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr8ATintptr17ATconstexpr_int31(0));
     compiler::TNode<Object> tmp3;
     USE(tmp3);
     tmp3 = ca_.UncheckedCast<Object>(CodeStubAssembler(state_).GetArgumentValue(arguments, compiler::TNode<IntPtrT>{tmp2}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1393);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1394);
     compiler::TNode<HeapObject> tmp4;
     USE(tmp4);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -20138,7 +20142,7 @@ USE(parameter1);
     compiler::TNode<Object> tmp15;
     compiler::TNode<Object> tmp16;
     ca_.Bind(&block2, &tmp14, &tmp15, &tmp16);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1394);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1395);
     CodeStubAssembler(state_).ThrowTypeError(compiler::TNode<Context>{tmp14}, MessageTemplate::kBadSortComparisonFunction, compiler::TNode<Object>{tmp16});
   }
 
@@ -20148,15 +20152,15 @@ USE(parameter1);
     compiler::TNode<Object> tmp19;
     compiler::TNode<HeapObject> tmp20;
     ca_.Bind(&block1, &tmp17, &tmp18, &tmp19, &tmp20);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1397);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1398);
     compiler::TNode<JSReceiver> tmp21;
     tmp21 = TORQUE_CAST(CodeStubAssembler(state_).CallBuiltin(Builtins::kToObject, tmp17, tmp18));
     USE(tmp21);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1400);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1401);
     compiler::TNode<Number> tmp22;
     USE(tmp22);
     tmp22 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).GetLengthProperty(compiler::TNode<Context>{tmp17}, compiler::TNode<Object>{tmp21}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1402);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1403);
     compiler::TNode<Number> tmp23;
     USE(tmp23);
     tmp23 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr22UT12ATHeapNumber5ATSmi17ATconstexpr_int31(2));
@@ -20216,11 +20220,11 @@ USE(parameter1);
     compiler::TNode<JSReceiver> tmp48;
     compiler::TNode<Number> tmp49;
     ca_.Bind(&block6, &tmp44, &tmp45, &tmp46, &tmp47, &tmp48, &tmp49);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1406);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1407);
     compiler::TNode<Smi> tmp50;
     tmp50 = TORQUE_CAST(CodeStubAssembler(state_).CallRuntime(Runtime::kPrepareElementsForSort, tmp44, tmp48, tmp49));
     USE(tmp50);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1409);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1410);
     compiler::TNode<Smi> tmp51;
     USE(tmp51);
     tmp51 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).FromConstexpr5ATSmi17ATconstexpr_int31(2));
@@ -20251,16 +20255,16 @@ USE(parameter1);
     compiler::TNode<Number> tmp65;
     compiler::TNode<Smi> tmp66;
     ca_.Bind(&block10, &tmp60, &tmp61, &tmp62, &tmp63, &tmp64, &tmp65, &tmp66);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1412);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1413);
     compiler::TNode<FixedArray> tmp67;
     USE(tmp67);
     tmp67 = ca_.UncheckedCast<FixedArray>(ArrayBuiltinsFromDSLAssembler(state_).NewSortState(compiler::TNode<Context>{tmp60}, compiler::TNode<JSReceiver>{tmp64}, compiler::TNode<HeapObject>{tmp63}, compiler::TNode<Number>{tmp65}, compiler::TNode<Smi>{tmp66}, false));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1411);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1413);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1412);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1414);
     compiler::TNode<Object> tmp68;
     tmp68 = CodeStubAssembler(state_).CallBuiltin(Builtins::kArrayTimSort, tmp60, tmp67, tmp66);
     USE(tmp68);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1415);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 1416);
     arguments->PopAndReturn(tmp61);
   }
 }
@@ -21275,11 +21279,11 @@ TF_BUILTIN(CanUseSameAccessor20ATFastDoubleElements, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Number> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 366);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
     compiler::TNode<JSArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSArray>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast7JSArray(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 368);
     compiler::TNode<Map> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp4}));
@@ -21309,11 +21313,11 @@ TF_BUILTIN(CanUseSameAccessor20ATFastDoubleElements, CodeStubAssembler) {
     compiler::TNode<Number> tmp16;
     compiler::TNode<JSArray> tmp17;
     ca_.Bind(&block2, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 370);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast5ATSmi(compiler::TNode<Context>{tmp13}, compiler::TNode<Object>{tmp16}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 372);
     compiler::TNode<Number> tmp19;
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).LoadJSArrayLength(compiler::TNode<JSArray>{tmp17}));
@@ -21348,7 +21352,7 @@ TF_BUILTIN(CanUseSameAccessor20ATFastDoubleElements, CodeStubAssembler) {
     compiler::TNode<JSArray> tmp33;
     compiler::TNode<Smi> tmp34;
     ca_.Bind(&block4, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 373);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 374);
     compiler::TNode<Oddball> tmp35;
     USE(tmp35);
     tmp35 = BaseBuiltinsFromDSLAssembler(state_).True();
@@ -21379,11 +21383,11 @@ TF_BUILTIN(CanUseSameAccessor23ATFastPackedSmiElements, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Number> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 366);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
     compiler::TNode<JSArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSArray>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast7JSArray(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 368);
     compiler::TNode<Map> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp4}));
@@ -21413,11 +21417,11 @@ TF_BUILTIN(CanUseSameAccessor23ATFastPackedSmiElements, CodeStubAssembler) {
     compiler::TNode<Number> tmp16;
     compiler::TNode<JSArray> tmp17;
     ca_.Bind(&block2, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 370);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast5ATSmi(compiler::TNode<Context>{tmp13}, compiler::TNode<Object>{tmp16}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 372);
     compiler::TNode<Number> tmp19;
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).LoadJSArrayLength(compiler::TNode<JSArray>{tmp17}));
@@ -21452,7 +21456,7 @@ TF_BUILTIN(CanUseSameAccessor23ATFastPackedSmiElements, CodeStubAssembler) {
     compiler::TNode<JSArray> tmp33;
     compiler::TNode<Smi> tmp34;
     ca_.Bind(&block4, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 373);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 374);
     compiler::TNode<Oddball> tmp35;
     USE(tmp35);
     tmp35 = BaseBuiltinsFromDSLAssembler(state_).True();
@@ -21483,11 +21487,11 @@ TF_BUILTIN(CanUseSameAccessor25ATFastSmiOrObjectElements, CodeStubAssembler) {
     compiler::TNode<Object> tmp2;
     compiler::TNode<Number> tmp3;
     ca_.Bind(&block0, &tmp0, &tmp1, &tmp2, &tmp3);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 366);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
     compiler::TNode<JSArray> tmp4;
     USE(tmp4);
     tmp4 = ca_.UncheckedCast<JSArray>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast7JSArray(compiler::TNode<Context>{tmp0}, compiler::TNode<Object>{tmp1}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 367);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 368);
     compiler::TNode<Map> tmp5;
     USE(tmp5);
     tmp5 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp4}));
@@ -21517,11 +21521,11 @@ TF_BUILTIN(CanUseSameAccessor25ATFastSmiOrObjectElements, CodeStubAssembler) {
     compiler::TNode<Number> tmp16;
     compiler::TNode<JSArray> tmp17;
     ca_.Bind(&block2, &tmp13, &tmp14, &tmp15, &tmp16, &tmp17);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 370);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
     compiler::TNode<Smi> tmp18;
     USE(tmp18);
     tmp18 = ca_.UncheckedCast<Smi>(BaseBuiltinsFromDSLAssembler(state_).UnsafeCast5ATSmi(compiler::TNode<Context>{tmp13}, compiler::TNode<Object>{tmp16}));
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 371);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 372);
     compiler::TNode<Number> tmp19;
     USE(tmp19);
     tmp19 = ca_.UncheckedCast<Number>(BaseBuiltinsFromDSLAssembler(state_).LoadJSArrayLength(compiler::TNode<JSArray>{tmp17}));
@@ -21556,7 +21560,7 @@ TF_BUILTIN(CanUseSameAccessor25ATFastSmiOrObjectElements, CodeStubAssembler) {
     compiler::TNode<JSArray> tmp33;
     compiler::TNode<Smi> tmp34;
     ca_.Bind(&block4, &tmp29, &tmp30, &tmp31, &tmp32, &tmp33, &tmp34);
-    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 373);
+    ca_.SetSourcePosition("../../third_party/v8/builtins/array-sort.tq", 374);
     compiler::TNode<Oddball> tmp35;
     USE(tmp35);
     tmp35 = BaseBuiltinsFromDSLAssembler(state_).True();

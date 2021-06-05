@@ -8,6 +8,7 @@
 #include "src/objects/bigint.h"
 #include "src/objects/js-generator.h"
 #include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
 #include "src/objects/module.h"
 #include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"
@@ -79,7 +80,7 @@ compiler::TNode<BuiltinPtr> TypedArrayBuiltinsFromDSLAssembler::UnsafeCast54FT9A
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 
@@ -112,7 +113,7 @@ compiler::TNode<BuiltinPtr> TypedArrayBuiltinsFromDSLAssembler::UnsafeCast76FT9A
     compiler::TNode<Object> tmp4;
     compiler::TNode<BuiltinPtr> tmp5;
     ca_.Bind(&block1, &tmp3, &tmp4, &tmp5);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1392);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1463);
     ca_.Goto(&block2, tmp3, tmp4, tmp5);
   }
 

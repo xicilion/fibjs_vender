@@ -15,6 +15,33 @@ V(kEndOfWeakFieldsOffset, 0) \
 V(kEndOfTaggedFieldsOffset, 0) \
 V(kSize, 0) \
 
+#define TORQUE_GENERATED_ACCESSOR_INFO_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kNameOffset, kTaggedSize) \
+V(kFlagsOffset, kTaggedSize) \
+V(kExpectedReceiverTypeOffset, kTaggedSize) \
+V(kSetterOffset, kTaggedSize) \
+V(kGetterOffset, kTaggedSize) \
+V(kJsGetterOffset, kTaggedSize) \
+V(kDataOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_ACCESSOR_PAIR_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kGetterOffset, kTaggedSize) \
+V(kSetterOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
 #define TORQUE_GENERATED_ALIASED_ARGUMENTS_ENTRY_FIELDS(V) \
 V(kStartOfPointerFieldsOffset, 0) \
 V(kStartOfStrongFieldsOffset, 0) \
@@ -46,6 +73,33 @@ V(kPromiseOffset, kTaggedSize) \
 V(kEndOfStrongFieldsOffset, 0) \
 V(kStartOfWeakFieldsOffset, 0) \
 V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_BREAK_POINT_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_BREAK_POINT_INFO_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_BYTE_ARRAY_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kEndOfStrongFieldsOffset, 0) \
 V(kEndOfTaggedFieldsOffset, 0) \
 V(kSize, 0) \
 
@@ -241,6 +295,17 @@ V(kEndOfWeakFieldsOffset, 0) \
 V(kEndOfTaggedFieldsOffset, 0) \
 V(kSize, 0) \
 
+#define TORQUE_GENERATED_JSASYNC_FROM_SYNC_ITERATOR_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kSyncIteratorOffset, kTaggedSize) \
+V(kNextOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
 #define TORQUE_GENERATED_JSBOUND_FUNCTION_FIELDS(V) \
 V(kStartOfPointerFieldsOffset, 0) \
 V(kStartOfStrongFieldsOffset, 0) \
@@ -257,6 +322,37 @@ V(kSize, 0) \
 V(kStartOfPointerFieldsOffset, 0) \
 V(kStartOfStrongFieldsOffset, 0) \
 V(kTableOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSDATA_PROPERTY_DESCRIPTOR_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kValueOffset, kTaggedSize) \
+V(kWritableOffset, kTaggedSize) \
+V(kEnumerableOffset, kTaggedSize) \
+V(kConfigurableOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSDATE_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kValueOffset, kTaggedSize) \
+V(kYearOffset, kTaggedSize) \
+V(kMonthOffset, kTaggedSize) \
+V(kDayOffset, kTaggedSize) \
+V(kWeekdayOffset, kTaggedSize) \
+V(kHourOffset, kTaggedSize) \
+V(kMinOffset, kTaggedSize) \
+V(kSecOffset, kTaggedSize) \
+V(kCacheStampOffset, kTaggedSize) \
 V(kEndOfStrongFieldsOffset, 0) \
 V(kStartOfWeakFieldsOffset, 0) \
 V(kEndOfWeakFieldsOffset, 0) \
@@ -334,6 +430,53 @@ V(kSize, 0) \
 V(kStartOfPointerFieldsOffset, 0) \
 V(kStartOfStrongFieldsOffset, 0) \
 V(kPropertiesOrHashOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSREG_EXP_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kDataOffset, kTaggedSize) \
+V(kSourceOffset, kTaggedSize) \
+V(kFlagsOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSREG_EXP_RESULT_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kIndexOffset, kTaggedSize) \
+V(kInputOffset, kTaggedSize) \
+V(kGroupsOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSREG_EXP_STRING_ITERATOR_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kIteratingRegExpOffset, kTaggedSize) \
+V(kIteratedStringOffset, kTaggedSize) \
+V(kFlagsOffset, kTaggedSize) \
+V(kEndOfStrongFieldsOffset, 0) \
+V(kStartOfWeakFieldsOffset, 0) \
+V(kEndOfWeakFieldsOffset, 0) \
+V(kEndOfTaggedFieldsOffset, 0) \
+V(kSize, 0) \
+
+#define TORQUE_GENERATED_JSSTRING_ITERATOR_FIELDS(V) \
+V(kStartOfPointerFieldsOffset, 0) \
+V(kStartOfStrongFieldsOffset, 0) \
+V(kStringOffset, kTaggedSize) \
+V(kNextIndexOffset, kTaggedSize) \
 V(kEndOfStrongFieldsOffset, 0) \
 V(kStartOfWeakFieldsOffset, 0) \
 V(kEndOfWeakFieldsOffset, 0) \

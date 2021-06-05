@@ -8,6 +8,7 @@
 #include "src/objects/bigint.h"
 #include "src/objects/js-generator.h"
 #include "src/objects/js-promise.h"
+#include "src/objects/js-regexp-string-iterator.h"
 #include "src/objects/module.h"
 #include "src/objects/stack-frame-info.h"
 #include "src/builtins/builtins-array-gen.h"
@@ -1132,7 +1133,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<BoolT> tmp101;
     compiler::TNode<BoolT> tmp102;
     ca_.Bind(&block11, &tmp89, &tmp90, &tmp91, &tmp92, &tmp93, &tmp94, &tmp95, &tmp96, &tmp97, &tmp98, &tmp99, &tmp100, &tmp101, &tmp102);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1652);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1725);
     compiler::TNode<Map> tmp103;
     USE(tmp103);
     tmp103 = ca_.UncheckedCast<Map>(BaseBuiltinsFromDSLAssembler(state_).LoadHeapObjectMap(compiler::TNode<HeapObject>{tmp97}));
@@ -1177,7 +1178,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<BoolT> tmp131;
     compiler::TNode<BoolT> tmp132;
     ca_.Bind(&block19, &tmp119, &tmp120, &tmp121, &tmp122, &tmp123, &tmp124, &tmp125, &tmp126, &tmp127, &tmp128, &tmp129, &tmp130, &tmp131, &tmp132);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1659);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1732);
     compiler::TNode<BoolT> tmp133;
     USE(tmp133);
     tmp133 = ca_.UncheckedCast<BoolT>(CodeStubAssembler(state_).IsNoElementsProtectorCellInvalid());
@@ -1219,7 +1220,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<BoolT> tmp160;
     compiler::TNode<BoolT> tmp161;
     ca_.Bind(&block21, &tmp148, &tmp149, &tmp150, &tmp151, &tmp152, &tmp153, &tmp154, &tmp155, &tmp156, &tmp157, &tmp158, &tmp159, &tmp160, &tmp161);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1660);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1733);
     compiler::TNode<JSArray> tmp162;
     USE(tmp162);
     tmp162 = (compiler::TNode<JSArray>{tmp156});
@@ -1282,7 +1283,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<BoolT> tmp204;
     ca_.Bind(&block15, &tmp191, &tmp192, &tmp193, &tmp194, &tmp195, &tmp196, &tmp197, &tmp198, &tmp199, &tmp200, &tmp201, &tmp202, &tmp203, &tmp204);
     ca_.SetSourcePosition("../../src/builtins/array-foreach.tq", 83);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block24, tmp191, tmp192, tmp193, tmp194, tmp195, tmp196, tmp197, tmp198, tmp199, tmp200, tmp201, tmp202, tmp203, tmp204, tmp196, tmp200);
   }
 
@@ -1350,7 +1351,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<BoolT> tmp250;
     ca_.Bind(&block23, &tmp237, &tmp238, &tmp239, &tmp240, &tmp241, &tmp242, &tmp243, &tmp244, &tmp245, &tmp246, &tmp247, &tmp248, &tmp249, &tmp250);
     ca_.SetSourcePosition("../../src/builtins/array-foreach.tq", 84);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1665);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1738);
     ca_.Branch(tmp248, &block28, &block29, tmp237, tmp238, tmp239, tmp240, tmp241, tmp242, tmp243, tmp244, tmp245, tmp246, tmp247, tmp248, tmp249, tmp250, tmp242, tmp237, tmp242);
   }
 
@@ -1373,7 +1374,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<Context> tmp266;
     compiler::TNode<Smi> tmp267;
     ca_.Bind(&block28, &tmp251, &tmp252, &tmp253, &tmp254, &tmp255, &tmp256, &tmp257, &tmp258, &tmp259, &tmp260, &tmp261, &tmp262, &tmp263, &tmp264, &tmp265, &tmp266, &tmp267);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1666);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1739);
     compiler::TNode<Object> tmp268;
     USE(tmp268);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -1453,7 +1454,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     compiler::TNode<Context> tmp323;
     compiler::TNode<Smi> tmp324;
     ca_.Bind(&block29, &tmp308, &tmp309, &tmp310, &tmp311, &tmp312, &tmp313, &tmp314, &tmp315, &tmp316, &tmp317, &tmp318, &tmp319, &tmp320, &tmp321, &tmp322, &tmp323, &tmp324);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1669);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1742);
     compiler::TNode<Object> tmp325;
     USE(tmp325);
     compiler::CodeAssemblerLabel label0(&ca_);
@@ -1577,7 +1578,7 @@ compiler::TNode<Object> ArrayForeachBuiltinsFromDSLAssembler::FastArrayForEach(c
     ca_.Bind(&block25, &tmp397, &tmp398, &tmp399, &tmp400, &tmp401, &tmp402, &tmp403, &tmp404, &tmp405, &tmp406, &tmp407, &tmp408, &tmp409, &tmp410, &tmp411);
     ca_.SetSourcePosition("../../src/builtins/array-foreach.tq", 84);
     ca_.SetSourcePosition("../../src/builtins/array-foreach.tq", 86);
-    ca_.SetSourcePosition("../../src/builtins/base.tq", 1648);
+    ca_.SetSourcePosition("../../src/builtins/base.tq", 1721);
     ca_.Goto(&block35, tmp397, tmp398, tmp399, tmp400, tmp401, tmp402, tmp403, tmp404, tmp405, tmp406, tmp407, tmp408, tmp409, tmp410, tmp411, tmp397, tmp400, tmp401, tmp411, tmp402, tmp406);
   }
 

@@ -113,9 +113,14 @@ CPURegList CPURegList::GetCalleeSavedV(int size) {
 
 
 CPURegList CPURegList::GetCallerSaved(int size) {
-  // x18 is the platform register and is reserved for the use of platform ABIs.
+#if defined(V8_OS_WIN)
+  // x18 is reserved as platform register on Windows arm64.
   // Registers x0-x17 and lr (x30) are caller-saved.
   CPURegList list = CPURegList(CPURegister::kRegister, size, 0, 17);
+#else
+  // Registers x0-x18 and lr (x30) are caller-saved.
+  CPURegList list = CPURegList(CPURegister::kRegister, size, 0, 18);
+#endif
   list.Combine(lr);
   return list;
 }
@@ -148,7 +153,13 @@ CPURegList CPURegList::GetSafepointSavedRegisters() {
   list.Remove(16);
   list.Remove(17);
 
-  // x18 is the platform register and is reserved for the use of platform ABIs.
+// Don't add x18 to safepoint list on Windows arm64 because it is reserved
+// as platform register.
+#if !defined(V8_OS_WIN)
+  // Add x18 to the safepoint list, as although it's not in kJSCallerSaved, it
+  // is a caller-saved register according to the procedure call standard.
+  list.Combine(18);
+#endif
 
   // Add the link register (x30) to the safepoint list.
   list.Combine(30);

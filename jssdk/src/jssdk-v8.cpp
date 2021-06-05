@@ -48,8 +48,6 @@ public:
     {
         m_api = api;
 
-        v8::Isolate::CreateParams create_params;
-
         create_params.array_buffer_allocator = &array_buffer_allocator;
         m_isolate = v8::Isolate::New(create_params);
 
@@ -112,12 +110,12 @@ public:
         new (scope.m_locker) v8::Locker(m_isolate);
         new (scope.m_handle_scope) _HandleScope(m_isolate);
         m_isolate->Enter();
-        v8::Local<v8::Context>::New(m_isolate, m_context)->Enter();
+        _getLocalContext()->Enter();
     }
 
     void Scope_leave(Scope& scope)
     {
-        v8::Local<v8::Context>::New(m_isolate, m_context)->Exit();
+        _getLocalContext()->Exit();
         m_isolate->Exit();
         ((_HandleScope*)scope.m_handle_scope)->~_HandleScope();
         ((v8::Locker*)scope.m_locker)->~Locker();
@@ -174,7 +172,7 @@ public:
 
     Object GetGlobal()
     {
-        return Object(this, v8::Local<v8::Context>::New(m_isolate, m_context)->Global());
+        return Object(this, _getLocalContext()->Global());
     }
 
     Value execute(exlib::string code, exlib::string soname)
@@ -241,7 +239,7 @@ public:
 public:
     bool ValueToBoolean(const Value& v)
     {
-        return v.m_v->BooleanValue(v8::Local<v8::Context>::New(m_isolate, m_context)).ToChecked();
+        return v.m_v->BooleanValue(_getLocalContext()).ToChecked();
     }
 
     bool ValueIsBoolean(const Value& v)
@@ -252,7 +250,7 @@ public:
 public:
     double ValueToNumber(const Value& v)
     {
-        return v.m_v->NumberValue(v8::Local<v8::Context>::New(m_isolate, m_context)).ToChecked();
+        return v.m_v->NumberValue(_getLocalContext()).ToChecked();
     }
 
     bool ValueIsNumber(const Value& v)
@@ -278,7 +276,7 @@ public:
     bool ObjectHas(const Object& o, exlib::string key)
     {
         return v8::Local<v8::Object>::Cast(o.m_v)->Has(
-                                                     v8::Local<v8::Context>::New(m_isolate, m_context),
+                                                     _getLocalContext(),
                                                      v8::String::NewFromUtf8(m_isolate,
                                                          key.c_str(), v8::String::kNormalString,
                                                          (int32_t)key.length()))
@@ -302,7 +300,7 @@ public:
     void ObjectRemove(const Object& o, exlib::string key)
     {
         v8::Local<v8::Object>::Cast(o.m_v)->Delete(
-            v8::Local<v8::Context>::New(m_isolate, m_context),
+            _getLocalContext(),
             v8::String::NewFromUtf8(m_isolate,
                 key.c_str(), v8::String::kNormalString,
                 (int32_t)key.length()));

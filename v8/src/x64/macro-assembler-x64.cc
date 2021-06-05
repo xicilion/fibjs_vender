@@ -273,7 +273,6 @@ void TurboAssembler::StoreTaggedField(Operand dst_field_operand,
 #ifdef V8_COMPRESS_POINTERS
   RecordComment("[ StoreTagged");
   movl(dst_field_operand, value);
-  movl(Operand(dst_field_operand, 4), Immediate(0));
   RecordComment("]");
 #else
   movq(dst_field_operand, value);
@@ -285,7 +284,6 @@ void TurboAssembler::StoreTaggedField(Operand dst_field_operand,
 #ifdef V8_COMPRESS_POINTERS
   RecordComment("[ StoreTagged");
   movl(dst_field_operand, value);
-  movl(Operand(dst_field_operand, 4), Immediate(0));
   RecordComment("]");
 #else
   movq(dst_field_operand, value);
@@ -1128,7 +1126,11 @@ void TurboAssembler::SmiUntag(Register dst, Operand src) {
     movsxlq(dst, dst);
   } else {
     DCHECK(SmiValuesAre31Bits());
+#ifdef V8_COMPRESS_POINTERS
+    movsxlq(dst, src);
+#else
     movq(dst, src);
+#endif
     sarq(dst, Immediate(kSmiShift));
   }
 }
@@ -1136,7 +1138,7 @@ void TurboAssembler::SmiUntag(Register dst, Operand src) {
 void MacroAssembler::SmiCompare(Register smi1, Register smi2) {
   AssertSmi(smi1);
   AssertSmi(smi2);
-  cmpq(smi1, smi2);
+  cmp_tagged(smi1, smi2);
 }
 
 void MacroAssembler::SmiCompare(Register dst, Smi src) {
@@ -1590,24 +1592,24 @@ void TurboAssembler::LoadCodeObjectEntry(Register destination,
 
   if (options().isolate_independent_code) {
     DCHECK(root_array_available());
-    Label if_code_is_off_heap, out;
+    Label if_code_is_builtin, out;
 
-    // Check whether the Code object is an off-heap trampoline. If so, call its
-    // (off-heap) entry point directly without going through the (on-heap)
-    // trampoline.  Otherwise, just call the Code object as always.
-    testl(FieldOperand(code_object, Code::kFlagsOffset),
-          Immediate(Code::IsOffHeapTrampoline::kMask));
-    j(not_equal, &if_code_is_off_heap);
+    // Check whether the Code object is a builtin. If so, call its (off-heap)
+    // entry point directly without going through the (on-heap) trampoline.
+    // Otherwise, just call the Code object as always.
+    cmpl(FieldOperand(code_object, Code::kBuiltinIndexOffset),
+         Immediate(Builtins::kNoBuiltinId));
+    j(not_equal, &if_code_is_builtin);
 
-    // Not an off-heap trampoline, the entry point is at
+    // A non-builtin Code object, the entry point is at
     // Code::raw_instruction_start().
     Move(destination, code_object);
     addq(destination, Immediate(Code::kHeaderSize - kHeapObjectTag));
     jmp(&out);
 
-    // An off-heap trampoline, the entry point is loaded from the builtin entry
+    // A builtin Code object, the entry point is loaded from the builtin entry
     // table.
-    bind(&if_code_is_off_heap);
+    bind(&if_code_is_builtin);
     movl(destination, FieldOperand(code_object, Code::kBuiltinIndexOffset));
     movq(destination,
          Operand(kRootRegister, destination, times_system_pointer_size,

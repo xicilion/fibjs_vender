@@ -2827,9 +2827,7 @@ void CodeStubAssembler::StoreFixedDoubleArrayElement(
       ElementOffsetFromIndex(index_node, PACKED_DOUBLE_ELEMENTS, parameter_mode,
                              FixedArray::kHeaderSize - kHeapObjectTag);
   MachineRepresentation rep = MachineRepresentation::kFloat64;
-  // Make sure we do not store signalling NaNs into double arrays.
-  TNode<Float64T> value_silenced = Float64SilenceNaN(value);
-  StoreNoWriteBarrier(rep, object, offset, value_silenced);
+  StoreNoWriteBarrier(rep, object, offset, value);
 }
 
 void CodeStubAssembler::StoreFeedbackVectorSlot(Node* object,
@@ -2983,9 +2981,7 @@ void CodeStubAssembler::TryStoreArrayElement(ElementsKind kind,
   } else if (IsDoubleElementsKind(kind)) {
     GotoIfNotNumber(value, bailout);
   }
-  if (IsDoubleElementsKind(kind)) {
-    value = ChangeNumberToFloat64(value);
-  }
+  if (IsDoubleElementsKind(kind)) value = ChangeNumberToFloat64(value);
   StoreElement(elements, kind, index, value, mode);
 }
 
@@ -6343,34 +6339,6 @@ TNode<BoolT> CodeStubAssembler::IsSymbol(SloppyTNode<HeapObject> object) {
   return IsSymbolMap(LoadMap(object));
 }
 
-TNode<BoolT> CodeStubAssembler::IsInternalizedStringInstanceType(
-    TNode<Int32T> instance_type) {
-  STATIC_ASSERT(kNotInternalizedTag != 0);
-  return Word32Equal(
-      Word32And(instance_type,
-                Int32Constant(kIsNotStringMask | kIsNotInternalizedMask)),
-      Int32Constant(kStringTag | kInternalizedTag));
-}
-
-TNode<BoolT> CodeStubAssembler::IsUniqueName(TNode<HeapObject> object) {
-  TNode<Int32T> instance_type = LoadInstanceType(object);
-  return Select<BoolT>(
-      IsInternalizedStringInstanceType(instance_type),
-      [=] { return Int32TrueConstant(); },
-      [=] { return IsSymbolInstanceType(instance_type); });
-}
-
-TNode<BoolT> CodeStubAssembler::IsUniqueNameNoIndex(TNode<HeapObject> object) {
-  TNode<Int32T> instance_type = LoadInstanceType(object);
-  return Select<BoolT>(
-      IsInternalizedStringInstanceType(instance_type),
-      [=] {
-        return IsSetWord32(LoadNameHashField(CAST(object)),
-                           Name::kIsNotArrayIndexMask);
-      },
-      [=] { return IsSymbolInstanceType(instance_type); });
-}
-
 TNode<BoolT> CodeStubAssembler::IsBigIntInstanceType(
     SloppyTNode<Int32T> instance_type) {
   return InstanceTypeEqual(instance_type, BIGINT_TYPE);
@@ -8351,7 +8319,6 @@ void CodeStubAssembler::NameDictionaryLookup(
   DCHECK_IMPLIES(mode == kFindInsertionIndex,
                  inlined_probes == 0 && if_found == nullptr);
   Comment("NameDictionaryLookup");
-  CSA_ASSERT(this, IsUniqueName(unique_name));
 
   TNode<IntPtrT> capacity = SmiUntag(GetCapacity<Dictionary>(dictionary));
   TNode<WordT> mask = IntPtrSub(capacity, IntPtrConstant(1));
@@ -8668,7 +8635,6 @@ void CodeStubAssembler::LookupLinear(TNode<Name> unique_name,
                     std::is_base_of<DescriptorArray, Array>::value,
                 "T must be a descendant of FixedArray or a WeakFixedArray");
   Comment("LookupLinear");
-  CSA_ASSERT(this, IsUniqueName(unique_name));
   TNode<IntPtrT> first_inclusive = IntPtrConstant(Array::ToKeyIndex(0));
   TNode<IntPtrT> factor = IntPtrConstant(Array::kEntrySize);
   TNode<IntPtrT> last_exclusive = IntPtrAdd(
@@ -9079,7 +9045,6 @@ void CodeStubAssembler::TryLookupPropertyInSimpleObject(
     TVariable<HeapObject>* var_meta_storage, TVariable<IntPtrT>* var_name_index,
     Label* if_not_found) {
   CSA_ASSERT(this, IsSimpleObjectMap(map));
-  CSA_ASSERT(this, IsUniqueNameNoIndex(unique_name));
 
   TNode<Uint32T> bit_field3 = LoadMapBitField3(map);
   Label if_isfastmap(this), if_isslowmap(this);
@@ -9142,7 +9107,6 @@ void CodeStubAssembler::TryHasOwnProperty(Node* object, Node* map,
                                           Label* if_not_found,
                                           Label* if_bailout) {
   Comment("TryHasOwnProperty");
-  CSA_ASSERT(this, IsUniqueNameNoIndex(CAST(unique_name)));
   TVARIABLE(HeapObject, var_meta_storage);
   TVARIABLE(IntPtrT, var_name_index);
 
@@ -9441,7 +9405,6 @@ void CodeStubAssembler::TryGetOwnProperty(
     Label* if_bailout, GetOwnPropertyMode mode) {
   DCHECK_EQ(MachineRepresentation::kTagged, var_value->rep());
   Comment("TryGetOwnProperty");
-  CSA_ASSERT(this, IsUniqueNameNoIndex(CAST(unique_name)));
 
   TVARIABLE(HeapObject, var_meta_storage);
   TVARIABLE(IntPtrT, var_entry);
@@ -10240,8 +10203,9 @@ void CodeStubAssembler::StoreElement(Node* elements, ElementsKind kind,
     StoreNoWriteBarrier(rep, elements, offset, value);
     return;
   } else if (IsDoubleElementsKind(kind)) {
-    TNode<Float64T> value_float64 = UncheckedCast<Float64T>(value);
-    StoreFixedDoubleArrayElement(CAST(elements), index, value_float64, mode);
+    // Make sure we do not store signalling NaNs into double arrays.
+    TNode<Float64T> value_silenced = Float64SilenceNaN(value);
+    StoreFixedDoubleArrayElement(CAST(elements), index, value_silenced, mode);
   } else {
     WriteBarrierMode barrier_mode =
         IsSmiElementsKind(kind) ? SKIP_WRITE_BARRIER : UPDATE_WRITE_BARRIER;

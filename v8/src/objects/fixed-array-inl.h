@@ -13,6 +13,7 @@
 #include "src/heap/heap-write-barrier-inl.h"
 #include "src/objects-inl.h"
 #include "src/objects/bigint.h"
+#include "src/objects/compressed-slots.h"
 #include "src/objects/heap-number-inl.h"
 #include "src/objects/map.h"
 #include "src/objects/maybe-object-inl.h"
@@ -737,6 +738,9 @@ inline uint64_t FixedTypedArray<BigUint64ArrayTraits>::from(double value) {
 
 template <>
 inline float FixedTypedArray<Float32ArrayTraits>::from(double value) {
+  using limits = std::numeric_limits<float>;
+  if (value > limits::max()) return limits::infinity();
+  if (value < limits::lowest()) return -limits::infinity();
   return static_cast<float>(value);
 }
 

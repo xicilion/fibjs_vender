@@ -6,6 +6,7 @@
 #define V8_OBJECTS_SLOTS_ATOMIC_INL_H_
 
 #include "src/base/atomic-utils.h"
+#include "src/objects/compressed-slots.h"
 #include "src/objects/slots.h"
 
 namespace v8 {
@@ -25,7 +26,7 @@ namespace internal {
 // Note how the comparator operates on Address values, representing the raw
 // data found at the given heap location, so you probably want to construct
 // an Object from it.
-class AtomicSlot : public SlotBase<AtomicSlot, Tagged_t, kTaggedSize> {
+class AtomicSlot : public SlotBase<AtomicSlot, Tagged_t> {
  public:
   // This class is a stand-in for "Address&" that uses custom atomic
   // read/write operations for the actual memory accesses.

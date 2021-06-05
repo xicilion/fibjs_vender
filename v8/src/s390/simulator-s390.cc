@@ -4503,15 +4503,30 @@ EVALUATE(LLILL) {
   return 0;
 }
 
-inline static int TestUnderMask(uint16_t val, uint16_t mask) {
+EVALUATE(TMLH) {
+  UNIMPLEMENTED();
+  USE(instr);
+  return 0;
+}
+
+EVALUATE(TMLL) {
+  DCHECK_OPCODE(TMLL);
+  DECODE_RI_A_INSTRUCTION(instr, r1, i2);
+  uint32_t mask = i2 & 0x0000FFFF;
+  uint32_t r1_val = get_low_register<uint32_t>(r1);
+  r1_val = r1_val & 0x0000FFFF;  // uses only the last 16bits
+
   // Test if all selected bits are zeros or mask is zero
-  if (0 == (mask & val)) {
-    return 0x8;
+  if (0 == (mask & r1_val)) {
+    condition_reg_ = 0x8;
+    return length;  // Done!
   }
 
-  // Test if all selected bits are one or mask is 0
-  if (mask == (mask & val)) {
-    return 0x1;
+  DCHECK_NE(mask, 0);
+  // Test if all selected bits are one
+  if (mask == (mask & r1_val)) {
+    condition_reg_ = 0x1;
+    return length;  // Done!
   }
 
   // Now we know selected bits mixed zeros and ones
@@ -4519,45 +4534,29 @@ inline static int TestUnderMask(uint16_t val, uint16_t mask) {
 #if defined(__GNUC__)
   int leadingZeros = __builtin_clz(mask);
   mask = 0x80000000u >> leadingZeros;
-  if (mask & val) {
+  if (mask & r1_val) {
     // leftmost bit is one
-    return 0x2;
+    condition_reg_ = 0x2;
   } else {
     // leftmost bit is zero
-    return 0x4;
+    condition_reg_ = 0x4;
   }
+  return length;  // Done!
 #else
   for (int i = 15; i >= 0; i--) {
     if (mask & (1 << i)) {
-      if (val & (1 << i)) {
+      if (r1_val & (1 << i)) {
         // leftmost bit is one
-        return 0x2;
+        condition_reg_ = 0x2;
       } else {
         // leftmost bit is zero
-        return 0x4;
+        condition_reg_ = 0x4;
       }
+      return length;  // Done!
     }
   }
 #endif
   UNREACHABLE();
-}
-
-EVALUATE(TMLH) {
-  DCHECK_OPCODE(TMLH);
-  DECODE_RI_A_INSTRUCTION(instr, r1, i2);
-  uint32_t value = get_low_register<uint32_t>(r1) >> 16;
-  uint32_t mask = i2 & 0x0000FFFF;
-  condition_reg_ = TestUnderMask(value, mask);
-  return length;  // DONE
-}
-
-EVALUATE(TMLL) {
-  DCHECK_OPCODE(TMLL);
-  DECODE_RI_A_INSTRUCTION(instr, r1, i2);
-  uint32_t value = get_low_register<uint32_t>(r1) & 0x0000FFFF;
-  uint32_t mask = i2 & 0x0000FFFF;
-  condition_reg_ = TestUnderMask(value, mask);
-  return length;  // DONE
 }
 
 EVALUATE(TMHH) {
